@@ -1,0 +1,1 @@
+TODO: Replace with another PDF generator class. class.ezpdf seems to be not maintined since two years. Not really PHP5 compilant.

@@ -1,0 +1,5 @@
+
+-- change for billing
+ALTER TABLE `care_encounter_prescription` ADD `lab_request_id` BIGINT( 20 ) NOT NULL AFTER `article_item_number` ;
+ALTER TABLE `care_encounter_prescription` ADD `priority` tinyint(1) NOT NULL DEFAULT 0;
+

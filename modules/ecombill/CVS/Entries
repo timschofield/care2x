@@ -1,0 +1,33 @@
+/billing_script.sql/1.1/Fri Jan 13 13:38:57 2006//
+/billingmenu.php/1.1/Fri Jan 13 13:38:57 2006//
+/confirmLabtests.php/1.2/Sat Jan 31 20:07:11 2009//
+/confirmfinalbill.php/1.1/Fri Jan 13 13:38:57 2006//
+/confirmpayment.php/1.2/Sat Jan 31 20:07:11 2009//
+/ecombill_pass.php/1.2/Sat Jan 31 20:07:11 2009//
+/edit_hospital_services.php/1.1/Fri Jan 13 13:38:57 2006//
+/enter_hospital_services.php/1.1/Fri Jan 13 13:38:57 2006//
+/enter_laboratory_tests.php/1.1/Fri Jan 13 13:38:57 2006//
+/final_bill.php/1.1/Fri Jan 13 13:38:57 2006//
+/howto.txt/1.1/Fri Jan 13 13:38:57 2006//
+D/includes////
+/index.htm/1.1/Fri Jan 13 13:38:57 2006//
+/index.php/1.1/Fri Jan 13 13:38:57 2006//
+/p.gif/1.1/Thu Dec 18 16:06:42 2008/-kb/
+/patient_bill_links.php/1.1/Fri Jan 13 13:38:57 2006//
+/patient_due_first.php/1.1/Fri Jan 13 13:38:57 2006//
+/patient_payment.php/1.1/Fri Jan 13 13:38:57 2006//
+/patient_payment_links.php/1.1/Fri Jan 13 13:38:57 2006//
+/patientbill.php/1.1/Fri Jan 13 13:38:57 2006//
+/patientbill_printsave.php/1.2/Sat Jan 31 20:07:11 2009//
+D/pics////
+/post_service_entry.php/1.1/Fri Jan 13 13:38:57 2006//
+/postconfirmlab.php/1.1/Fri Jan 13 13:38:57 2006//
+/posteditservice.php/1.2/Sat Jan 31 20:07:11 2009//
+/postfinalbill.php/1.1/Fri Jan 13 13:38:57 2006//
+/postpayment.php/1.1/Fri Jan 13 13:38:57 2006//
+/readme.txt/1.1/Fri Jan 13 13:38:57 2006//
+/roots.php/1.1/Fri Jan 13 13:38:57 2006//
+/search.php/1.3/Sat Jan 31 20:07:11 2009//
+/select_services.php/1.1/Fri Jan 13 13:38:57 2006//
+/showfinalbill.php/1.1/Fri Jan 13 13:38:57 2006//
+/showpayment.php/1.1/Fri Jan 13 13:38:57 2006//

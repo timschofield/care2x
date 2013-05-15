@@ -1,0 +1,60 @@
+A.menu:link {
+	color: #FFFFFF;
+	text-decoration:none;
+}
+A.menu:visited {
+	color: #FFFFFF;
+	text-decoration:none;
+}
+A.menu:hover {
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+.sw {
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+.s {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px
+}
+.inbox {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+.mail {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.titlew {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.login {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.f {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.menu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.button {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 11px;
+   list-style-type: disc;
+   list-style-position: inside;
+   font-weight: bold;
+   line-height: 12pt;
+   border-style: outset;
+}

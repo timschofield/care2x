@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Installation of CARE 2002 - manual installation</TITLE>
+<META http-equiv=content-type content="text/html; charset=ISO-8859-1">
+</HEAD>
+<BODY  text=#000000 vLink=#800080 aLink=#ff0000 link=#0000cc onLoad="if(window.focus) window.focus()" 
+bgColor=#ffffff topMargin=2>
+<TABLE cellSpacing=0 cellPadding=5 width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD ><font face="verdana,arial" size=2><A href="../../index.php?lang=de">
+	<img src="../../gui/img/logos/lopo/care_logo.gif" border=0 ></A> </TD>
+    <TD bgColor=#eeeeee><b>
+      <font face="verdana,arial" size=5>Installation</b> <font size=3 color="red">(beta 1.0.05)</font><p>
+	  <font face="verdana,arial" size=2>Normal installation <a href="en_install_advanced_1_0_05.htm">(For advanced php users, you can click here)</a></font>
+	</TD></TR>
+	
+  <TR vAlign=top>
+    <TD><!-- <font face="verdana,arial" size=2><SMALL>
+      <P><A href="../../index.php?lang=de">Home</A> 
+     </SMALL> --></TD>
+    <TD><font face="verdana,arial" size=2>
+		<p>
+		<b>NOTE:</b> The following installation procedure is valid ONLY for the beta 1.0.0<font color="red"><b>5</b></font>.
+		<p>
+		If your system has a built-in Apache-PHP-mySQL configuration you can skip the first 4 steps.<p>
+			<b>1. </b>Download and install Apache web server in your system.<p>
+			<b>2. </b>Download and install PHP script engine in your system.<p>
+<p>
+			<b>3.</b> Download and install mySQL database server in your system. 
+<blockquote>			<u>Configure its access permissions properly</u>. Please refer to the 
+			documention of mySQL.<p>
+</blockquote>			<b>4.</b> It might be necessary to configure the Apache web server to run PHP scripts as CGI.
+			<blockquote>
+			Please refer to the documentation of Apache in doing this configuration.
+			</blockquote><p>
+			<b>5.</b> Download the CARE 2002 beta 1.0.05 scripts (if you have not done it yet) from here <a href="http://sourceforge.net/project/showfiles.php?group_id=53886" target="_blank">http://sourceforge.net/project/showfiles.php?group_id=53886</a>.<p>
+			<b>6.</b> Uncompress  the CARE 2002 beta 1.0.05 scripts into the active directory of Apache web server.
+			<blockquote>
+			If you decide to use a different directory name, please refer to the documentation of Apache in configuring the active directory .
+			</blockquote><p>
+			<b>7.</b> Use an editor and open the file "<font color=#ff0000>inc_init_main.php</font>"  inside the directory "<font color=#ff0000>/include</font>" .
+			<blockquote>
+			Enter the proper <font color=#ff0000>host</font>, <font color=#ff0000>username</font>, and <font color=#ff0000>password</font> information for your mySQL database. If your mySQL resides on the same machine
+			and uses the same IP address as the Apache web server you can use the default settings. <p>The defaults are:<br>
+			host = 'localhost'<br>
+			username = 'httpd'<br>
+			password = '' (empty string)
+			<p>
+			<font color=#ff0000>Enter the database name</font>. You must remember this name since you need it in creating the database in later steps.<p>
+			For example:  $dbname = "caredb";
+			<p>
+			Change the following three secret keys with unique keys of
+			your choice. <P>
+			<blockquote>
+			$key           : The secret key for the first level script lock.<br>
+			$key_2level  : The secret key for the second level script lock.<br>
+			$ley_login     : The secret key for the third level script lock.
+			</blockquote><p>
+			
+			</blockquote><p>
+			<b>8.</b> Open the file <b>"<font color=#ff0000>inc_remoteservers_conf.php</font>"</b> inside the directory "<font color=#ff0000>/global_conf</font>".  Enter the domain or ip addresses and hosts information.
+			<blockquote>
+			Note: If the web server is within a network, enter specifically the IP adresses for the hosts. Never use "localhost".
+			</blockquote><p>
+			<b>9.</b> If you are using mysql, skip this step and go to step 10.
+			<blockquote>
+			If you are using a database other than mysql, open the <b>/include/inc_db_makelink.php</b> script and set the variable <b>$dbtype</b> to the type of your database.
+			The database types are constants as defined in  the ADODB manual. Check this link <a href="http://php.weblogs.com/ADODB">http://php.weblog.com/ADODB</a> to get the db type constant and to check whether your database is currently supported by ADODB 3.11.
+			</blockquote><p>
+				
+			<b>10.</b> Start the Apache web server.<p>
+			<b>11.</b> Start the mySQL database server.<p>
+			<b>12.</b> Start your web browser. Currently, we recommend using the MS Internet Explorer version 5+ or Mozilla 1+
+			 due to pending completion of cross-programming the javascripts.<p>
+			<b>13.</b> Type the following address in your browser:
+			<blockquote>
+			http://????????/install/initialize.php <p>(where ???????? is the actual host address of your Apache web server). The program module phpmyAdmin should be
+			displayed.
+			<p>
+			::::::::::::::::::::: NOTE::::::::::::::::::::::::<p>
+			  If the database name is <font color=#ff0000>already existing, this script will lock itself</font> and show an invalid access warning.<p>
+			The possible solutions:
+			<blockquote> <li>Delete the database
+			<li>OR go back to step 7 and enter a different database name (one that is not yet existing)
+			<li>OR if you want to use an existing database, use a separate phpMyAdmin (not the one integrated in the Care 2002) or any mySQL
+			administration program.
+			</blockquote>
+			</blockquote><p>
+			<b>14.</b> Using the program phpmyAdmin (or any appropriate mySQL administration program), create a new database naming it with  the name that you entered earlier in step 7.<p>
+			<b>15.</b> Within the newly created database create the tables. 
+			<blockquote>
+			<li>To do this use phpmyAdmin to run the following sql scripts:<p>
+			<font color=#ff0000>install/sql/care_db_structure_b1005.sql</font>
+			</blockquote><p>
+			<b>16.</b> NOTE: In this beta 1.0.05 release, a temporary Admin access permission was automatically created in step #15.
+			The temporary admin data are:<p>
+			<blockquote>
+			username = admin<br>
+			password = admin<p>
+			</blockquote><p>
+			<u>VERY IMPORTANT</u>! In step #19 you will be required to change these initial admin access data with the data of your
+			own choice.
+			<p>
+			
+			<b>17.</b> Create the remaining tables. Note: In creating these tables you must follow the order of running the sql scripts as stated here.
+			<blockquote>
+			Using phpmyAdmin run the following sql scripts found in the /install/sql/icd10_de directory in the following order: (these are the data for
+			the ICD10 coding system in german language)<p>
+            <blockquote>			
+            a2g-insert.sql<br>
+			h2n-insert.sql<br>
+			o2s-insert.sql<br>
+			t2z-insert.sql
+			<p></blockquote>
+			Similarly run the following sql scripts found in the /install/sql/icd10_en directory in the following order: (these are the data for the
+			ICD10 coding system in english language) <p>
+<blockquote>
+			insert-data-a2l.sql<br>
+			insert-data-m2y.sql<br>
+</blockquote>			<p>
+			Similarly run the following sql scripts found in the /install/sql/ops301 directory in the following order:(these are the data for the
+			OPS301 coding system in german language)<p>
+<blockquote>			
+            insert-data-1-5-499.sql<br>
+			insert-data-55-57.sql<br>
+			insert-data-58-94.sql<br>
+</blockquote>			
+  </blockquote><p>
+			<b>18.</b> The installation is finished. Enter the following address in the browser:
+			<blockquote>
+			http://????????/ <p>(where ???????? is the actual host address of your Apache web server). 
+			The first page of CARE 2002 should appear. Congratulations!
+			</blockquote><p>
+			<b>19.</b> CHANGE NOW THE ADMIN ACCESS INFORMATION!  <p>
+				<blockquote>
+		Select the EDP link on the left menu
+			and then select "SQL Databank". Enter "admin" as username and "admin" as password. When the phpmyAdmin
+			 appears, open the "care_users" table. Edit the entries containing the following data: 
+			<p>name = admin  
+			<br>login_id = admin
+			<br>password = admin
+			<p> Change the values of "login_id" and "password" with values of your choice.
+			<p>Now you can start (if you wish) creating access permission for other users. <p>
+			To do this:<p>
+<blockquote>		Select the EDP link on the left menu
+			and then select "Access rights". Enter your admin username and your admin password. When the 
+			interface appears, you can start creating user access rights and permissions.
+			<p>Note: You cannot create additional Admin permission
+			using this interface. You have to use the phpMyAdmin (or any other mySQL administration program)
+			 to create additional admin permissions.
+</blockquote>				</blockquote>
+		
+		
+</P></TD></TR>
+  <TR>
+    <TD vAlign=top noWrap ></TD>
+    <TD vAlign=bottom><font face="verdana,arial" size=1>
+      <HR noShade SIZE=1>
+      <DIV align=center><SMALL>©2002 Elpidio Latorilla, CARE 2002, www.intellin.org, www.care2x.org, www.care2x.com - <!-- <A 
+      href="../../index.php?lang=de">Home</A>  -->
+      </SMALL></DIV></TD></TR></TBODY></TABLE></BODY></HTML>

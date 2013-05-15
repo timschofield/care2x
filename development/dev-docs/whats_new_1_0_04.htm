@@ -1,0 +1,155 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Care 2002 - What is new in the beta 1.0.03 release?</title>
+<meta name="Description" content="">
+</head>
+<body onLoad="if (window.focus) window.focus()">
+<font face="verdana,arial" size=3>
+<b>The following are new in the Care 2002 beta 1.0.0<font color="red">4</font> release:
+</b> 
+</font>
+<hr>
+<font  face="verdana,arial" size=2>
+
+<p>
+<b>A. New modules</b>
+ <blockquote><p>The person's registration is now separated from the patient's admission module.<p>
+<b>1</b>. Person's registration. <br>The person's basic data are now stored in a separate table. The data can be used universally in the
+whole program and this prevents data redundancy.
+<p>
+<b>2.</b> Patient's admission. <br>
+Both inpatient admission and outpatient visit are available.
+
+
+</ul>
+</blockquote>
+
+<b>B. Electronic Medical record (EMR)</b><p>
+<ul>Now, the  electronic medical record is available. The following records can be created or displayed
+<li> Appointments
+<li> Diagnostics test results/reports
+<li> Diagnoses (DRG's)
+<li> Procedures
+<li> Prescriptions
+<li> Development Notes
+<li> Additional Notes and reports  (23 Types)
+<li> Immunization record
+<li> Pregnancy redord
+<li> Birth Details
+<li> Weights & Heights record
+</ul>
+<p>
+<b>C. Notes & Reports (part of EMR)</b><p>
+<ul>
+<li> Admission History and Physical
+<li> Anticoagulant Daily notes
+<li> Chart Notes
+<li> Consultation Notes
+<li> Daily Ward's Notes
+<li> Development Notes
+<li> Diagnosis
+<li> Discharge Summary
+<li> Doctor's Daily Notes
+<li> Doctor's Directives
+<li> Extra Notes on Therapy & Diagnoses
+<li> Inquiry To Doctor
+<li> IV Daily Notes
+<li> Material LOT, Charge Nr. etc.
+<li> Nursing Care Report
+<li> Nursing Effectivity Report
+<li> Nursing Problem Report
+<li> Operation Notes
+<li> Other Notes
+<li> Problem Notes
+<li> Physical Therapy, Anti-thrombosis, etc.
+<li> Therapy notes
+<p>
+</ul>
+<b>D. ADODB - Database Abstraction Layer</b>
+<p>
+<b>E. System Admin modules</b><p>
+<ul>
+<li> Main menu items are configurable (hide, show items and change order)
+<li> Main menu display is configurable
+<li> The elements of an entry form are configurable (hide, show)
+<li> Control buttons and images are themeable
+<p>
+</ul>
+<b>F. Personell Management Module</b><p>
+<ul>
+<li> Person's registration for new personell
+<li> Personell employment data 
+<li> Doctors' and Nursing Personell List are now coupled to personell module
+<p>
+</ul>
+
+<b>F. Department Management Module</b><p>
+<ul>
+<li> Departments are now user creatable and configurable
+<p>
+</ul>
+
+<b>F. News Content Management Module</b><p>
+<ul>
+<li> News contents are now stored in the database
+<li> Links to editor are added
+<li> News module is directly coupled to department management
+<p>
+</ul>
+<b>G. API Classes</b><p>
+<ul>
+The initial API Classes are now available and used. The classes are stored in include/care_api_classes/ directory.
+<p>
+</ul>
+
+<b>H. Additional languages, modifications on the multiple language system</b>
+ <blockquote>
+<b>1</b>. The available languages are (in alphabetical order) Brazilian(Portuguese), Czech, English, French, German, Indonesian, Italian, Norwegian, Polish, Portuguese, Spanish. Many of the
+language tables are not yet complete. The script will default to english language table if the particular language table is not available. <p>
+<b>2</b>. The images and graphical control buttons are themable. Two themes are preloaded - default and blue_aqua (still in english only).<br>
+<p>
+</blockquote>
+
+<b>H. Changes in the database</b>
+ <blockquote>
+The database was restructured to implement the new data model that was developed via the mailing list.<p>
+Many system default and initialization values are now stored in the database and are preloaded during the installation.
+<p>
+</blockquote>
+
+<b>I. Changes in the directory tree</b>
+ <blockquote>
+ The scripts for the different modules and functions are now grouped in separate directories under the new "modules" directory.<br>
+<p>
+</blockquote>
+
+<b>J. Miscellaneous additions/improvements</b>
+ <blockquote>
+<b>1</b>. The search function for assigning beds has now only one entry field.<br>
+<b>2</b>. The search function for radiology module has now only one entry field.<br>
+</blockquote>
+
+<b>K. Credits for this release (in alphabetical order)</b>
+ <blockquote>
+<li> Alfredo Rodriquez = Portuguese translations<br>
+<li> Are Kristensen  = Norwegian translations, norwegian online demo installation<br>
+<li> Daniel Zilli = Brazilian-portuguese translations<br>
+<li> Gabriele Cicala = Italian translations<br>
+<li> Lopo Lencastre de Ameida = Infrastructure for the whole project<br>
+<li> Mark Painter = Data model, obstetrics, datase revamp<br>
+<li> Matej Hausenblas = French translations<br>
+<li> Muhammad Panji = Indonesian translations<br>
+<li> Patxi Gomaríz = Spanish translations, spanish online demo installation<br>
+<li> Pawel Cyrta = Polish Translations<br>
+<li> Petr Roupec = Czech translations<br>
+<li> Thomas Wiedmann = Testing , debugging, sql database consultations<p>
+Special thanks to the following for their very active ongoing activities for Care. (eventhough their works are not yet integrated in
+this current release)
+<li> Nilvanio Faller = myCalendar module<br>
+<li> Robert Warren = redundant failback-failsafe system <br>
+<li> Simon Ndira = Security
+<p>
+<b>Note:</b> If I have forgotten to list somebody here please let me know. Thanks :-)
+</blockquote></body>
+</html>

@@ -1,0 +1,134 @@
+2004-05-23
+Edited class_gui_input_person.php. Added other hospital nr. insert  of Kurt Brauchli  to new person save routine 
+thereby adding  the newly created  PID to the object.
+Edited class_gui_person_show.php. Improved the other hospital nr. display.
+Edited class_person.php, improving the methods OtherHospNrList() and OtherHospNrSet().
+Added "history" field to the "care_person_other_number" table.
+Added "other_hospitals.php" script to /global_conf/ directory. The script contains the array for hospital numbers.
+Corrected the /modules/roots.php 
+Added several language items to all  *_specials.php language files pertaining to "plugins" module
+Added the "plugins" subdirectory to the root directory
+Created the initial configurations for the plugin concept of Care2x
+Created the "how to package a plugin" document
+
+2004-05-25
+
+Disabled the debug mode of  the /modules/nursing/nursing-popgetinfo.php.
+Patched the _getOCDutyPlan() method of class_personell.php to solve the bug that prevents the retrieval of data based on single digit month value.
+Disabled the debug mode of personell_listall.php
+Added modify_time value during updates to doctor-dienstplan-planen.php
+Rewrote the _OCDutyPlanExists() to use the _getOCDutyPlan() method.
+
+2004-05-29
+
+Changed <ul> </ul> to <blockquote></blockquote> in the nursing.tpl
+
+2004-06-04
+
+CSS main file
+Smarty template for the mainframe
+Smarty templates for the submenus
+
+2004-06-05
+
+smarty templates for registration new, search, archive, notes
+
+2004-06-06
+
+Deleted /modules/reg_adm/gui/default/gui_person_reg_show.php
+smarty templates for admission new, search, archive
+Patched birthday only entry bug in the admission advanced search (archive)
+
+2004-06-12
+
+Templates for the headlines page created
+Discarded /news/headline_format.php  after creating templates
+Rewritten:
+/news/startpage.php
+/include/inc_news_preview.php
+
+Template for discharge form
+Renamed /classes/Smarty-2.0.6 directory with /classes/smarty/
+Template for plugins submenu
+Disabled debug modus of /modules/registration_admission/aufnahme_cancel.php
+
+2004-06-13
+
+Template for appointment list page
+Added new appt sched link to appear always
+Debugged the new appointment sched link in (gui_show_appointment.php) to work for posgresql
+
+2004-06-14
+
+Debugged the nursing ward quick list page, debugged the sql query
+Templates for the nursing ward occupancy list
+
+2004-06-18
+
+Templates for outpatient list and transfer window
+Tested the latex report plugin from Dr. Jean-Philippe LIOT
+
+2004-06-19
+
+Template for dicom uploader (search and upload)
+Replaced basic data display with template version
+Templates for radiology request and admin pages
+
+2004-06- 23
+
+Templates for System-admin
+
+2004-00-25
+
+Templates for Special tools modules, plugins,
+
+2004-06-27
+
+Template for the main index frame
+Discarded old templates
+
+2004-06-30
+
+More templates
+Integrated PDF arabic from Walid Fathalla
+debugged the TRIPOLI fonts by changing ext. to lower case
+
+2004-07-01
+
+Created howtos for css and smarty
+Created install documents for the pending b2.0.1 release
+
+2004-07-04
+
+Templates for the products module (pharma + meddepot)
+Debugged italian lang products.php
+Debugged care_pharma_products_main = changed "artikelnum" field attribut to not NOT NULL => Debugged the db schema for postgresql.
+
+2004-07-08
+
+Added user selector for common icons style
+Added user selector for control buttons style
+Added "no_icon" style to the common icons themes
+Added parameter to createComIcon function
+Revised some icon creations that needs to be shown always
+Recoded _getDRGList() method of class_drg.php to patch the bug with empty tables
+Debugged lab class 
+
+2004-07-25
+Added ImageJ java applet for the encounter photos module
+
+2004-07-30
+Added the alternative main menu tree using the mycare2x design and scripts
+
+2004-08-02
+Modified the main menu system scripts to allow user selectable main menu design at runtime
+
+2004-08-03
+Created a new "big icons" main menu design
+
+2004-08-05
+Added validation code for dicom image file during search listing
+Added the help file for missing files
+
+2004-09-24
+Patched the appointment saving script to store the PID to session. Resulting from the bug report of Francesco and Marco

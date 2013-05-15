@@ -1,0 +1,71 @@
+<?php
+$LDPageTitle='Immunization';
+$LDType='Type';
+$LDName='Name';
+$LDPeriod='Period';
+$LDTiter='Titer';
+$LDNote='Note';
+$LDDosage='Dosage';
+$LDMedicine='Medicine';
+$LDTolerance='Tolerance';
+$LDApplication='Application';
+$LDUpdatedbForm='Update Record';
+$LDNewdbForm='Add Record';
+$LDDeletedbForm='Delete Record';
+$LDSelectdbForm='Select Record';
+
+#2006-09-14 d.r. from merotech
+$LDImmunizationTitle='Calculating the Commonly Recommended Immunisation Schedule';
+$LDImmunizationRecommendedSchedule='The recommended immunisation schedule of your child is as follows:';
+$LDChildsBirthdate='Your child\'s date of birth is';
+$LDMonthsold='months old';
+$LDDaysOld='days old';
+$LDVaccineName='Vaccine Name';
+$LDFirstDoseDueDate='First Dose Due Date';
+$LDSecondDoseDueDate='Second Due Date';
+$LDThirdDoseDueDate='Third Due Date';
+$LDForthDoseDueDate='Fourth Due Date';
+$LDFifthDoseDueDate='Fifth Due Date';
+$LDBCG='BCG';
+$LDOPV='OPV';
+$LDDPT='DPT';
+$LDHepatitisB='Hepatitis B';
+$LDHIBTitre='HIB Titre';
+$LDMeasles='Measles';
+$LDMMR='MMR';
+$LDTyphoid='Typhoid';
+$LDMeningitis='Meningitis';
+$LDChickenPox='Chicken Pox';
+$LDHepatitisA='Hepatitis A';
+$LDBoosterDoses='Booster Doses';
+$LDDueDate='Due Date';
+$LDDT='DT';
+$LDTT='TT';
+$LDOnceEvery10Years='Once every 10 years after';
+$LDRubella='Rubella (for girls at 12yrs +)';
+$LDIfImmunizationMissed='If you have missed any of these, please consult your child\'s paediatrician without delay';
+$LDTheDatesin='The dates in';
+$LDred='red';
+$LDMeanTheyHaveElapsed='mean they have elapsed as on today';
+$LDDoctorsDecisionText='Please remember that the doctor\'s decision is final. Any alterations/additions suggested by the doctor is absolute';
+$LDControversialVaccines='N. B. Certain vaccines are controversial and therefore may not be given at all';
+$LDPrintOut='You may print out this schedule by using the print button';
+$LDYearAnd='year and';
+$LDMonthsAnd='months and';
+$LDIsNow='is now';
+$LDBoosterDoses='Booster Doses';
+$LDRepeatCalculations='Repeat Calculations';
+$LDHe='He';
+$LDHis='His';
+$LDShe='She';
+$LDHer='Her';
+$LDTheDateNotValid='The date entered is NOT a valid one. Try again...';
+$LDWrongBirthDate='Wrong Birth Date';
+
+$LDImmunisationSchedule='Immunisation Schedule';
+$LDYourChildIs='Your child is a';
+$LDMale='Male';
+$LDFemale='Female';
+$LDCalculate='Calculate';
+
+?>

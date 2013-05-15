@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Installation of CARE 2X - manual installation</TITLE>
+<META http-equiv=content-type content="text/html; charset=ISO-8859-1">
+</HEAD>
+<BODY  text=#000000 vLink=#800080 aLink=#ff0000 link=#0000cc onLoad="if(window.focus) window.focus()" 
+bgColor=#ffffff topMargin=2>
+<TABLE cellSpacing=0 cellPadding=5 width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD ><font face="verdana,arial" size=2><A href="../../index.php">
+	<img src="http://care2x.org/foundry/gui/img/logos/lopo/care_logo.gif" border=0 ></A> </TD>
+    <TD bgColor=#eeeeee><b>
+      <font face="verdana,arial" size=5>Installation</b> <font size=3 color="red">(beta 1.0.09)</font><p>
+	  <font face="verdana,arial" size=2>Normal installation <a href="en_install_advanced_1_0_09.htm">(For advanced php users, you can click here)</a></font>
+	</TD></TR>
+	
+  <TR vAlign=top>
+    <TD><!-- <font face="verdana,arial" size=2><SMALL>
+      <P><A href="../../index.php?lang=de">Home</A> 
+     </SMALL> --></TD>
+    <TD><font face="verdana,arial" size=2>
+		<p>
+		<b>NOTE:</b> The following installation procedure is valid ONLY for the beta 1.0.0<font color="red"><b>9</b></font>.
+		<p>
+		If your system has a built-in Apache-PHP-mySQL configuration you can skip the first 4 steps.<p>
+			<b>1. </b>Download and install Apache web server in your system.<p>
+			<b>2. </b>Download and install PHP script engine in your system.<p>
+<p>
+			<b>3.</b> Download and install mySQL database server in your system. 
+<blockquote>			<u>Configure its access permissions properly</u>. Please refer to the 
+			documention of mySQL.<p>
+</blockquote>			
+			<b>4.</b> It might be necessary to configure the Apache web server to run PHP scripts as CGI. 
+			Please refer to the documentation of Apache in doing this configuration.
+			<blockquote>
+			Make sure that the following extensions and external php modules are loaded in your php installation.
+			<blockquote>
+			GD  = the graphic module<br>
+			IMAP = if you use the internet webmailer<br>
+			Calendar<br>
+			TTF  = if available<br>
+			</blockquote>
+			Please refer to the documentation of PHP in doing these configurations.
+			</blockquote><p>
+			<b>5.</b> Download the CARE 2X beta 1.0.09 scripts (if you have not done it yet) from here <a href="http://sourceforge.net/project/showfiles.php?group_id=53886" target="_blank">http://sourceforge.net/project/showfiles.php?group_id=53886</a>.<p>
+			<b>6.</b> Uncompress  the CARE 2X beta 1.0.09 scripts into the active directory of Apache web server.
+			<blockquote>
+			If you decide to use a different directory name, please refer to the documentation of Apache in configuring the active directory .
+			</blockquote><p>
+			<b>7.</b> Make sure that the server can write in the following directories and files.
+			<b>NOTE:</b> In most servers, file access permission is highly restrictive. Make sure that the following directories and files are system writeable.
+The easiest way to do this is to CHMOD 777 the following:
+<blockquote>
+/cache/barcodes/<br>
+/counter/hits/<br>
+/counter/hitcount.txt<br>
+/fotos/encounter/<br>
+/fotos/news/<br>
+/fotos/registration/<br>
+/logs/  (and all its subdirectories)<br>
+/med_depot/img/<br>
+/pharma/img/<br>
+/radiology/dicom_img/<br>
+/gui/img/logos_dept/		
+</blockquote>
+A safer way to change the file permissions is to use the CHOWN command. Note: this functions only in *nix/Linux servers.<br>
+For windows users, right click on the file, select  "properties" and remove any write protection.
+
+			<p>
+			<b>8.</b> Use an editor and open the file "<font color=#ff0000>inc_init_main.php</font>"  inside the directory "<font color=#ff0000>/include</font>" .
+			<blockquote>
+			Enter the proper <font color=#ff0000>host</font>, <font color=#ff0000>username</font>, and <font color=#ff0000>password</font> information for your mySQL database. If your mySQL resides on the same machine
+			and uses the same IP address as the Apache web server you can use the default settings. 
+			<p>The defaults are:<p>
+			$dbhost = 'localhost'<br>
+			$dbusername = 'httpd'<br>
+			$dbpassword = '' (empty string)
+			<p>Alternative defaults are:<p>
+			$dbhost = 'localhost'<br>
+			$dbusername = 'root'<br>
+			$dbpassword = '' (empty string)
+			<p>
+			<font color=#ff0000>Enter the database name</font>. You must remember this name since you need it in creating the database in later steps.<p>
+			For example:  $dbname = "caredb";
+			<p>
+			Change the following three secret keys with unique keys of
+			your choice. <P>
+			<blockquote>
+			$key           : The secret key for the first level script lock.<br>
+			$key_2level  : The secret key for the second level script lock.<br>
+			$ley_login     : The secret key for the third level script lock.
+			</blockquote><p>
+			
+			</blockquote><p>
+			<b>9.</b> Open the file <b>"<font color=#ff0000>inc_remoteservers_conf.php</font>"</b> inside the directory "<font color=#ff0000>/global_conf</font>".  Enter the domain or ip addresses and hosts information.
+			<blockquote>
+			Note: If the web server is within a network, enter specifically the IP adresses for the hosts. Never use "localhost".
+			<p>
+			If you are running Care2x in an SSL server, make sure that the $httprotocol variable in this script is set to "https".
+			</blockquote><p>
+			<b>10.</b> If you are using mysql, skip this step and go to step 11.
+			<blockquote>
+			If you are using a database other than mysql, open the <b>/include/inc_db_makelink.php</b> script and set the variable <b>$dbtype</b> to the type of your database.
+			The database types are constants as defined in  the ADODB manual. Check this link <a href="http://php.weblogs.com/ADODB">http://php.weblog.com/ADODB</a> to get the db type constant and to check whether your database is currently supported by ADODB 3.11.
+			</blockquote><p>
+				
+			<b>11.</b> Start the Apache web server.<p>
+			<b>12.</b> Start the mySQL database server.<p>
+			<b>13.</b> Start your web browser. Recommended browsers are: MS Internet Explorer version 5+, Mozilla 1+, Opera 6+, Konqueror 3+.<p>
+			<b>14.</b> Type the following address in your browser:
+			<blockquote>
+			http://your_host/modules/phpmyadmin/ <p>(where your_host  is the actual host address of your Apache web server). <br>
+			You will be asked for the username and password for accessing the database. Enter the username and  password that you used at step #8.
+			The program module phpmyAdmin should be	displayed after  a successful authentication.
+			<p>
+			::::::::::::::::::::: NOTE::::::::::::::::::::::::<p>
+			  If you do not like to use the integrated phpMyAdmin and wants to use your own db administration program, just skip step #14 and start your 
+			  db admin program.
+			  </blockquote>
+			<p>
+			<b>15.</b> Using the program phpmyAdmin (or any appropriate mySQL administration program), create a new database naming it with  the name that you entered earlier in step 8.<p>
+			<b>16.</b> Within the newly created database create the tables. 
+			<blockquote>
+			<li>To do this use phpmyAdmin to run the following sql scripts:<p>
+			<font color=#ff0000>install/sql/care_db_structure_b1009.sql</font>
+			</blockquote><p>
+						
+			<b>17.</b> Create the remaining tables. Note: In creating these tables you must follow the order of running the sql scripts as stated here.
+			<blockquote>
+			Using phpmyAdmin run the following sql scripts found in the /install/sql/icd10_de directory in the following order: (these are the data for
+			the ICD10 coding system in german language)<p>
+            <blockquote>			
+            a2g-insert.sql<br>
+			h2n-insert.sql<br>
+			o2s-insert.sql<br>
+			t2z-insert.sql
+			<p></blockquote>
+			Similarly run the following sql scripts found in the /install/sql/icd10_en directory in the following order: (these are the data for the
+			ICD10 coding system in english language) <p>
+<blockquote>
+			insert-data-a2l.sql<br>
+			insert-data-m2y.sql<br>
+</blockquote>			<p>
+			Similarly run the following sql scripts found in the /install/sql/ops301 directory in the following order:(these are the data for the
+			OPS301 coding system in german language)<p>
+<blockquote>			
+            insert-data-1-5-499.sql<br>
+			insert-data-55-57.sql<br>
+			insert-data-58-94.sql<br>
+</blockquote>			
+  </blockquote><p>
+  
+			<b>18.</b> Create a new system admin  permission.<p>
+		<blockquote>	
+		 You need to use the supplied <font color=#ff0000>create_admin.php</font> script. Type http://your_host/create_admin.php in your browser.
+		 Enter the necessary information and hit the button. Important: After creating the new system admin, remove this script from your active server directory.
+		 Leaving it in the active server directory will cause Care2x to block and refuse to run.
+			</blockquote><p>
+			
+		 <b>19.</b> REMOVE THE FOLLOWING FILES FROM THE CARE2X DIRECTORY!<p>
+		<blockquote>	
+		 <li> /create_admin.php<br>
+		 <li>/install/initialize.php<br>
+		 <li>/install/encode_pw_md5.php<p>
+		 Tip: you can move them to other places outside the web server directory.
+			</blockquote><p>
+			
+			<b>20.</b> The installation is finished. Enter the following address in the browser:
+			<blockquote>
+			http://your_host/ <p>(where your_host is the actual host address of your Apache web server). 
+			The first page of CARE 2X should appear. Congratulations!
+		<p>Now you can start  creating user access permissions. <p>
+			To do this:<p>
+	Select the EDP link on the left menu
+			and then select "Access rights". Enter your admin username and your admin password. When the 
+			interface appears, you can start creating user access rights and permissions.
+			<p>Note: You cannot create additional Admin permission
+			using this interface. You have to follow the step #18
+			 to create additional admin permissions.
+</blockquote>				</blockquote>
+		
+		
+</P></TD></TR>
+  <TR>
+    <TD vAlign=top noWrap ></TD>
+    <TD vAlign=bottom><font face="verdana,arial" size=1>
+      <HR noShade SIZE=1>
+      <DIV align=center><SMALL>©2002, 2003, 2004 Elpidio Latorilla, CARE2X, CARE 2002, www.intellin.org, www.care2x.org, www.care2x.com , www.care2x.net <!-- <A 
+      href="../../index.php?lang=de">Home</A>  -->
+      </SMALL></DIV></TD></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Installation of CARE 2X - advanced installation</TITLE>
+<META http-equiv=content-type content="text/html; charset=ISO-8859-1">
+</HEAD>
+<BODY  text=#000000 vLink=#800080 aLink=#ff0000 link=#0000cc onLoad="if(window.focus) window.focus()" 
+bgColor=#ffffff topMargin=2>
+<TABLE cellSpacing=0 cellPadding=5 width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD ><font face="verdana,arial" size=2><A href="../../index.php?lang=de">
+	<img src="http://care2x.org/foundry/gui/img/logos/lopo/care_logo.gif" border=0></A> </TD>
+    <TD bgColor=#eeeeee><b>
+      <font face="verdana,arial" size=5>Installation</b> <font size=3 color="red">(deployment (mysql) 1.1)</font><p>
+	  <font face="verdana,arial" size=2>Advanced php user installation<br>
+	  <a href="en_install_auto_1_1.htm">(For automatic installation, you can click here)</a></font>
+	  <BR>
+	  
+	</TD></TR>
+	
+  <TR vAlign=top>
+    <TD><!-- <font face="verdana,arial" size=2><SMALL>
+      <P><A href="../../index.php?lang=de">Home</A> 
+     </SMALL> --></TD>
+    <TD><font face="verdana,arial" size=2>
+		<p>
+		<b>NOTE:</b> The following installation procedure is valid ONLY for the deployment <font color="red"><b>1.1</b></font>.
+		<p>
+		
+			<b>1.</b> Uncompress  the CARE 2X deployment 1.1 scripts into the active directory of your server.
+			<p>
+			<b>2.</b> Make the following directories and files  system writeable.
+
+<blockquote>
+/cache/barcodes/<br>
+/counter/hits/<br>
+/counter/hitcount.txt<br>
+/fotos/encounter/<br>
+/fotos/news/<br>
+/fotos/registration/<br>
+/logs/  (and all its subdirectories)<br>
+/med_depot/img/<br>
+/pharma/img/<br>
+/radiology/dicom_img/<br>
+/gui/img/logos_dept/		
+</blockquote>
+<p>
+			<b>3.</b> Enter the host, database name, username, and password information in the <b><font color=#ff0000>include/inc_init_main.php</font></b> script:  <p>
+			Change the following three secret keys with unique keys of
+			your choice. <P>
+			<blockquote>
+			$key           : The secret key for the first level script lock.<br>
+			$key_2level  : The secret key for the second level script lock.<br>
+			$ley_login     : The secret key for the third level script lock.<P>
+			</blockquote>
+			For the main domain, enter the domain or host name without the http:// or https:// part and without a trailing slash as value of the $main_domain variable:<P>	
+			<P>
+			If you are running Care2x in an SSL server, make sure that the $httprotocol variable in this script is set to "https".
+			<p>			
+			<b>4.</b> 
+			If you are using a database other than mysql,  set the variable <b>$dbtype</b> in the <b>include/inc_db_makelink.php</b> script to the type of your database.
+			The database types are constants as defined in  the ADODB manual. Check this link <a href="http://php.weblogs.com/ADODB">http://php.weblog.com/ADODB</a> to get the db type constant and to check whether your database is currently supported by ADODB 3.11.
+			<p>
+			<b>5.</b> Open the <b>global_conf/inc_remoteservers_conf.php</b> script. 
+			<blockquote>
+			If necessary, you can set the webcam source url's here.
+			</blockquote>
+			<p>
+			<b>6.</b> Create the database.
+			<p>
+			<b>7.</b> Run the following sql scripts:<p>
+<blockquote>			<font color=#ff0000>install/sql/care_db_structure_d11.sql</font>
+</blockquote>			
+			<p>The following 4 scripts are for the german icd codes! Do not run them if you do not need the german codes.
+<blockquote>            install/sql/icd10_de/a2g-insert.sql<br>
+			install/sql/icd10_de/h2n-insert.sql<br>
+			install/sql/icd10_de/o2s-insert.sql<br>
+			install/sql/icd10_de/t2z-insert.sql
+<P>
+			<FONT COLOR=#FF0000>Note: If you prefer to load the CSV formatted data, download the CSV file from here:
+			<A HREF="https://sourceforge.net/project/showfiles.php?group_id=53886&release_id=204455" TARGET="_blank">care_icd10_de.csv</A></FONT>
+</blockquote>	
+		
+			<p>The following 2 scripts are for the english icd codes! Do not run them if you do not need the english codes.
+<blockquote>			install/sql/icd10_en/insert-data-a2l.sql<br>
+			install/sql/icd10_en/insert-data-m2y.sql<br>
+<p>
+			<FONT COLOR=#FF0000>Note: If you prefer to load the CSV formatted data, download the CSV file from here:
+			<A HREF="https://sourceforge.net/project/showfiles.php?group_id=53886&release_id=204455" TARGET="_blank">care_icd10_en.csv</A></FONT>
+		</blockquote>	
+			<p>The following 2 scripts are for the brazilian-portuguese icd codes! Do not run them if you do not need the brazilian-portuguese codes.
+<blockquote>			install/sql/icd10_br/insert-data-a2l.sql<br>
+			install/sql/icd10_br/insert-data-m2z.sql<br>
+			<p>
+			<FONT COLOR=#FF0000>Note: If you prefer to load the CSV formatted data, download the CSV file from here:
+			<A HREF="https://sourceforge.net/project/showfiles.php?group_id=53886&release_id=204455" TARGET="_blank">care_icd10_pt_br.csv</A></FONT>
+</blockquote>
+
+			<p>The following 3 scripts are for the german ops codes! Do not run them if you do not need the german ops codes.
+		<p>
+<blockquote>            install/sql/ops301/insert-data-1-5-499.sql<br>
+			install/sql/ops301/insert-data-55-57.sql<br>
+			install/sql/ops301/insert-data-58-94.sql<br>
+			<p>
+			<FONT COLOR=#FF0000>Note: If you prefer to load the CSV formatted data, download the CSV file from here:
+			<A HREF="https://sourceforge.net/project/showfiles.php?group_id=53886&release_id=204460" TARGET="_blank">care_ops301_de.csv</A></FONT>
+</blockquote>	
+  </blockquote><p>
+			<b>8.</b>  Create a new system admin  permission.<p>
+		<blockquote>	
+		 You need to use the supplied <font color=#ff0000>create_admin.php</font> script. Type http://your_host/create_admin.php in your browser.
+		 Enter the necessary information and hit the button. Important: After creating the new system admin, remove this script from your active server directory.
+		 Leaving it in the active server directory will cause Care2x to block and refuse to run.
+			</blockquote><p>
+			
+		 <b>9.</b> REMOVE THE FOLLOWING FILES FROM THE CARE2X DIRECTORY!<p>
+		<blockquote>	
+		 <li>/create_admin.php<br>
+		 <li>/install/install.php<br>
+		 <li>/install/initialize.php<br>
+		 <li>/install/encode_pw_md5.php<p>
+		 Tip: you can move them to other places outside the web server directory.
+			</blockquote><p>
+			
+			<b>10.</b> The installation is finished. Enter the following address in the browser:
+			<blockquote>
+			http://your_host/ <p>(where your_host is the actual host address of your Apache web server). 
+			The first page of CARE 2X should appear. Congratulations!
+		<p>Now you can start  creating user access permissions. <p>
+			To do this:<p>
+	Select the EDP link on the left menu
+			and then select "Access rights". Enter your admin username and your admin password. When the 
+			interface appears, you can start creating user access rights and permissions.
+			<p>Note: You cannot create additional Admin permission
+			using this interface. You have to follow the step #8
+			 to create additional admin permissions.
+</blockquote>				</blockquote>
+		
+		<B>11.</B> Configure Care2x => <A HREF="en_configure_11.htm" TARGET="_blank">go here</A>
+		
+</P></TD></TR>
+  <TR>
+    <TD vAlign=top noWrap ></TD>
+    <TD vAlign=bottom><font face="verdana,arial" size=1>
+      <HR noShade SIZE=1>
+      <DIV align=center><SMALL>©2002,2003,2004 Elpidio Latorilla,CARE 2X, CARE 2002, www.intellin.org,www.care2x.org,www.care2x.net,www.care2x.com- <!-- <A 
+      href="../../index.php?lang=de">Home</A>  -->
+      </SMALL></DIV></TD></TR></TBODY></TABLE></BODY></HTML>

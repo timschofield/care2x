@@ -1,0 +1,5 @@
+ALTER TABLE `care_test_request_chemlabor`
+  DROP `item_id`;
+
+ALTER TABLE `care_test_request_chemlabor_sub` ADD `item_id` BIGINT( 20 ) NOT NULL AFTER `encounter_nr` ,
+ADD INDEX ( item_id ) ;

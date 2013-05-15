@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Care 2002 - What is new in the beta 1.0.06 release?</title>
+</head>
+<body onLoad="if (window.focus) window.focus()">
+<font face="verdana,arial" size=3>
+<b>The following are new in the Care 2002 beta 1.0.0<font color="red">7</font> release:
+</b> 
+</font>
+<hr>
+<font  face="verdana,arial" size=2>
+
+<p>
+<b>A. Dicom viewer module</b>
+ <blockquote>
+<li> Search for patients with diagnostic images in Dicom format
+<li> View the images either in frame or in a separate window
+<li> View available notes about the image in a separate window
+<li> The viewer type can be selected by the user (currently only one)
+<li> Upload diagnostic image files in Dicom format (via HTTP upload)
+<blockquote>
+ <li> You can upload a single file
+ <li> Or you can simultaneously upload multiple files that belong to a series
+ <li> Number of files to upload is user selectable
+ <li> Write notes to be sent along with the dicom files.
+ <li> Write reference notes to documents, reports, or encounters
+</blockquote>
+<li> About the dicom viewer
+ <ul>
+ <li> A java applet developed by the Nagoya Institute of Technology
+ <li> Requires a java plug-in to run (downloadable from the Internet)
+ <li> Views 8 - 16 bit gray scale
+ <li> Views 24 bit RGB color 
+ <li> Views multiple files as slices in a series
+ <li> Real time WW/WL, Zooming, Magnify, show tag information
+ <li> Image animation, tiled view, invert, flip, rotate
+ </ul>
+
+</blockquote>
+<b>B. Enhancement, revisions & corrections</b><p>
+<ul>
+<li> The photolab was revised. User navigation is much easier.
+<li> The patient's label now displays TTF fonts (automatic if TTF font support is available)
+<li> The patient's label now displays the department, ward ID, room nr.,bed nr., admission type, and insurance type in semi-encoded format
+<li> Improvements in the registration-admission module
+
+<blockquote>
+<li> Javascript validation of inputs in addition to server side validation
+<li> Deceased persons are marked with a tiny black cross beside their name
+<li> Deceased persons cannot be re-admitted anymore (ref: "mutiple-kill" bug)
+<li> Read-only mode for discharged encounters (to allow review of records)
+<li> Blood group can now be entered. Blood group is also printed in bold letters on the patient's label.
+<li> The person's sex is now visualized in lists.
+</blockquote>
+
+<li> Improvements in the ward and outpatient modules
+<blockquote>
+<li> The "sex" icons are clickable to pop up a window displaying the persons ID picture
+<li> Patient search now displays the wards and dates correctly.
+<li> Direct link from ward's read-only mode to edit-mode (via password check)
+</blockquote>
+</ul>
+<blockquote><li> Link to Care2x ticketed support (OTRS) was added.
+<li> Link to Care2x newsgroup server mirroring the developers' mailing list was added.
+</blockquote>
+<p>
+<b>C. Pharmacy and Medical Depot Improvements</b><p>
+<ul>
+<li> Department can now be selected 
+<li> Order catalog module is now password protected
+<li> Link to British National Formulary (BNF, a pharmaceutical index) was added
+<li> Link to "Yellow List" (a german pharmaceutical index) was added
+</ul>
+<p>
+
+
+<b>D. Measurements record improvements</b>
+ <blockquote>
+<li> "Head circumference" was added to weights and heights
+<li> "Weights and heights" is now called "Measurements"
+<li> Data input form was redesigned. All 3 measured values can now be entered simultaneously.
+</blockquote>
+
+<b>E. Operation logbook enhancement</b>
+ <blockquote>
+<li> Mozilla, Konqueror and other non-MSIE browsers can now move the BP/temp graph forward or back in date, however only one day at a time (MSIE users can additionally right-click on the button to jump to a certain date)
+</blockquote>
+<p>
+
+<b>F. New language version</b><p>
+<ul>
+<li> Romanian language was added (initial files) 
+</ul>
+
+<b>G. Debugs & corrections</b>
+ <blockquote>
+There are lots of bug patches. The most prominent bugs are:<p>
+<li> Inconsequent language version of department items in combo box.
+<li> Wrong pending request module when coming from "ambulatory".
+<li> "Multi-kill" bug. A person could be admitted and discharged as dead ("killed") unlimited times.
+<li> Past date occupancy bug. Errors in displaying ward occupancy in dates other than present day.
+<li> Lower/upper case filenames. Most noted in Unix/Linux servers
+<li> Products' databank no-update bug.
+<li> Mozilla specific bug in selecting department in pharmacy and medical depot. Mozilla seems to have problems with double header redirects??
+<li> Blocked records of discharged encounters.
+<li> eComBill bugs patched by Prakash Yadav.
+<li> Opera specific bugs. "To-self" links not being compensated by Opera 6.0.
+<li> Billing types not shown in admission archive search
+<p>
+ Most active bug reporters are  Thomas Wiedmann, Sarath, Prakash Yadav & Lukasz Indyk.
+</blockquote>
+
+<b>H. Credits for this particular release (in alphabetical order, by first name)</b>
+ <blockquote>
+<li> Akhmad Sembiring = Debugging, bug reporting
+<li> Alfredo Rodriguez = Portuguese translations<br>
+<li> Daniel Hinostroza Dr. med. = Spanish translations<br>
+<li> Daniele Zilli = Brazilian-Portuguese translations<br>
+<li> Gabriele Cicala = Italian translations<br>
+<li> Giuseppe Scarpi = Italian translations<br>
+<li> Lukasz Indyk = Bug reporting
+<li> Marco van Willigenburg = care2x.nl, website mirroring
+<li> Mark Painter = bug reports, enhancements to obstetrics records<br>
+<li> Muhammad Panji = Indonesian translations<br>
+<li> Nino Novak = German version editing<br>
+<li> Panait Mihai = Romanian translations
+<li> Prakash Yadav = debugging of eCombill
+<li> Rodrigo Fereira = Brazilian-Portuguese translations
+<li> Sarat = Ideas for GUI improvements, bug reports<br>
+<li> Sven Köchel = care2x.at website
+<li> Thomas Wiedmann = Testing , debugging
+<li> Wilfried Gödert Dr. med. = care2x.de, mirroring, consultations, PR works, links to pharmaceutical indexes
+<p>
+Special thanks to the following for their very active ongoing activities for Care. (eventhough their works are not yet integrated in
+this current release)<p>
+<li> Massimilano Cussia and Daniele Ali for their work on diagnostic imaging module and dicom viewer<br>
+<li> Sven Köchel for CARE-CAM module<br>
+<li> Lukasz Indyk for DB visualizations<br>
+<p>
+<b>Note:</b> If I have forgotten to list somebody here please let me know. Thanks :-) <br>
+Elpidio Latorilla (2003-08-28)
+</blockquote></body>
+</html>

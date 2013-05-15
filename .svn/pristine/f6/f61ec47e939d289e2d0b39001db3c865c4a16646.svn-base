@@ -1,0 +1,13 @@
+<img src="../news_service/fotos/dummy2.jpg" border=0  align="right">
+<font face="arial" size="+1" color="#cc0000">Zweite Artikel</font><p>
+<font size=-1 color="#000000" face="arial">
+Hier wird das zweite Artikel für das Cafeteria News gezeigt.
+<br>
+Sie können hier Nachrichten, Mitteilungen, Neuegkeiten, usw. 
+zeigen. Mit dem Benutzerfreundlichen Editor erstellen Sie Artikel
+ganz einfach und bequem. Der Editor Helfer zeigt Ihnen wie es geht.
+<br>
+Sie können auch ein Bildchen auswählen das zu dem Artikel passt.
+<br>
+Jetzt, schreiben Sie Ihr Artikel...</font><br><a href="cafenews-edit-pass.php">
+<font size=1 color="#ff0000" face="arial">Klick hier um Artikel zu schreiben...</font></a>

@@ -1,0 +1,5 @@
+copy.src.files=false
+copy.src.target=/var/www/care2002_tz_mero_vps
+index.file=index.php
+run.as=LOCAL
+url=http://localhost/care2002_tz_mero_vps/

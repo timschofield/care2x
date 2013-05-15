@@ -1,0 +1,28 @@
+body
+    {
+    background-color: #c0bbb2;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    }
+#centeredtable
+    {
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 11px;
+    table-layout: auto;
+    }
+
+#firstline
+    {
+    border-top: 2px solid green;
+    border-bottom: 2px solid green;
+    background-color: #C0C0C0;
+    font-weight: bold;
+    }
+ #sideline
+    {
+    border-top: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    background-color: #C0C0C0;
+    font-weight: bold;
+    }

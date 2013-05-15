@@ -1,0 +1,187 @@
+The following are new in the Care 2002 beta 1.0.03 release: 
+--------------------------------------------------------------------------------
+
+A. New modules 
+
+	1. Diagnostics test and consultation request/scheduler. 
+
+	The request forms to be filled up are "almost realistic" replicas of commonly used hospital forms 
+	in Stuttgart, Germany to improve usability and user acceptance.
+
+	There are forms for the following departments:
+
+
+	- Chemical and serological laboratory
+	- Bacteriological laboratory
+	- Pathological laboratory
+	- Blood bank, blood products
+ 	- Radiology department 
+	   ( X-ray, Sonography, Mammography, Computer Tomography, Magnetic Resonance Tomography)
+
+	There is also a "generic" form that can be used for the following departments:
+
+	- Internal Medicine (ambulatory)
+ 	- General Medicine (ambulatory)
+	- Emergency (ambulatory)
+	- Sonography (ambulatory)
+	- Nuclear diagnostics (ambulatory)
+
+	2. Reception of the above described requests. 
+
+	3. Documentation of the test results and findings.
+
+	4. Features of the new modules.
+
+		- Coupling to the visual event signaller at the patient's chart folder. 
+		   Once test results or findings are written and stored, an internal event flag will be set to 
+		   automatically signal that the results are available. 
+		- The printouts are replicas of print format specially designed to be scanned by "binary code" scanners. 
+		- The printout for chemical serological lab has additional barcode labels for labeling the specimen tubes. 
+		- All forms and reports have a barcode label of its form (or batch) number. 
+
+B. Validations and date - time formats 
+	
+	1. The date entries are validated by a javascript. Thanks to Thomas W. of Germany. 
+
+	2. The date format is user selectable from the following three formats: 
+
+		YYYY-MM-DD 
+		DD.MM.YYYY 
+		MM/DD/YYYY
+		 
+	3. The time format will be automatically set to HH.MM.SS for the german language. 
+	    Otherwise it will be HH:MM:SS (default).
+		
+	4. The single "hot-key" entry of date and time values are now extended to other languages. 
+		For example: "Today" hot-key for Spanish is "h" = Hoy, "Yesterday" is "a" = Ayer, "Now" is "i" or "y" = Ya. 
+		The current defaults are "t" = today, "y" = yesterday, "n" = now 
+
+	5. Validations in the pharmacy and meddepot modules: 
+		
+		- The no. of pcs. is validated against minus values. 
+		- The no. of pcs. is validated against minimum and maximum order values. 
+
+B. Visual Event Signaller (colored bar) 
+
+	1. The automatic visual event signaller is now functioning. At present the event-to-color relationship is hard coded. 
+	    This will be modified to be user configurable in the future versions. 
+		
+		- Once a new test request is sent to the diagnostics department, a colored bar (pale blue) will be pulled up 
+		   at the patient's charts folder and the station's occupancy list. 
+		- Once a test report for a particular patient is available, another colored bar (brown) will be pulled up. 
+		- Once a new nursing report is written, another colored bar (blue) will be pulled up. 
+		- Once a new query to the doctor is written another colored bar (yellow) will be pulled up. 
+		- Once a new doctor's reply or instruction is written another colored bar (black) will be pulled up.
+
+		- Resetting a color bar (pulling down) will not be done automatically but must be done manually by the 
+		   responsible person. 
+
+		- Other event-color relatioships that will be coded in the future will be: 
+			- Green bar = once antibiotics are prescribed or included in the medication program 
+			- Violet bar = once anticoagulants are included in the medication program 
+			- Pale yellow bar = once diuritikas are included in the medication program 
+
+C. Multiple format currency 
+	
+	1. The currency used for the prices can be user selectable 
+
+	2. New types of currencies can be entered by the user 
+
+	3. The time format will be automatically set to HH.MM.SS for the german language. Otherwise it will be HH:MM:SS.
+
+	4. The single "hot-key" inputting of date and time values are now extended to other languages. 
+		For example: "Today" hot-key for Spanish is "H" = Hoy, "Yesterday" is "A" = Ayer, "Now" is "I" or "Y" = Ya. 
+
+
+D. Debugs 
+	
+	The following bugs are removed:
+	
+	1. "Same patient in several beds". 
+	2. "Same patient in several stations".
+	3. The scripts now "globalize" their variables once the register_globals of php is turned off.
+	4. The error reporting is improved.
+	5. "Missing file or broken image". The script will use the english language table once a particular language file is missing. 
+	    The english version of an image or image control button will be used once the language specific image is missing.
+	6. "Missing table for ICD/OPS data". The script will default to english ICD table if the particular language ICD is not available. 
+	    It will also default to german OPS if the particular language OPS table is not available.
+	7. "No link to database" in the nursing module. The nursing station table is not language dependent anymore.
+	8. Plus many other debugs both minor and semi-major ones. 
+
+
+E. Security improvements 
+
+	1. Text inputs for documents are now filtered with htmlspecialchars() to prevent html tags to be parsed by the browser. 
+	2. HTTP uploaded image files are now validated with isUploadedFile() function.
+	3. Text inputs for news and nursing reports are filtered by deactivating the "hot" tags : <script>, <input>, & <form>. 
+	     Other html tags are left unmodified to give the author a narrow way of formatting the text
+		 (like bold, font size or color, etc.)
+
+
+F. Restructuring of the user's access permission 
+
+	1. The user's access permission is now displayed as a tree showing the hierarcy of the permission levels. 
+	2. Configuration of the user's permission is simply done by checking the appropriate checkboxes.
+
+G. Additional languages, modifications on the multiple language system 
+
+	1. The available languages are (in alphabetical order) Brazilian(Portuguese), English, French, German, Indonesian, 
+	    Italian, Polish, Spanish. Many of the language tables are not yet complete. 
+		The script will default to english language table if the particular language table is not available. 
+	2. The images and graphical control buttons will default to english if a particular language image or control button 
+	    is not available.
+	3. The news, menus, prices, documents and internal data contents are not language dependent anymore. 
+	    All data contents will remain the same all throughout the different system languages. 
+
+H. Changes in the database 
+
+	1. All tables are now prepended with care_ .
+	2. The mahopatient is now renamed "care_admission_patient".
+	3. The mahopass is now renamed "care_users".
+	4. Several tables were discarded and several new tables were added.
+	5. Major modifications in some tables' internal elements.
+
+I. Changes in the directory tree 
+
+	1. All classes are now grouped inside the class/ directory.
+	2. The "logs/" directory was moved to the root directory. This move lets the "main/" directory to be write-protected.
+	3. The img/ directory was moved to a new gui/ directory.
+	4. All common non-language dependent buttons and images were moved to new gui/img/common/default/ directories. 
+	5. All language dependent control buttons and images were moved to new gui/img/controls/default/ directories.
+	6. All mascot images were moved to the new gui/img/mascot/default/ directories.
+
+		These moves are preparation for future enhancements on the theme based gui and user 
+		
+J. Miscellaneous additions 
+
+	1. A credits window is now added. The listing order is dependent on the language being used.
+	2. Webcamera is renamed "Video security" to explicitly state its function.
+	3. The tags <?php ?> are now used consequently all throughout the entire program.
+
+K. Credits for this release (in alphabetical order) 
+	
+	Agus Muhammad Ramdan = Indonesian translations, code revisions
+	Daniel Zilli = Brazilian-portuguese translations
+	Daniele Frijia = Security check, advices, consultations
+	Gabriele Cicala = Italian translations
+	Giuseppe Scarpi = Major italian translations
+	Luki Rustianto = Security improvements
+	Matej Hausenblas = French translations
+	Muhammad Panji = Indonesian translations
+	Nino Novak = German translations
+	Patxi Gomaríz = Spanish translations
+	Pawel Cyrta = Polish translations
+	Roberto Nanucci = Italian translations
+	Simone Aveotti = Italian translations
+	Thomas Wiedmann = Javascript validation, testing , debugging
+	
+	Special thanks to the following for their very active ongoing activities for Care. 
+	(eventhough their works are not yet integrated in this current release) 
+
+	Benny Siegert = implementation of the telephone directory module in a real hospital (in postgreSQL)
+	Dilip Bharatee = ecomscience.com, assigning fulltime programmers 
+	Oliver Reibert = design and implementation of german billing system
+	Prantar Deka = Generic billing module
+	Przemyslaw Szostak = Polish translations
+	
+	Note: If I have forgotten to list somebody here please let me know. Thanks :-) 

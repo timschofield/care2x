@@ -1,0 +1,39 @@
+1. Make sure that you've configured your PHP for production use.
+
+ check for following values in your php.ini:
+ error_reporting = E_ALL & ~E_DEPRECATED
+ display_errors = Off
+ display_startup_errors = Off
+ log_errors = On
+ 
+2. Make sure that the template_c folder and its subfolders is writable
+
+This belongs for linux/unix users - for xampp there is no configuration needed at this section.
+There are two ways for linux settings
+
+option 1: make sure that this folder has the same group write permissions like the apache is
+
+-> check /etc/passwd for the user assigned to your httpd and make an chown for this folder
+
+option 2: make an chmod 777 for this folder. 
+
+3. manual installation of database
+
+Log in to your mysql and 
+
+3.1 create a database
+
+example: mysql> create database care2x;
+
+3.2 import the database-dump
+
+You'll find the database at /install/mysql/manual
+
+Easiest way is to locate under Windows mysql.exe and prompt for - under linux it should be 
+available everywhere you are. The command is: 
+
+mysql -u[username] -p[password] [DBname] < [database-dump]
+
+Example: #mysql -uroot -psecret care2x < /install/mysql/manual/care2x.sql
+
+4. Call it by webbrowser and: Have fun ;-)

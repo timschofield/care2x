@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.team.cvs.core.cvsnature">
+<project reference="1.0,:extssh:www.radiokili.org:/usr/share/cvs,care2002_tz_mero_vps,care2002_tz_mero_vps"/>
+</provider>
+</psf>

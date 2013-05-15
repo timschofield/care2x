@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Updating CARE 2002 beta 1.0.09 to deployment (mysql) 1.1</TITLE>
+<META http-equiv=content-type content="text/html; charset=ISO-8859-1">
+</HEAD>
+<BODY  text=#000000 vLink=#800080 aLink=#ff0000 link=#0000cc onLoad="if(window.focus) window.focus()" 
+bgColor=#ffffff topMargin=2>
+<TABLE cellSpacing=0 cellPadding=5 width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD ><font face="verdana,arial" size=2><A href="../../index.php?lang=de">
+	<img src="http://care2x.org/foundry/gui/img/logos/lopo/care_logo.gif" border=0></A> </TD>
+    <TD bgColor=#eeeeee><b>
+      <font face="verdana,arial" size=5>Updating</b> <font size=3 color="blue">(beta 1.0.09) to (deployment (mysql) 1.1)</font><p>
+	</TD></TR>
+	
+  <TR vAlign=top>
+    <TD><!-- <font face="verdana,arial" size=2><SMALL>
+      <P><A href="../../index.php?lang=de">Home</A> 
+     </SMALL> --></TD>
+    <TD><font face="verdana,arial" size=2>
+		<p>
+		<b>NOTE:</b> The following update procedure is valid ONLY if you have a working 1.0.0<font color="red"><b>9</b></font> installation.
+		<p>
+		
+			<b>1.</b> Uncompress  the CARE 2002 deployment 1.1 scripts into a temporary directory.
+			<p>
+			<b>2.</b> Copy all the files into the directory where Care is installed.<p>			
+<blockquote>			Tip: If you have a file manager that compares file dates, use it to copy only the modified files.
+</blockquote>			
+			<b>3.</b> Open the <font color=#ff0000>/include/inc_init_main.php</font> file  and enter the previous database access information.
+			<P>
+			<b>4.</b> 
+			Start your phpmyadmin (or any other mysql admin program).	<p>
+			<b>5.</b> Run the following sql script:<p>
+<blockquote>			
+<font color=#ff0000>install/sql/db_update_1009_11.sql</font>
+</blockquote>			
+						
+			<b>6.</b> After the conversion of passwords, REMOVE the following files from Care directories:<p>
+			<li>/create_admin.php
+			<li>/install/install.php
+			<li>/install/encode_pw_md5.php
+			<li>/install/initialize.php
+			<p>
+			Tip: You can move them to other place outside the web server directory.
+			<p>
+			Note: If you want to use the brazilian-portuguese ICD10 codes, create and load the data by doing the following:<P>
+			Run the following scripts:
+			<BLOCKQUOTE>
+<font color=#ff0000>install/sql/icd10_br/create-table.sql</font><BR>
+<font color=#ff0000>install/sql/icd10_br/insert-data-a2l.sql</font><BR>
+<font color=#ff0000>install/sql/icd10_br/insert-data-m2z.sql</font>
+			</BLOCKQUOTE>
+			<p>
+			Note: I have used the sql script to update the online demo . It worked well. However, it was not an exhaustive test, so
+			please notify me at once if any problem occurs. Thanks. <a href="mailto:elpidio@care2x.net">Elpidio</a>
+		</TD></TR>
+  <TR>
+    <TD vAlign=top noWrap ></TD>
+    <TD vAlign=bottom><font face="verdana,arial" size=1>
+      <HR noShade SIZE=1>
+      <DIV align=center><SMALL>©2002,2003,2004 Elpidio Latorilla, CARE2X, CARE 2002, www.intellin.org, www.care2x.org,www.care2x.net,www.care2x.com - <!-- <A 
+      href="../../index.php?lang=de">Home</A>  -->
+      </SMALL></DIV></TD></TR></TBODY></TABLE></BODY></HTML>

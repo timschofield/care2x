@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sothink_menu>
+  <description>
+    <temp_depict></temp_depict>
+    <temp_title>Green Menu</temp_title>
+    <version>8.00</version>
+    <prog_id>PageletServer.DynamicMenu</prog_id>
+    <update_time>37456.495196759</update_time>
+    <preview_path></preview_path>
+  </description>
+  <global>
+    <top_state>2</top_state>
+    <publish_file></publish_file>
+    <js_path_name></js_path_name>
+    <fast_js_enable>0</fast_js_enable>
+    <fast_js_type>0</fast_js_type>
+    <fast_js_path></fast_js_path>
+    <fast_js_img_path></fast_js_img_path>
+    <fast_js_script_path></fast_js_script_path>
+    <click_show>0</click_show>
+    <right_to_left>0</right_to_left>
+    <hide_sub>1</hide_sub>
+    <delay_hide>500</delay_hide>
+    <delay_show_v>0</delay_show_v>
+    <delay_show_h>50</delay_show_h>
+    <ie_encode>auto-select</ie_encode>
+    <name>menu22b4</name>
+    <type>0</type>
+    <align>0</align>
+    <stretch_width>0</stretch_width>
+    <width>100</width>
+    <width_unit>0</width_unit>
+    <coor_x>0</coor_x>
+    <coor_x_scroll>1</coor_x_scroll>
+    <coor_y>0</coor_y>
+    <coor_y_scroll>1</coor_y_scroll>
+    <cursor_nolink>default</cursor_nolink>
+    <cursor_link>hand</cursor_link>
+    <script_path>\includes\js</script_path>
+    <image_path>\includes\images</image_path>
+    <site_root>C:\Program Files\xampp\htdocs\care2002_tz_mero_vps\modules\Stock</site_root>
+    <link_prefix></link_prefix>
+    <highlight>67108896</highlight>
+    <highlight_level>1</highlight_level>
+    <encode>1</encode>
+    <hide_select>1</hide_select>
+    <hide_object>0</hide_object>
+    <hide_iframe>0</hide_iframe>
+  </global>
+  <ul>
+    <li type="text" class="pop_item"><a href="#" target="_self">Stock</a></li>
+    <ul>
+      <li type="text" class="item"><a href="#" target="_self">Option 1</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Option 2</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Option 3</a></li>
+      <li type="text" class="pop_item"><a href="#" target="_self">Take stock</a></li>
+      <ul>
+        <li type="text" class="item"><a href="#" target="_self">Daily stock</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Monthly Stock</a></li>
+      </ul>
+      <li type="text" class="pop_item"><a href="#" target="_self">Stock Report</a></li>
+      <ul>
+        <li type="text" class="item"><a href="#" target="_self">Report 1</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report  2</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report 2</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report 2</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report 2</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report 2</a></li>
+      
+      </ul>
+    </ul>
+    <li type="text" class="pop_item"><a href="#" target="_self">Order_&amp;nbsp; 1</a></li>
+    <ul>
+      <li type="text" class="item"><a href="#" target="_self">Place Order</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Order 2</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Order 2</a></li>
+      <li type="text" class="pop_item"><a href="#" target="_self">Order Reports</a></li>
+      <ul>
+        <li type="text" class="item"><a href="#" target="_self">Report 1_&amp;nbsp; 1</a></li>
+        <li type="text" class="item"><a href="#" target="_self">Report 2</a></li>
+      
+      </ul>
+    </ul>
+    <li type="text" class="pop_item"><a href="#" target="_self">Supplier</a></li>
+    <ul>
+      <li type="text" class="item"><a href="add_supplier.php" target="_self">Add New Supplier</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Modify Supplier</a></li>
+      <li type="text" class="item"><a href="#" target="_self">Remove Supplier</a></li>
+      <li type="text" class="pop_item"><a href="#" target="_self">Supplier Report</a></li>
+      <ul>
+        <li type="text" class="item"><a href="#" target="_self">&amp;nbsp; 1_Report 1</a></li>
+        <li type="text" class="item"><a href="#" target="_self">&amp;nbsp; 1_Report 2</a></li>
+        <li type="text" class="item"><a href="#" target="_self">&amp;nbsp; 1_Report  3</a></li>
+      
+      </ul>
+    
+    </ul>
+  </ul>
+  <layer>
+    <setting>
+      <display>0</display>
+      <spacing>8</spacing>
+      <padding>4</padding>
+      <transparency>0</transparency>
+      <direction>0</direction>
+      <corner_x>0</corner_x>
+      <corner_y>0</corner_y>
+      <bg_color>#D8D8D8</bg_color>
+      <bg_transparent>1</bg_transparent>
+      <bg_image></bg_image>
+      <bg_tile>2</bg_tile>
+      <border_style>0</border_style>
+      <border_width>1</border_width>
+      <border_color>#959ACC</border_color>
+      <border_synchronize>1</border_synchronize>
+      <shadow_type>0</shadow_type>
+      <shadow_size>0</shadow_size>
+      <shadow_color>#7F7F7F</shadow_color>
+      <effect_show>0</effect_show>
+      <effect_hide>0</effect_hide>
+      <effect_speed>85</effect_speed>
+      <enable_decoration>0</enable_decoration>
+      <dr_left_top></dr_left_top>
+      <dr_right_top></dr_right_top>
+      <dr_right_bottom></dr_right_bottom>
+      <dr_left_bottom></dr_left_bottom>
+      <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+      <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+      <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+      <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+      <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+    </setting>
+    <node state="2" condition_invisible="0">
+      <condition_prefix></condition_prefix>
+      <condition_suffix></condition_suffix>
+      <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+      <font out_face="Verdana" out_color="#333333" out_size="8" out_size_unit="0" out_decoration="1" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="1"></font>
+      <image out="" over="" width="-1" height="-1" border="0"></image>
+      <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+      <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d2.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1.gif" width="10" height="10" border="0"></arrow>
+      <background out_color="#DBDDD2" out_transparent="0" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+      <border style="2" width="3" out_color="#999999" out_synchronize="0" over_color="#999999" over_synchronize="1"></border>
+    
+      <layer>
+        <setting>
+          <display>1</display>
+          <spacing>6</spacing>
+          <padding>2</padding>
+          <transparency>0</transparency>
+          <direction>0</direction>
+          <corner_x>0</corner_x>
+          <corner_y>8</corner_y>
+          <bg_color>#DBDDD2</bg_color>
+          <bg_transparent>0</bg_transparent>
+          <bg_image></bg_image>
+          <bg_tile>2</bg_tile>
+          <border_style>1</border_style>
+          <border_width>1</border_width>
+          <border_color>#76826B</border_color>
+          <border_synchronize>1</border_synchronize>
+          <shadow_type>0</shadow_type>
+          <shadow_size>0</shadow_size>
+          <shadow_color>#7F7F7F</shadow_color>
+          <effect_show>0</effect_show>
+          <effect_hide>0</effect_hide>
+          <effect_speed>100</effect_speed>
+          <enable_decoration>0</enable_decoration>
+          <dr_left_top></dr_left_top>
+          <dr_right_top></dr_right_top>
+          <dr_right_bottom></dr_right_bottom>
+          <dr_left_bottom></dr_left_bottom>
+          <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+          <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+          <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+          <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+          <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+        </setting>
+        <node state="0" condition_invisible="0">
+          <condition_prefix></condition_prefix>
+          <condition_suffix></condition_suffix>
+          <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+          <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+          <image out="" over="" width="-1" height="-1" border="0"></image>
+          <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+          <arrow out="" over="" width="7" height="6" border="0"></arrow>
+          <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+          <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+        </node>
+        <node state="0" condition_invisible="0">
+          <condition_prefix></condition_prefix>
+          <condition_suffix></condition_suffix>
+          <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+          <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+          <image out="" over="" width="-1" height="-1" border="0"></image>
+          <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+          <arrow out="" over="" width="7" height="6" border="0"></arrow>
+          <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+          <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+        </node>
+        <node state="0" condition_invisible="0">
+          <condition_prefix></condition_prefix>
+          <condition_suffix></condition_suffix>
+          <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+          <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+          <image out="" over="" width="-1" height="-1" border="0"></image>
+          <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+          <arrow out="" over="" width="7" height="6" border="0"></arrow>
+          <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+          <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+        </node>
+        <node state="2" condition_invisible="0">
+          <condition_prefix></condition_prefix>
+          <condition_suffix></condition_suffix>
+          <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+          <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+          <image out="" over="" width="-1" height="-1" border="0"></image>
+          <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+          <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_da.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1a.gif" width="10" height="10" border="0"></arrow>
+          <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+          <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+        
+          <layer>
+            <setting>
+              <display>1</display>
+              <spacing>6</spacing>
+              <padding>2</padding>
+              <transparency>0</transparency>
+              <direction>0</direction>
+              <corner_x>0</corner_x>
+              <corner_y>0</corner_y>
+              <bg_color>#DBDDD2</bg_color>
+              <bg_transparent>0</bg_transparent>
+              <bg_image></bg_image>
+              <bg_tile>3</bg_tile>
+              <border_style>1</border_style>
+              <border_width>1</border_width>
+              <border_color>#666666</border_color>
+              <border_synchronize>1</border_synchronize>
+              <shadow_type>0</shadow_type>
+              <shadow_size>3</shadow_size>
+              <shadow_color>#7F7F7F</shadow_color>
+              <effect_show>0</effect_show>
+              <effect_hide>0</effect_hide>
+              <effect_speed>100</effect_speed>
+              <enable_decoration>0</enable_decoration>
+              <dr_left_top></dr_left_top>
+              <dr_right_top></dr_right_top>
+              <dr_right_bottom></dr_right_bottom>
+              <dr_left_bottom></dr_left_bottom>
+              <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+              <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+              <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+              <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+              <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+            </setting>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="" over="" width="7" height="6" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            </node>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="" over="" width="7" height="6" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            </node>
+        </layer></node>
+        <node state="2" condition_invisible="0">
+            <condition_prefix></condition_prefix>
+            <condition_suffix></condition_suffix>
+            <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+            <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+            <image out="" over="" width="-1" height="-1" border="0"></image>
+            <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+            <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_da.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1a.gif" width="10" height="10" border="0"></arrow>
+            <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+            <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+        
+            <layer>
+              <setting>
+                <display>1</display>
+                <spacing>6</spacing>
+                <padding>2</padding>
+                <transparency>0</transparency>
+                <direction>0</direction>
+                <corner_x>0</corner_x>
+                <corner_y>0</corner_y>
+                <bg_color>#DBDDD2</bg_color>
+                <bg_transparent>0</bg_transparent>
+                <bg_image></bg_image>
+                <bg_tile>3</bg_tile>
+                <border_style>1</border_style>
+                <border_width>1</border_width>
+                <border_color>#666666</border_color>
+                <border_synchronize>1</border_synchronize>
+                <shadow_type>0</shadow_type>
+                <shadow_size>3</shadow_size>
+                <shadow_color>#7F7F7F</shadow_color>
+                <effect_show>0</effect_show>
+                <effect_hide>0</effect_hide>
+                <effect_speed>100</effect_speed>
+                <enable_decoration>0</enable_decoration>
+                <dr_left_top></dr_left_top>
+                <dr_right_top></dr_right_top>
+                <dr_right_bottom></dr_right_bottom>
+                <dr_left_bottom></dr_left_bottom>
+                <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+                <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+                <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+                <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+                <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+              </setting>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="150" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+        </layer></node>
+    </layer></node>
+    <node state="2" condition_invisible="0">
+        <condition_prefix></condition_prefix>
+        <condition_suffix></condition_suffix>
+        <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+        <font out_face="Verdana" out_color="#333333" out_size="8" out_size_unit="0" out_decoration="1" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="1"></font>
+        <image out="" over="" width="-1" height="-1" border="0"></image>
+        <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+        <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d2.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1.gif" width="10" height="10" border="0"></arrow>
+        <background out_color="#DBDDD2" out_transparent="0" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+        <border style="2" width="3" out_color="#999999" out_synchronize="0" over_color="#999999" over_synchronize="1"></border>
+    
+        <layer>
+          <setting>
+            <display>1</display>
+            <spacing>6</spacing>
+            <padding>2</padding>
+            <transparency>0</transparency>
+            <direction>0</direction>
+            <corner_x>0</corner_x>
+            <corner_y>8</corner_y>
+            <bg_color>#DBDDD2</bg_color>
+            <bg_transparent>0</bg_transparent>
+            <bg_image></bg_image>
+            <bg_tile>2</bg_tile>
+            <border_style>1</border_style>
+            <border_width>1</border_width>
+            <border_color>#76826B</border_color>
+            <border_synchronize>1</border_synchronize>
+            <shadow_type>0</shadow_type>
+            <shadow_size>0</shadow_size>
+            <shadow_color>#7F7F7F</shadow_color>
+            <effect_show>0</effect_show>
+            <effect_hide>0</effect_hide>
+            <effect_speed>100</effect_speed>
+            <enable_decoration>0</enable_decoration>
+            <dr_left_top></dr_left_top>
+            <dr_right_top></dr_right_top>
+            <dr_right_bottom></dr_right_bottom>
+            <dr_left_bottom></dr_left_bottom>
+            <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+            <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+            <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+            <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+            <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+          </setting>
+          <node state="0" condition_invisible="0">
+            <condition_prefix></condition_prefix>
+            <condition_suffix></condition_suffix>
+            <general width="140" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+            <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+            <image out="" over="" width="-1" height="-1" border="0"></image>
+            <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+            <arrow out="" over="" width="7" height="6" border="0"></arrow>
+            <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+            <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+          </node>
+          <node state="0" condition_invisible="0">
+            <condition_prefix></condition_prefix>
+            <condition_suffix></condition_suffix>
+            <general width="140" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+            <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+            <image out="" over="" width="-1" height="-1" border="0"></image>
+            <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+            <arrow out="" over="" width="7" height="6" border="0"></arrow>
+            <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+            <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+          </node>
+          <node state="0" condition_invisible="0">
+            <condition_prefix></condition_prefix>
+            <condition_suffix></condition_suffix>
+            <general width="140" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+            <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+            <image out="" over="" width="-1" height="-1" border="0"></image>
+            <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+            <arrow out="" over="" width="7" height="6" border="0"></arrow>
+            <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+            <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+          </node>
+          <node state="2" condition_invisible="0">
+            <condition_prefix></condition_prefix>
+            <condition_suffix></condition_suffix>
+            <general width="140" height="0" type="0" align_h="0" align_v="0" tip_text="" status="" status_default="1"></general>
+            <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+            <image out="" over="" width="-1" height="-1" border="0"></image>
+            <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+            <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_da.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1a.gif" width="10" height="10" border="0"></arrow>
+            <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+            <border style="0" width="0" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+          
+            <layer>
+              <setting>
+                <display>1</display>
+                <spacing>6</spacing>
+                <padding>2</padding>
+                <transparency>0</transparency>
+                <direction>0</direction>
+                <corner_x>0</corner_x>
+                <corner_y>0</corner_y>
+                <bg_color>#DBDDD2</bg_color>
+                <bg_transparent>0</bg_transparent>
+                <bg_image></bg_image>
+                <bg_tile>3</bg_tile>
+                <border_style>1</border_style>
+                <border_width>1</border_width>
+                <border_color>#666666</border_color>
+                <border_synchronize>1</border_synchronize>
+                <shadow_type>0</shadow_type>
+                <shadow_size>3</shadow_size>
+                <shadow_color>#7F7F7F</shadow_color>
+                <effect_show>0</effect_show>
+                <effect_hide>0</effect_hide>
+                <effect_speed>100</effect_speed>
+                <enable_decoration>0</enable_decoration>
+                <dr_left_top></dr_left_top>
+                <dr_right_top></dr_right_top>
+                <dr_right_bottom></dr_right_bottom>
+                <dr_left_bottom></dr_left_bottom>
+                <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+                <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+                <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+                <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+                <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+              </setting>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="130" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+              <node state="0" condition_invisible="0">
+                <condition_prefix></condition_prefix>
+                <condition_suffix></condition_suffix>
+                <general width="130" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                <image out="" over="" width="-1" height="-1" border="0"></image>
+                <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+              </node>
+          </layer></node>
+    </layer></node>
+    <node state="2" condition_invisible="0">
+          <condition_prefix></condition_prefix>
+          <condition_suffix></condition_suffix>
+          <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+          <font out_face="Verdana" out_color="#333333" out_size="8" out_size_unit="0" out_decoration="1" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="1"></font>
+          <image out="" over="" width="-1" height="-1" border="0"></image>
+          <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+          <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d2.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1.gif" width="10" height="10" border="0"></arrow>
+          <background out_color="#DBDDD2" out_transparent="0" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+          <border style="2" width="3" out_color="#999999" out_synchronize="0" over_color="#999999" over_synchronize="1"></border>
+    
+          <layer>
+            <setting>
+              <display>1</display>
+              <spacing>6</spacing>
+              <padding>2</padding>
+              <transparency>0</transparency>
+              <direction>0</direction>
+              <corner_x>0</corner_x>
+              <corner_y>8</corner_y>
+              <bg_color>#DBDDD2</bg_color>
+              <bg_transparent>0</bg_transparent>
+              <bg_image></bg_image>
+              <bg_tile>2</bg_tile>
+              <border_style>1</border_style>
+              <border_width>1</border_width>
+              <border_color>#76826B</border_color>
+              <border_synchronize>1</border_synchronize>
+              <shadow_type>0</shadow_type>
+              <shadow_size>0</shadow_size>
+              <shadow_color>#7F7F7F</shadow_color>
+              <effect_show>0</effect_show>
+              <effect_hide>0</effect_hide>
+              <effect_speed>100</effect_speed>
+              <enable_decoration>0</enable_decoration>
+              <dr_left_top></dr_left_top>
+              <dr_right_top></dr_right_top>
+              <dr_right_bottom></dr_right_bottom>
+              <dr_left_bottom></dr_left_bottom>
+              <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+              <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+              <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+              <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+              <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+            </setting>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="E:\cmx-work\DHTML2004\samples\tt.gif" over="E:\cmx-work\DHTML2004\samples\tt.gif" width="7" height="6" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            </node>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="E:\cmx-work\DHTML2004\samples\tt.gif" over="E:\cmx-work\DHTML2004\samples\tt.gif" width="7" height="6" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            </node>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="E:\cmx-work\DHTML2004\samples\tt.gif" over="E:\cmx-work\DHTML2004\samples\tt.gif" width="7" height="6" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            </node>
+            <node state="0" condition_invisible="0">
+              <condition_prefix></condition_prefix>
+              <condition_suffix></condition_suffix>
+              <general width="150" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+              <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+              <image out="" over="" width="-1" height="-1" border="0"></image>
+              <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+              <arrow out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_da.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrow_d1a.gif" width="10" height="10" border="0"></arrow>
+              <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+              <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+            
+              <layer>
+                <setting>
+                  <display>1</display>
+                  <spacing>6</spacing>
+                  <padding>2</padding>
+                  <transparency>0</transparency>
+                  <direction>0</direction>
+                  <corner_x>0</corner_x>
+                  <corner_y>0</corner_y>
+                  <bg_color>#DBDDD2</bg_color>
+                  <bg_transparent>0</bg_transparent>
+                  <bg_image></bg_image>
+                  <bg_tile>3</bg_tile>
+                  <border_style>1</border_style>
+                  <border_width>1</border_width>
+                  <border_color>#666666</border_color>
+                  <border_synchronize>1</border_synchronize>
+                  <shadow_type>0</shadow_type>
+                  <shadow_size>3</shadow_size>
+                  <shadow_color>#7F7F7F</shadow_color>
+                  <effect_show>0</effect_show>
+                  <effect_hide>0</effect_hide>
+                  <effect_speed>100</effect_speed>
+                  <enable_decoration>0</enable_decoration>
+                  <dr_left_top></dr_left_top>
+                  <dr_right_top></dr_right_top>
+                  <dr_right_bottom></dr_right_bottom>
+                  <dr_left_bottom></dr_left_bottom>
+                  <dr_top img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_top>
+                  <dr_right img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_right>
+                  <dr_bottom img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_bottom>
+                  <dr_left img_path="" img_height="-1" img_width="-1" bg_img="" bg_color="#FFFFF7" bg_transparent="0" bg_tile="3"></dr_left>
+                  <multi_column mc_enable="0" mc_number="2" sepa_color="#000000" sepa_transparent="0" sepa_thickness="1" sepa_img="" sepa_img_tile="3"></multi_column>
+                </setting>
+                <node state="0" condition_invisible="0">
+                  <condition_prefix></condition_prefix>
+                  <condition_suffix></condition_suffix>
+                  <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                  <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                  <image out="" over="" width="-1" height="-1" border="0"></image>
+                  <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                  <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                  <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                  <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+                </node>
+                <node state="0" condition_invisible="0">
+                  <condition_prefix></condition_prefix>
+                  <condition_suffix></condition_suffix>
+                  <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                  <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                  <image out="" over="" width="-1" height="-1" border="0"></image>
+                  <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                  <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                  <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                  <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+                </node>
+                <node state="0" condition_invisible="0">
+                  <condition_prefix></condition_prefix>
+                  <condition_suffix></condition_suffix>
+                  <general width="0" height="0" type="0" align_h="0" align_v="1" tip_text="" status="" status_default="1"></general>
+                  <font out_face="Verdana" out_color="#000000" out_size="8" out_size_unit="0" out_decoration="0" over_face="Verdana" over_color="#000000" over_size="8" over_size_unit="0" over_decoration="0"></font>
+                  <image out="" over="" width="-1" height="-1" border="0"></image>
+                  <icon out="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" over="C:\Program Files\SourceTec\Sothink DHTML Menu 8\templates\Simple\green menu\arrowr.gif" width="7" height="6" border="0"></icon>
+                  <arrow out="" over="" width="7" height="6" border="0"></arrow>
+                  <background out_color="#DBDDD2" out_transparent="1" out_image="" out_tile="3" over_color="#FFFFFF" over_transparent="0" over_image="" over_tile="3"></background>
+                  <border style="0" width="3" out_color="#FFFFFF" out_synchronize="0" over_color="#FFFFFF" over_synchronize="0"></border>
+                </node>
+            </layer></node>
+    </layer></node></layer>
+    
+  <cross_frame>
+    <created>0</created>
+    <direction>0</direction>
+    <coor_x>0</coor_x>
+    <coor_y>0</coor_y>
+    <iframe>0</iframe>
+    <navigate_frame>Navigation_frame</navigate_frame>
+    <content_frame>Main_frame</content_frame>
+    <show_in_navigation>1</show_in_navigation>
+  </cross_frame>
+  <scroll_h>
+    <enable_scroll>0</enable_scroll>
+    <enable_custom>0</enable_custom>
+    <custom_size>1</custom_size>
+    <bg_out_color>#FFFFF7</bg_out_color>
+    <bg_out_transparent>1</bg_out_transparent>
+    <bg_out_image></bg_out_image>
+    <bg_out_tile>3</bg_out_tile>
+    <bg_over_color>#B5BED6</bg_over_color>
+    <bg_over_transparent>1</bg_over_transparent>
+    <bg_over_image></bg_over_image>
+    <bg_over_tile>3</bg_over_tile>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <border_out_color>#FFFFF7</border_out_color>
+    <border_out_synchronize>1</border_out_synchronize>
+    <border_over_color>#000000</border_over_color>
+    <border_over_synchronize>1</border_over_synchronize>
+    <arrow_lu_enable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\left_disabled.gif</arrow_lu_enable>
+    <arrow_lu_disable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\left_enabled.gif</arrow_lu_disable>
+    <arrow_lu_width>9</arrow_lu_width>
+    <arrow_lu_height>7</arrow_lu_height>
+    <arrow_lu_border>0</arrow_lu_border>
+    <arrow_rd_enable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\right_disabled.gif</arrow_rd_enable>
+    <arrow_rd_disable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\right_enabled.gif</arrow_rd_disable>
+    <arrow_rd_width>9</arrow_rd_width>
+    <arrow_rd_height>7</arrow_rd_height>
+    <arrow_rd_border>0</arrow_rd_border>
+  </scroll_h>
+  <scroll_v>
+    <enable_scroll>0</enable_scroll>
+    <enable_custom>0</enable_custom>
+    <custom_size>1</custom_size>
+    <bg_out_color>#FFFFF7</bg_out_color>
+    <bg_out_transparent>1</bg_out_transparent>
+    <bg_out_image></bg_out_image>
+    <bg_out_tile>3</bg_out_tile>
+    <bg_over_color>#B5BED6</bg_over_color>
+    <bg_over_transparent>1</bg_over_transparent>
+    <bg_over_image></bg_over_image>
+    <bg_over_tile>3</bg_over_tile>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <border_out_color>#FFFFF7</border_out_color>
+    <border_out_synchronize>1</border_out_synchronize>
+    <border_over_color>#000000</border_over_color>
+    <border_over_synchronize>1</border_over_synchronize>
+    <arrow_lu_enable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\up_disabled.gif</arrow_lu_enable>
+    <arrow_lu_disable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\up_enabled.gif</arrow_lu_disable>
+    <arrow_lu_width>7</arrow_lu_width>
+    <arrow_lu_height>9</arrow_lu_height>
+    <arrow_lu_border>0</arrow_lu_border>
+    <arrow_rd_enable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\down_disabled.gif</arrow_rd_enable>
+    <arrow_rd_disable>C:\Program Files\SourceTec\Sothink DHTML Menu 8\Resource\down_enabled.gif</arrow_rd_disable>
+    <arrow_rd_width>7</arrow_rd_width>
+    <arrow_rd_height>9</arrow_rd_height>
+    <arrow_rd_border>0</arrow_rd_border>
+  </scroll_v>
+  
+</sothink_menu>

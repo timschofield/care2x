@@ -1,0 +1,4 @@
+
+-- change for billing
+ALTER TABLE `care_test_request_chemlabor` ADD `priority` tinyint(1) NOT NULL DEFAULT 0 AFTER `create_time`;
+

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Loading ICD & ICPM(OPS) Codes</TITLE>
+<META http-equiv=content-type content="text/html; charset=ISO-8859-1">
+</HEAD>
+<BODY  text=#000000 vLink=#800080 aLink=#ff0000 link=#0000cc onLoad="if(window.focus) window.focus()" 
+bgColor=#ffffff topMargin=2>
+<TABLE cellSpacing=0 cellPadding=5 width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD ><font face="verdana,arial" size=2><A href="../../index.php?lang=de">
+	<img src="http://care2x.org/foundry/gui/img/logos/lopo/care_logo.gif" border=0></A> </TD>
+    <TD bgColor=#eeeeee><b>
+      <font face="verdana,arial" size=5>Loading ICD & ICPM (OPS) Codes Data <p>
+	</TD></TR>
+	
+  <TR vAlign=top>
+    <TD><!-- <font face="verdana,arial" size=2><SMALL>
+      <P><A href="../../index.php?lang=de">Home</A> 
+     </SMALL> --></TD>
+    <TD><font face="verdana,arial" size=2>
+		<p>
+		<b>NOTE:</b>You can only load the data from files supplied with this installation package.
+		<p>
+		
+			<b>A. Do I really need to load these data?</b>
+			<blockquote>
+			Only if you are using the DRG system or ICD, ICPM (OPS) codes in your documentations.
+			</blockquote>
+			<b>B. How to start:</b>
+<blockquote>			
+			<p>
+			 Start phpMyAdmin either via the System Admin module or by typing http://yourhostaddress/modules/phpmyadmin/ in your browser.<p>
+			<p>
+			NOTE: If you like to use a different DBMS administration program, start it instead.
+</blockquote>			<p>
+			<b>	c. What to do next:</b> 
+			<p>
+<blockquote>				There are two methods to load the data from the files:
+		<li>Running  SQL insert query scripts
+			<li>Loading  files of CSV formatted data
+</blockquote>			<p>
+			<b>D. What are the differences and what method should I use?</b> 
+			<blockquote>
+			<b>Running sql insert scripts</b><br>
+			<li>Slow but will work in any standard sql database
+			<li>Use it if your DBMS administration program cannot load a CSV formatted data.
+			<p>
+			<b>Loading CSV files</b>
+			<br>
+			<li>Loads the data in high speed
+			<li>You need to know several parameters for it to work
+			<li>If you are using phpMyAdmin or if your DBMS admin program can load CSV data, use this method
+			</blockquote>
+			<b>E. What to do next?</b><p>
+<blockquote>			
+Follow the method that you have chosen below. (You only need to follow one)
+</blockquote>			
+			<hr>
+			<font size=5>1. Running sql insert scripts</font>
+			<p>
+			<blockquote>
+			If you need the <font color=#ff0000>german ICD10</font> codes:<br>
+			Using phpmyAdmin run the following sql scripts in the  following order:<br>
+			 (these are the data for
+			the ICD10 coding system in <font color=#ff0000>german language</font>)<p>
+            <blockquote>			
+            <li>/install/sql/icd10_de/a2g-insert.sql<br>
+			<li>/install/sql/icd10_de/h2n-insert.sql<br>
+			<li>/install/sql/icd10_de/o2s-insert.sql<br>
+			<li>/install/sql/icd10_de/t2z-insert.sql
+			<p></blockquote>
+			If you need the <font color=#ff0000>english ICD10</font> codes:<br>
+			Similarly run the following sql scripts  in the  following order: <br>(these are the data for the
+			ICD10 coding system in <font color=#ff0000>english language</font>) <p>
+<blockquote>
+			<li>/install/sql/icd10_en/insert-data-a2l.sql<br>
+			<li>/install/sql/icd10_en/insert-data-m2y.sql<br>
+</blockquote>			<p>
+			If you need the <font color=#ff0000>german OPS301 (ICPM)</font> codes:<br>
+			Similarly run the following sql scripts  in the following order:(these are the data for the
+			OPS301 coding system in <font color=#ff0000>german language</font>)<p>
+<blockquote>			
+           <li> /install/sql/ops301/insert-data-1-5-499.sql<br>
+			<li>/install/sql/ops301/insert-data-55-57.sql<br>
+			<li>/install/sql/ops301/insert-data-58-94.sql<br>
+</blockquote>			
+  </blockquote><p>
+
+  	<hr>
+ 			<font size=5>2. Loading CSV files</font>
+			<p>
+			The CSV data have the following format:<p>
+			Fields terminated by ; (semi-colon)<br>
+			Fields enclosed by " (double-qoute)<br>
+			Fields escaped by \ (backslash)<br>
+			Lines terminated by \r\n (return,newline chars)<br>
+			Field names are NOT included on the first line
+			<p>
+			<blockquote>
+			If you need the <font color=#ff0000>german ICD10</font> codes:<br>
+			i. Select the care_icd10_de table on the database.<br>
+			ii. Load  the following text file:
+			 (these are the data for
+			the ICD10 coding system in <font color=#ff0000>german language</font>)<p>
+            <blockquote>			
+            <li> /install/csv/care_icd10_de.csv<br>
+			<p></blockquote>
+			If you need the <font color=#ff0000>english ICD10</font> codes:<br>
+			i. Select the care_icd10_en table on the database.<br>
+			ii. Load the following text file:(these are the data for the
+			ICD10 coding system in <font color=#ff0000>english language</font>) <p>
+<blockquote>
+            <li> /install/csv/care_icd10_en.csv<br>
+</blockquote>			<p>
+			If you need the <font color=#ff0000>german OPS301 (ICPM)</font> codes:<br>
+			i. Select the care_ops301_ed table on the database.<br>
+			ii. Load the following text file:(these are the data for the
+			OPS301 coding system in <font color=#ff0000>german language</font>)<p>
+<blockquote>			
+            <li> /install/csv/care_ops301_de.csv<br>
+</blockquote>			
+  </blockquote><p>
+ 
+		</TD></TR>
+  <TR>
+    <TD vAlign=top noWrap ></TD>
+    <TD vAlign=bottom><font face="verdana,arial" size=1>
+      <HR noShade SIZE=1>
+      <DIV align=center><SMALL>©2002,2003,2004 Elpidio Latorilla, CARE2X, CARE 2002, www.intellin.org, www.care2x.org,www.care2x.net,www.care2x.com - <!-- <A 
+      href="../../index.php?lang=de">Home</A>  -->
+      </SMALL></DIV></TD></TR></TBODY></TABLE></BODY></HTML>

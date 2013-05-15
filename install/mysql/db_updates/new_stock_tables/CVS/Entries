@@ -1,0 +1,14 @@
+/grn.sql/1.2/Fri Jun  5 05:34:28 2009//
+/grndetail.sql/1.2/Fri Jun  5 05:34:31 2009//
+/itemtransfer.sql/1.2/Fri Jun  5 05:34:31 2009//
+/itemtransferdetails.sql/1.2/Fri Jun  5 05:34:31 2009//
+/location.sql/1.2/Fri Jun  5 05:34:32 2009//
+/purchaseorder.sql/1.2/Fri Jun  5 05:34:30 2009//
+/purchaseorderdetail.sql/1.2/Fri Jun  5 05:34:29 2009//
+/reordering.sql/1.2/Fri Jun  5 05:34:30 2009//
+/stockinhand.sql/1.2/Fri Jun  5 05:34:29 2009//
+/storeinfo.sql/1.2/Fri Jun  5 05:34:32 2009//
+/supplier.sql/1.2/Fri Jun  5 05:34:31 2009//
+/supplierdetail.sql/1.2/Fri Jun  5 05:34:31 2009//
+/supplierlist.sql/1.2/Fri Jun  5 05:34:31 2009//
+/transfer.sql/1.2/Fri Jun  5 05:34:31 2009//

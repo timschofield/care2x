@@ -1,0 +1,491 @@
+For Care 2002 beta 1.0.02
+Date of creation: 16-07-2002
+
+This is a draft document and is being constantly developed. The information here
+might become useless when new versions are released. Always check for the latest
+documentation or contact elpidio@latorilla.com .
+
+Table of Contents
+-------------------------------------------------------------------
+I.   Some general guidelines
+II.  Some general security concepts
+III. Merging your module to the main structure of Care 2002
+IV.  Committing your scripts
+
+
+*******************************************************************
+
+	GENERAL CONCEPT OF THE CARE 2002's  STRUCTURE
+
+	The database and the data contained in it are considered as the BASE of the system.
+	The scripts merely act as "functioning agents" between the GUI and the data.
+	The GUI merely act as human interface between the user and the scripts.
+	
+	Following this concept, we strive that:
+	
+	The database schema must be supported by any type of database.	(We plan to use Metabase classes which currently support 8 databases)
+	The scripts ("functioning agents") must be platform independent. (Use of PHP as the programming language)
+	The GUI must be platform independent. 	(Use of browser client)
+	
+*******************************************************************
+
+I. SOME GENERAL GUIDELINES
+
+	A. Using classes.
+
+		1. Group the classes common to a module into a directory under the root directory.
+			Name the directory clearly and attach "_class" to it. For example: if you have class
+			"linen_class.php", put it into  "/linen_class/" resulting to "/linen_class/linen_class.php".
+		
+		2. As much as possible, do not use a class which is designed for another module. Create
+			the appropriate class for the current module even though the reuse of a class is very 
+			tempting. The reason for this is to ensure the robustness of the scripts. Once a class 
+			shows a bug during operation, only the module which is dependent on that class will
+			suffer and other modules remain functional.
+	
+		3. Reuse of classes for other modules is allowed only in very special cases. For example when the 
+			development time saved is very significant compared to the probable dependencies of multiple 
+			modules on that single class.  (See the use of Metabase classes stated at the end of this document)
+		
+	B. Main functional scripts.
+
+		1. Put all main module scripts into the /main/ directory.
+	
+		2. Avoid scattering scripts into different directories.
+		
+		3. Name your script in this format (for example your module is for the Linen department):
+	
+		Samples:
+		
+			linen_pass.php (password checkpoint)
+			linen_start.php (start page)
+			linen_search.php (search page)
+			linen_search_displayresult (displaying search results)
+			linen_db_input.php (inputting new items into db)
+			linen_db_input_save.php (saving the new items into db)
+			linen_db_input_save_validate.php (validate prompt)
+	
+	C. Included or required files.
+
+		1. All include and require files must be placed into the /include/ directory.
+	
+		2. All external javascript files must be placed into the /js/ directory.
+	
+		3. All external css files must be placed into the /css/ directory.
+	
+		4. All help files must be placed into their respective "language" directory under
+			the /help/ directory. The language directory must correspond to the
+			standard code outputted by the php variable "HTTP_ACCEPT_LANGUAGE".
+			For example: english language outputs "en". So the directory tree looks like this:
+		
+				/help/en/
+		
+			The help file itself must be named in this format:
+		
+				help_en_thenameofscriptusingthisfile.php
+		
+			Placing it to the directory would look like this:
+		
+				/help/en/help_en_thenameofscriptusingthisfile.php
+			
+		5. All language tables must be placed into their respective "language" directory under
+			the /language/ directory. The language directory must correspond to the
+			standard code outputted by the php variable "HTTP_ACCEPT_LANGUAGE".
+			For example: english language outputs "en". So the directory tree looks like this:
+		
+				/lang/en/
+			
+			The language table itself must be named in this format:
+		
+				lang_en_thenameofscriptusingthistable.php
+		
+			Placing it to the directory would look like this:
+		
+				/lang/en/lang_en_thenameofscriptusingthistable.php
+				
+			The following is the "official" ISO language code list:
+				bg          => bulgarian, bulgarian-win1251
+				ca          => catalan
+  				cs-iso      => czech, czech-iso
+  				cs-win1250  => czech, czech-win1250
+  				da          => danish
+  				de         	=> german
+  				en         	=> english
+  				es          => spanish
+  				fr          => french
+  				id          => indonesian
+  				it          => italian
+  				ja          => japanese
+  				ko          => korean
+  				nl          => dutch
+  				no          => norwegian
+  				pl          => polish
+  				pt-br	    => brazilian portuguese
+  				pt          => portuguese
+  				ru-koi8r	=> russian, russian-koi8
+  				ru-win1251  => russian, russian-win1251
+  				se          => swedish
+  				th          => thai
+  				zh-tw       => chinese traditional, chinese_big5
+  				zh          => chinese simplified, chinese_gb
+					
+II. SOME GENERAL SECURITY CONCEPTS
+
+   	A. The concept of chaining the scripts into a strict order.
+	
+		Care 2002 chains the scripts into a strict order. The reason is to prevent somebody
+		from running a script out of the prescribed order. 
+	
+		For example: 
+		Somebody  who has no access permission into the medocs module might try typing the
+		medostart.php script into the browser in an attempt to start the medocs
+		without passing through the password checkpoint. The medostart.php will
+		detect that it is not being executed by the password checker script and gives out
+		an error warning.
+	
+		The only allowed entry into the different modules is via the left menu items, the
+		right menu items on home page and links in the submenus.
+	
+		Schematic sample.
+	
+		left_menu --> admission_module --> new_admission --> password_check --> data_input_form --> save --> data_preview
+		
+		There is now way of jumping to the data_input_form directly. This chaining concept must be
+		employed in all scripts except in very special cases where the security risk is low and the script involved offers
+		no link to high risk scripts.
+		
+	B. How is the chaining done and what is the "script lock" 
+	
+		The most important object of the chaining is a random sid (session id) created dynamically at the
+		very start of each Care 2002 session (note! it is not the default php SID). This sid  is encrpyted using a secret key.
+		The encrypted sid is then stored as cookie at the client side (the reason why cookie acceptance is a prerequisite). 
+		Also, the non-encrypted form of sid is propagated all  throughout the program explicitly by adding it dynamically to the urls. 
+		
+		For example: <a href="medostart.php?sid=2034821841238402">
+		The script code of the above example might look like this: <a href="medostart.php?sid=<?=$sid ?>">
+		
+		A successive script fetches up the cookie sid, decrypts its contents and compares it to the propagated sid. If the two matches, 
+		the script assumes that he is being executed by another valid php script and runs normally. However, if the two do not match, 
+		the script outputs a warning message and stops the program.
+		
+		I call this technique the "script lock".
+		
+		There are three levels of script lock security.
+		
+		1.) First level security: for normal strict chaining of scripts including low-risk scripts. Only one sid cookie is involved.
+		2.) Second level security: this is applied at the scripts of high-risk modules like "Patient admission", "OP Logbook", etc.
+		    On this level, a second sid cookie is used containing a sid which is encrypted using a second secret key. This 
+			cookie is created every after successful password and username check. Both the 
+			first and second level sid cookies are decrypted and compared to the propagated sid.
+	    3.) Third level security: this creates an additional difficulty to the second level security. A third cookie is used
+		    for this purpose. The third cookie is however not encrypted and stores the user's name that can be applied automatically
+			in appropriate forms.
+			
+		Both the second and third level security sid cookies are erased when the user leaves the protected module.
+		The first level security will be erased only (or replaced with a different one) when the user restarts or refreshes the
+		browser. In some cases (browser dependent), the appearance of the invalid access warning page might erase the first 
+		level security cookie which in turn forces the user to refresh or reload his browser.
+		
+		NOTE: We are planning to encrypt the propagated sid for added security level. Developers, please be aware of this in the
+		future releases. There is a risk of hackers spoofing this sid, even the encrypted one. New or better concepts are 
+		welcome.
+	
+	C. All cookies (except the ck_config cookie) have dynamic names. A cookie's dynamic name is composed of a constant
+	   string like "ck_language" plus the session id itself e.g. 1033939393. The cookie's name would be "ck_language1033939393".
+	   This dynamic naming is applied to avoid conflicts among different instances of browsers that might run 
+	   simultaneously on the same workstation. 
+	   
+	   Also, the dynamic naming attempts to prevent the danger of "cookie spoofing".
+	
+	D. A script is not allowed to jump to a script belonging to another module.
+	
+	E. The concept of "step-in/step-out".
+	
+		A page must always return to the preceeding page either via the button "Cancel" , "Close", or "Return".
+		
+		left_menu <-- admission_module <-- new_admission <-- password_check <-- data_input_form <-- save <-- data_preview
+
+		> This concept is based on the observation of common human behavior. If someone steps-in into the
+		wrong room, he will never jump out of the window upon noticing the error but normally steps-back and
+		go out of that room through the door where he entered before.
+		
+		NOTE: Even in the return direction, the sid must always be explicitly propagated. Otherwise, the script will
+		break the chain and stop running.
+		
+	
+III. MERGING YOUR MODULE TO THE MAIN STRUCTURE OF CARE 2002
+
+	A. Creating the left menu item link. 
+			For example you are merging the linen department module.
+			The module's link name         : "Linen Department".
+			The module language            : English
+			The module's first script name : "linen_start.php".
+			The module's language table    : "lang_en_linen.php".
+			The module's help file         : "help_en_linen.php".
+	
+		1. Open the "lang_en_indexframe.php" script found in /language/en/ directory.
+		
+		2. Add the module's Link name ("Linen Department") as array element of the "$indextag" array variable.
+			(Don't forget the comma!)
+		
+		Example:
+		
+		$indextag=array("Home&nbsp;",
+				"Directory&nbsp;",
+				"Admission&nbsp;",
+				"Medocs&nbsp;",
+				"Doctors&nbsp;",
+				"Nursing&nbsp;",
+				"OR&nbsp;",
+				"Tech Support&nbsp;",
+				"Laboratories&nbsp;",
+				"Radiology&nbsp;",
+				"Pharmacy&nbsp;",
+				"Medical Depot&nbsp;",
+				"EDP &nbsp;",
+				"Intranet Email&nbsp;",
+				"Internet Email&nbsp;",
+				"Specials &nbsp;",
+				"Login &nbsp;",
+				"Linen Department$nbsp;"
+				);
+
+		3. Open the  "indexframe.php" script found in the /main/ directory.
+		
+		4. Add the module's script name ("linen_start.php") as an array element of the "$targetfile" array variable.
+			(Do not forget the comma!)
+		
+			For example:
+			
+			$targetfile=array("startframe.php",
+					"telesuch.php",
+					"aufnahme_pass.php",
+					"medopass.php",
+					"aerzte.php",
+					"pflege.php",
+					"op-doku.php",
+					"technik.php",
+					"labor.php",
+					"radiolog.php",
+					"apotheke.php",
+					"medlager.php",
+					"edv.php",
+					"intra-email-pass.php",
+					"../nocc/",
+					"spediens.php",
+					"login.php",
+					"linen_start.php"
+					);
+
+		NOTE: The index number of the script file element in the $targetfile must correspond to the index number of the
+		module's link name in the $indextag. You can even rearrange the menu items as long as their link names 
+		correspond exactly to their script file names.
+		
+		NOTE: We are planning to mirror this data into a database table to enable the normal user or admin to
+		dynamically rearrange or hide/release menu items based on access permissions and user hierarchy.
+		Developers, please be aware of this in the future releases!
+		
+		5. Save the two files. You now have a link to your linen module at the left menu.
+		
+	B. Implementing the script chaining, language detect, and user configuration in your scripts.
+	
+		1. Insert the following lines of code at the start of each and every script you made (except include files): 
+
+		   /**********************************************************/
+           define("LANG_FILE","name_of_language_table.php");
+           define("NO_2LEVEL_CHK",1);
+           require("../include/inc_front_chain_lang.php");
+		   /**********************************************************/
+
+           If the script is protected w/ the second level security chaining write instead the following code:
+           Where "edp_access_user" is the name of the cookie set after a successful password check
+
+		   /**********************************************************/
+           define("LANG_FILE","name_of_language_table.php");
+           $local_user="edp_access_user";
+           require("../include/inc_front_chain_lang.php");
+           /**********************************************************/
+		   
+           If the script is not protected w/ script lock security but requires language detection, write instead:
+
+		   /**********************************************************/
+		   define("LANG_FILE","name_of_language_table.php");
+		   define("NO_CHAIN",1);
+		   require("../include/inc_front_chain_lang.php");
+		   /**********************************************************/
+
+           If the script does not require a language table, define the LANG_FILE to "" (empty string).
+		   
+		   /**********************************************************/
+		   define("LANG_FILE","");
+		   define("NO_2LEVEL_CHK",1);
+		   require("../include/inc_front_chain_lang.php");
+		   /**********************************************************/
+
+		   If the script neither requires script lock protection nor a language table, do not
+		   write any of the code lines above.
+			
+	C. Using the user configured values for your scripts and pages.
+	
+			The last line of the above lines of codes 'require("../req/config-color.php")' fetches the user 
+			configured values and internal flags. This routine delivers the following variables which can be used 
+			throughout the script. (at the moment, these are values for colors and internal flags. More are being planned.)
+			
+			$cfg[dhtml]          // 1 if browser has dhtml capabilities, 0 if no
+			$cfg[mask]           // 1 if normal diplay mode with left menu column, 2 if alternative with floating menu child window
+			$cfg[idx_bgcolor]    // color value usually for left menu background
+			$cfg[idx_txtcolor]   // color value usually for left menu text
+			$cfg[idx_hover]    	 // color value usually for left menu hover link
+			$cfg[idx_alink]      // color value usually for left menu active link
+			$cfg[top_bgcolor]  	 // color value usually for top horizontal frame background
+			$cfg[top_txtcolor]   // color value usually for top horizontal frame text
+			$cfg[body_bgcolor]   // color value usually for page body background
+			$cfg[body_txtcolor]  // color value usually for page body text
+			$cfg[body_hover]     // color value usually for page body hover link
+			$cfg[body_alink]     // color value usually for page body active link
+			$cfg[bot_bgcolor]    // color value usually for bottom frame background
+			$cfg[bot_txtcolor]   // color value usually for bottom frame text
+			$cfg[bname]          // browser name eg. msie or netscape or mozilla
+			$cfg[bversion]       // browser version
+			$cfg[ip]             // ip number
+			$cfg[cid]            // inactive at the moment 
+			$cfg[lang]           // language code as returned by HTTP_LANGUAGE_ACCEPT 
+			
+		D. Propagating the sid and the language code explicitly throughout the entire scripts.
+		
+			Create your links to other scripts with the added parameters for sid and language. Use the following
+			formats:
+			
+			<a href="nameofnextscript.php?<?php print "sid=$sid&lang=$lang"; ?>">
+			
+			or
+			
+			<a href="nameofnextscript.php?sid=<?php print $sid ?>&lang=<?php print $lang ?>">
+			
+			or 
+			
+			print "<href=\"nameofnextscript.php?sid=$sid&lang=$lang\">";
+			
+		E. Creating the necessary database tables and elements.
+		
+			1. If your module does not require data from other tables already created in the installation of
+				CAre 2002. You can just create your table and elements according to the requirements of
+				your modules without consideration of the currently existing tables.
+				
+			2. Create your table according to this format (for example is the Linen Department):
+			
+				care_linen_newitems   // sample table for new linen items
+				care_linen_olditems    // sample table for old linen items
+				care_linen_personell   // sample table for the linen dept's personell data
+				care_linen_todo        // to do list
+				care_linen_todo_done  // done jobs on the list
+				care_linen_todo_trash  // discarded to do list
+				
+			3. If however, your module does need data from the existing Care 2002 tables, use the
+				phpMyAdmin program and look at the elements and table structures of the following
+				tables: (You have to decide which table you need).
+				
+				cafe_menu_de      // canteen menu in german
+				cafe_menu_en      // canteen menu in english
+				cafe_prices_de    // canteen prices in german
+				cafe_prices_en    // canteen prices in english
+				doctors_dept_personell_quicklist  // quicklist for doctors
+				doctors_dutyplan                  // duty plan list for doctors
+				drg_quicklist_de                  // diagnosis related groups quicklist german
+				drg_quicklist_en                  // diagnosis related groups quicklist english
+				drg_related_codes_de              // drg related codes german
+				drg_related_codes_en              // drg related codes english
+				duty_performance_report           // op services reporting system 
+				icd10_de            // international code of diseases version 1.0 german DO NOT EDIT THIS TABLE!
+				icd10_en            // international code of diseases version 1.0 english DO NOT EDIT THIS TABLE!
+				lab_test_data       // chemical lab test results data
+				lab_test_parameter  // chemical lab test parameters
+				mahopass            // users info and permission table
+				mahopatient         // main table for admitted patients, all modules that process patient data must use this table
+				mahophone           // telephone & beeper data
+				mail_private        // mails for the intranet system - nonstandard format
+				mail_private_users  // user data for the private mail system
+				mail_public         // inactive for the moment
+				med_ordercatalog    // catalog data (quicklist) for ordering central material depot products
+				med_orderlist       // orders data
+				med_orderlist_archive         // archive
+				med_orderlist_archive_trash   // temp storage for deleted orders
+				med_orderlist_todo            // pending orders
+				med_products_main             // main products data
+				med_products_trash            // temp storage for deleted products data
+				med_report                    // inactive for the moment
+				medocs              // medocs data, dependent to the mahopatient table
+				memo_private        // inactive
+				memo_public         // inactive
+				news_article_de     // german news
+				news_article_en     // english news
+				news_public         // inactive
+				nursing_dept_personell_quicklist   // quicklist data, dependent on the personell_data table
+				nursing_dutyplan                   // inactive
+				nursing_op_logbook                 // surgical operations log data
+				nursing_station_de                 // nursing ward occupancy list german
+				nursing_station_en                 // nursing ward occupancy list english
+				nursing_station_patients           // ward's patients list dependent on the mahopatient table
+				nursing_station_patients_color_rider   // inactive
+				nursing_station_patients_curve         // patients clinical chart data, dependent on the mahopatient  and nursing_station_patients tables
+				nursing_station_patients_diagnostic_reports   // inactive
+				nursing_station_patients_diagnostic_requests  // inactive
+				nursing_station_patients_directives           // physician's orders
+				nursing_station_patients_release              // patient releases data
+				nursing_station_patients_report               // nurses' report
+				nursing_station_patients_root                 // inactive
+				op_med_doc          // surgical operations data, used by surgeons, dependent on the mahopatient table
+				ops301_de           // german surgical operations code system DO NOT EDIT THIS TABLE
+				ops301_en           // inactive
+				ops_intern_de       // internal surgical operations coding system data - german
+				ops_intern_en       // internal surgical operations coding system data - english
+				personell_data      //  general table for hospital personell/employees' data
+				personell_data_quicklist   //  quicklist 
+				pharma_ordercatalog        // order catalog for pharmaceutical products
+				pharma_orderlist           // orders' listings
+				pharma_orderlist_archive   // archived orders' listings
+				pharma_orderlist_archive_trash  // deleted orders' listings
+				pharma_orderlist_todo           // pending orders' listings
+				pharma_products_main            // pharmaceutical products data
+				pharma_products_trash           // temporary storage of deleted pharma products data
+				station2dept_table         // ward to department (language dependent) conversion table
+				steri_products_main        // inactive
+				tech_questions             // queries to technical dept
+				tech_repair_done           // reports of technical jobs done
+				tech_repair_job            // pending technical jobs
+
+			4. Use the Metabase classes for communicating with the database. You can get the Metabase 
+				classes from http://www.phpclasses.org . Please read its documentations on how to communicate
+				with the database using the classes.
+				
+				NOTE: Since the decision to use Metabase classes came after the release of the latest version of Care 2002,
+				the Metabase classes are not included in the download package. You must get the classes from the
+				http://www.phpclasses.org . Create a "metabase" directory in the root and place the classes into 
+				the "metabase" directory.
+				
+				Example:    /metabase/
+	
+				NOTE: The use of Metabase classes is a compromise step to the design principles stated at the earlier part of this
+				document. A new development of the support for 8 different databases would otherwise take a very long time.
+			
+IV. COMMITTING YOUR SCRIPTS
+
+	A. Before committing your scripts, set your following database access variables to the the following data:
+	
+			database host   = "localhost"
+			database name   = "care"
+			username        = "httpd"
+			password        = ""   (empty string)
+			
+	B. Commit your scripts either to the project's CVS at the sourceforge.net or email them to elpidio@latorilla.com
+		
+		
+		
+		
+
+
+
+			
+	
+		
+		 
