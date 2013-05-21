@@ -257,14 +257,16 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
 			<FONT SIZE=-1  FACE="Arial"><img <?php echo $img_source; ?>>
 		</td>
 		</tr>
+		<!--
 		<tr>
 		<td  bgColor="#eeeeee">
-			<FONT SIZE=-1  FACE="Arial"><?php echo $LDFileNr ?>:
+			<FONT SIZE=-1  FACE="Arial"><?php // echo $LDFileNr ?>:
 		</td>
 		<td  bgcolor="#ffffee">
-			<FONT SIZE=-1  FACE="Arial" color="#800000"><b><?php echo $selian_pid ?>
+			<FONT SIZE=-1  FACE="Arial" color="#800000"><b><?php // echo $selian_pid ?>
 		</td>
 		</tr>
+		-->
 		<tr>
 		<td  bgColor="#eeeeee">
 			<FONT SIZE=-1  FACE="Arial"><?php echo $LDRegTime ?>:
@@ -433,17 +435,6 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
 		</tr>
 
 		<tr>
-		<td bgColor="#eeeeee">
-			<FONT SIZE=-1  FACE="Arial">
-			&nbsp;&nbsp;&nbsp;<?php echo $LDTownCity ?>:
-		</td>
-		<td bgcolor="#ffffee">
-			<FONT SIZE=-1  FACE="Arial" color="#990000"><b>
-
-
-			<?php echo $citizenship; ?> <?php //echo $addr_citytown_name; ?><?php //echo $addr_citytown_nr; ?>
-
-		</td>
 		<td bgcolor="#ffffee">
 			<FONT SIZE=-1  FACE="Arial" color="#990000"><b>
 			&nbsp;&nbsp;&nbsp;<?php echo $LDZipCode ?>: <?php echo $addr_zip; ?>
@@ -456,7 +447,7 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
 		</td>
 		<td bgcolor="#ffffee" colspan=2>
 			<FONT SIZE=-1  FACE="Arial" color="#990000">
-			<b><?php echo ($district>0)?$multi->GetDistrictName($district):$district;; ?>
+			<b><?php echo ($district>0)?$multi->GetDistrictName($district):$district; ?>
 		</td>
 		</tr>
 		<tr>
@@ -466,7 +457,7 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
                 </td>
                 <td bgcolor="#ffffee" colspan=2>
                         <FONT SIZE=-1  FACE="Arial" color="#990000">
-                        <b><?php echo $subcounty ?>
+                        <b><?php echo ($subcounty>0)?$multi->GetSubCountyName($subcounty):$subcounty; ?>
                 </td>
                 </tr>
 		<tr>
@@ -476,7 +467,17 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
                 </td>
                 <td bgcolor="#ffffee" colspan=2>
                         <FONT SIZE=-1  FACE="Arial" color="#990000">
-                        <b><?php echo $parish?>
+                        <b><?=($parish>0)?$multi->GetParishName($parish):$parish?>
+                </td>
+                </tr>
+		<tr>
+                <td bgColor="#eeeeee">
+                        <FONT SIZE=-1  FACE="Arial">
+                        &nbsp;&nbsp;&nbsp;<?php echo $LDTownCity ?>:
+                </td>
+                <td bgcolor="#ffffee">
+                        <FONT SIZE=-1  FACE="Arial" color="#990000"><b>
+                        <?=($citizenship>0)?$multi->GetVillageName($citizenship):$citizenship?>
                 </td>
                 </tr>
 		<tr>
