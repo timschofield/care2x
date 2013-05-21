@@ -34,7 +34,11 @@
 		var $tb_users = ' `care_users` ';
 		var $tb_region = ' `care_tz_region` ';
 		var $tb_ward = ' `care_tz_ward` ';
-		var $tb_district = ' `care_ug_districts`';
+		var $tb_district = ' `care_ug_district`';
+		var $tb_county = '`care_ug_county`';
+		var $tb_subcounty = '`care_ug_subcounty`';
+		var $tb_parish = '`care_ug_parish`';
+		var $tb_village = '`care_ug_village`';
 		var $tb_room = '`care_tz_hospital_rooms`';
 		var $tb_diagnosis = '`care_tz_diagnosis`';
 		var $tb_conf = '`care_tz_hospital_rooms_conf`';
@@ -632,6 +636,51 @@
 				else return $this->notin;
 			} else return $this->notin;
 		}
+
+		function GetCountyName($id) {
+                        global $db;
+                        if ($id!=''){
+                                $sql="SELECT county FROM " . $this->tb_county. " WHERE id = ".$id;
+                            $o = $db->Execute($sql);
+                            print mysql_error();
+                                if ($v=$o->FetchRow())
+                                        return $v[0]; # gat u;
+                                else return $this->notin;
+                        } else return $this->notin;
+                }
+		function GetSubCountyName($id) {
+                        global $db;
+                        if ($id!=''){
+                                $sql="SELECT subcounty FROM " . $this->tb_subcounty. " WHERE id = ".$id;
+                            $o = $db->Execute($sql);
+                            print mysql_error();
+                                if ($v=$o->FetchRow())
+                                        return $v[0]; # gat u;
+                                else return $this->notin;
+                        } else return $this->notin;
+                }
+		function GetParishName($id) {
+                        global $db;
+                        if ($id!=''){
+                                $sql="SELECT parish FROM " . $this->tb_parish. " WHERE id = ".$id;
+                            $o = $db->Execute($sql);
+                            print mysql_error();
+                                if ($v=$o->FetchRow())
+                                        return $v[0]; # gat u;
+                                else return $this->notin;
+                        } else return $this->notin;
+                }
+		function GetVillageName($id) {
+                        global $db;
+                        if ($id!=''){
+                                $sql="SELECT village FROM " . $this->tb_village. " WHERE id = ".$id;
+                            $o = $db->Execute($sql);
+                            print mysql_error();
+                                if ($v=$o->FetchRow())
+                                        return $v[0]; # gat u;
+                                else return $this->notin;
+                        } else return $this->notin;
+                }
 
 		function GetWardName($id){
 			global $db;
