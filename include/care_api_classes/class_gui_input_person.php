@@ -280,7 +280,7 @@ class GuiInputPerson {
 							 insurance_ID='$insurance_ID',
                                                          date_update='".date('Y-m-d H:i:s')."',";
 
-
+					echo $sql;
 
 					if($region !="-1" && $district!="-1" && $ward!="-1")
 					{
@@ -542,8 +542,108 @@ class GuiInputPerson {
 
 
 ?>
-		<script  language="javascript">
-		<!--
+	
+		<script language="javascript" type="text/javascript">
+
+		function getXMLHTTP() { //fuction to return the xml http object
+		var xmlhttp=false;	
+		try{
+			xmlhttp=new XMLHttpRequest();
+		}
+		catch(e)	{		
+			try{			
+				xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e){
+				try{
+				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch(e1){
+					xmlhttp=false;
+				}
+			}
+		}
+		 	
+		return xmlhttp;
+    		}
+		
+		function getCounty(countryId) {		
+		var strURL="http://localhost/care2x/include/care_api_classes/findCounty.php?county="+countryId;
+		var req = getXMLHTTP();
+		if (req) {
+			req.onreadystatechange = function() {
+				if (req.readyState == 4) {
+					// only if "OK"
+					if (req.status == 200) {						
+						document.getElementById('cdiv').innerHTML=req.responseText;						
+					} else {
+
+						alert("There was a problem while using XMLHTTP 2:\n" + req.statusText);
+					}
+				}				
+			}			
+			req.open("GET", strURL, true);
+			req.send(null);
+		}		
+	}
+	function getSubCounty(stateId) {		
+		var strURL="http://localhost/care2x/include/care_api_classes/findSubCounty.php?subcounty="+stateId;
+		var req = getXMLHTTP();
+		if (req) {
+			req.onreadystatechange = function() {
+				if (req.readyState == 4) {
+					// only if "OK"
+					if (req.status == 200) {						
+						document.getElementById('scdiv').innerHTML=req.responseText;						
+					} else {
+						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+					}
+				}				
+			}			
+			req.open("GET", strURL, true);
+			req.send(null);
+		}
+				
+	}
+        function getParish(stateId) {                
+                var strURL="http://localhost/care2x/include/care_api_classes/findParish.php?parish="+stateId;
+                var req = getXMLHTTP();
+                if (req) {
+                        req.onreadystatechange = function() {
+                                if (req.readyState == 4) {
+                                        // only if "OK"
+                                        if (req.status == 200) {                                                
+                                                document.getElementById('pdiv').innerHTML=req.responseText;                                          
+                                        } else {
+                                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+                                        }
+                                }                               
+                        }                       
+                        req.open("GET", strURL, true);
+                        req.send(null);
+                }
+                                
+        }
+	function getVillage(stateId) {                
+                var strURL="http://localhost/care2x/include/care_api_classes/findVillage.php?village="+stateId;
+                var req = getXMLHTTP();
+                if (req) {
+                        req.onreadystatechange = function() {
+                                if (req.readyState == 4) {
+                                        // only if "OK"
+                                        if (req.status == 200) {                                                
+                                                document.getElementById('vdiv').innerHTML=req.responseText;                                          
+                                        } else {
+                                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+                                        }
+                                }                               
+                        }                       
+                        req.open("GET", strURL, true);
+                        req.send(null);
+                }
+                                
+        }
+		// -------------- END OF DROP DOWN JAVASCRIPT FOR DISTRICT/COUNTY/SUBCOUNTY/PARISH/VILLAGE ------------
 			function test(){
 			document.aufnahmeform.action="<?php $_SERVER['PHP_SELF'] ?>";
 			document.aufnahmeform.submit();
@@ -571,14 +671,18 @@ class GuiInputPerson {
 			}
 		}
 		function chkform(d) {
-			<?php if ($person_obj->IsHospitalFileNrMandatory())
+			<?php 
+				/*
+			   if ($person_obj->IsHospitalFileNrMandatory())
 			      {
 			      	echo 'if(d.selian_pid.value==""){
 			      			alert("Please enter Hospital File Number");
 			      		 d.selian_pid.focus();
 			      			return false;
 			      			}else';
-			      } ?>
+			      } 
+			      */
+				?>
 
 			if(d.name_last.value==""){
 				alert("<?php echo $LDPlsEnterLastName; ?>");
@@ -857,10 +961,12 @@ class GuiInputPerson {
 				<FONT SIZE=-1  FACE="Arial" color="#800000"><?php echo convertTimeToLocal(formatDate2Local($date_reg,$date_format,0,1,'')); ?>
 			</td>
 			</tr>
+			
+			<!--
 			<tr>
 			<td class="reg_item">
 				<FONT SIZE=-1  FACE="Arial"><?php
-
+				/*
 				if ($person_obj->IsHospitalFileNrMandatory())
 
 						$asterik = '*';
@@ -873,13 +979,14 @@ class GuiInputPerson {
 					Try this one: '.$person_obj->GetNewSelianFileNumber();
 				else
 					echo $asterik.$LDFileNr;
-
+				*/
 				?>
 			</td>
 			<td class="reg_input">
-				<input type="text" name="selian_pid" size=14 maxlength=11 value="<?php echo $selian_pid ?>" onFocus="this.select();">
+				<input type="text" name="selian_pid" size=14 maxlength=11 value="<?php //echo $selian_pid ?>" onFocus="this.select();">
 			</td>
 			</tr>
+			-->
 
 <?php
 
@@ -1134,7 +1241,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
 				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo '* '.'District';?></td>
 				<td  class="reg_input" colspan=1 id="dstr">
-							<select name="district" size="1" id="district">
+							<select name="district" size="1" id="district" onChange="getCounty(this.value)">
 							<?php
 							if (isset($_POST['district'])) {
 							?>
@@ -1144,7 +1251,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 		                                        <option value="-1" >---select district--------</option>
 							<?
 							// lets get all the districts
-							$sql = "SELECT id,district_name FROM care_ug_districts ORDER BY district_name";
+							$sql = "SELECT id,district_name FROM care_ug_district ORDER BY district_name";
 							$result = $db->Execute($sql);
 							while($district = $result->Fetchrow()) {
 							?>
@@ -1170,7 +1277,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 
 					$region=$result->FetchRow();
 
-					echo 'District: <FONT SIZE=-1 FACE="Arial" color="#800000">'.(($region['district']>0)?$cd_obj->GetDistrictName($region['district'] ):$region['district']).'</FONT>';
+					echo 'Districts: <FONT SIZE=-1 FACE="Arial" color="#800000">'.(($region['district']>0)?$cd_obj->GetDistrictName($region['district'] ):$region['district']).'</FONT>';
 
 
 					?></td><?php
@@ -1199,29 +1306,58 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 				<FONT SIZE=-1  FACE="Arial"><?php if ($erroraddress) echo "<font color=red>"; ?><?php echo $LDAddress ?></font>:
 			</td>
 			</tr>
+
+			<tr>
+                        <td class="reg_item">
+                                <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDCounty ?>
+                        </td>
+                        <td class="reg_input">
+				<div id="cdiv">
+				   <select name="county">
+        				<option>Select County First</option>
+        			   </select>
+				</div>
+                        </td>
+                        </tr>
+
 			<tr>
                         <td class="reg_item">
                                 <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDSubCounty ?>
                         </td>
                         <td class="reg_input">
-                                <input type="text" name="subcounty" size=20 maxlength=25 value="<?php echo $subcounty ?>" onFocus="this.select();">
-                        </td>
+                        	<div id="scdiv">
+                                   <select name="subcounty">
+                                        <option>Select Sub County</option>
+                                   </select>
+                                </div>
+			</td>
                         </tr>
 			<tr>
                         <td class="reg_item">
                                 <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDParish ?>
                         </td>
                         <td class="reg_input">
-                                <input type="text" name="parish" size=20 maxlength=25 value="<?php echo $parish ?>" onFocus="this.select();">
-                        </td>
+                         <div id="pdiv">
+                                   <select name="parish">
+                                        <option>Select Parish</option>
+                                   </select>
+                                </div>
+
+			</td>
                         </tr>
 
 			<tr>
 			<td class="reg_item">
 				<FONT SIZE=-1  FACE="Arial"><?php echo $LDTownCity ?>:
 			</td>
-			<td class="reg_input"><input name="citizenship" type="text" value="<?php echo $citizenship;?>" ></td>
-			<!--<td class="reg_input">
+			<td class="reg_input">
+				<div id="vdiv">
+                                   <select name="citizenship">
+                                        <option>Select Village</option>
+                                   </select>
+                                </div>
+	
+		<!--<td class="reg_input">
 <?php
 			/*		
 			echo '<SELECT name="addr_citytown_nr" onChange="list_popup(this,\'city\');">';

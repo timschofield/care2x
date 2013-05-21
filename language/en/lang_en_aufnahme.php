@@ -176,6 +176,7 @@ $LDNameOthers='Education';
 $LDStreet='Street';
 $LDStreetNr='NRA.';
 $LDTownCity='Village';
+$LDCounty = 'County';
 $LDSubCounty = 'Sub County';
 $LDParish = 'Parish';
 $LDProvState='Province/State';

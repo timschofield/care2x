@@ -67,6 +67,8 @@ $template_path=$root_path.'gui/html_template/';
 if(defined('ENCRYPT_PAGE_BASE64')&&ENCRYPT_PAGE_BASE64){
 	include_once($root_path.'classes/html_encryptor/csource.php');
 }
+
+if (!function_exists('session_is_registered')) {
 function session_is_registered($x) {
     if (isset($_SESSION['$x'])) {
 		return true;
@@ -74,11 +76,14 @@ function session_is_registered($x) {
 		return false;
 	}
 }
+}
+
+if (!function_exists('session_register')) {
 function session_register($x)
 {
 	$_SESSION['$x']='';
 }
-
+}
 #
 # globalize the POST, GET, & COOKIE variables
 #
