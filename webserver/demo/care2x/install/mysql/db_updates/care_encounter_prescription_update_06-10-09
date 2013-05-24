@@ -1,4 +1,0 @@
-
--- change for billing
-ALTER TABLE `care_encounter_prescription` DROP `lab_request_id`;
-ALTER TABLE `care_encounter_prescription` DROP `rad_request_id`;

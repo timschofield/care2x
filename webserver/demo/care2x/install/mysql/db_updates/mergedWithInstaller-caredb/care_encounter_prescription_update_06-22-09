@@ -1,5 +1,0 @@
-
--- change for billing
-ALTER TABLE `care_encounter_prescription` DROP column `lab_request_id`;
-
-
