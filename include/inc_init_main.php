@@ -7,13 +7,13 @@ ini_set('display_errors',0);
 ini_set('display_startup_errors',0);
 
 # This is the database name
-$dbname='caredb';
+$dbname='care2xkhl';
 
 # Database user name, default is root or httpd for mysql, or postgres for postgresql
 $dbusername='root';
 
 # Database user password, default is empty char
-$dbpassword='omu2tbdf';
+$dbpassword='root';
 
 # Database host name, default = localhost
 $dbhost='localhost';

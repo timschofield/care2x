@@ -31,6 +31,8 @@ Copy of GNU General Public License at: http://www.gnu.org/
 Source code home page: http://www.care2x.org
 Contact author at: elpidio@care2x.org
 
+# more of this stuff will be on git download from sotandeka
+
 This notice also applies to other scripts which are integral to the functioning of CARE 2X within this directory and its top level directory
 A copy of this notice is also available as file named copy_notice.txt under the top level directory.
 */
