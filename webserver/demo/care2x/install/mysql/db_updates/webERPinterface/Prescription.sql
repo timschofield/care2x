@@ -1,2 +1,0 @@
-
-ALTER TABLE `care_encounter_prescription` MODIFY COLUMN `dosage` DECIMAL(10,0) UNSIGNED NOT NULL DEFAULT 0;

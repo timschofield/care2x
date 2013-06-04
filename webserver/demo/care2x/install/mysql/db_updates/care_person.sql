@@ -1,1 +1,0 @@
-ALTER TABLE `care_person` ADD `education` VARCHAR( 50 ) AFTER `name_others` ;
