@@ -197,7 +197,7 @@
 						{{$registration_fee}}
 					</td>
 				</tr>
-
+				<!--
 				<tr>
                                         <td class="adm_item">
                                                 {{$LDAmbulance}}:
@@ -206,6 +206,7 @@
                                                 {{$ambulance_fee}}
                                         </td>
                                 </tr>
+				-->
                                <tr>
                                         <td class="adm_item">
                                                 {{$LDRefDoctor}}:
