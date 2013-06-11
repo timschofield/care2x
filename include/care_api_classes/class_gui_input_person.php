@@ -271,7 +271,7 @@ class GuiInputPerson {
 							 subcounty = '$subcounty',
 							 employer = '$employer',
 							 NOKName = '$NOKName',
-							 NOKTel = '$NOKTel',
+							 NOKTel = '$nok_tel',
 							 NOKRelation = '$NOKRelation',
                                                          sss_nr='',
                                                          nat_id_nr='',
@@ -688,6 +688,22 @@ class GuiInputPerson {
 				alert("<?php echo $LDPlsEnterLastName; ?>");
 				d.name_last.focus();
 				return false;
+                        }else if(d.nok_tel.value=="") {
+                                alert("Enter telephone no");
+                                d.nok_tel.focus();
+                                return false;
+			}else if(isNaN(d.nok_tel.value)) {
+                                alert("Enter only digits for tel no");
+                                d.nok_tel.focus();
+                                return false;
+			 }else if(d.addr_zip.value=="") {
+                                alert("Enter P.O. Box No");
+                                d.nok_tel.focus();
+                                return false;
+                        }else if(isNaN(d.addr_zip.value)) {
+                                alert("Enter only numbers for box number");
+                                d.nok_tel.focus();
+                                return false;
 			}else if(d.name_first.value==""){
 				alert("<?php echo $LDPlsEnterFirstName; ?>");
 				d.name_first.focus();
@@ -756,13 +772,15 @@ class GuiInputPerson {
 				alert("<?php echo $LDPlsEnterFullName; ?>");
 				d.user_id.focus();
 				return false;
-			}else if(d.name_maiden.value=="-1"){
+			}
+			else if(d.name_maiden.value=="-1"){
 				alert ("Select tribe!");
 				return false;
 			}else if(d.religion.value=="-1"){
 				alert ("Select religion!");
 				return false;
-			}else{
+			} 
+			else{
 				return true;
 			}
 		}
@@ -932,14 +950,17 @@ class GuiInputPerson {
 				}
 			} ?>&nbsp;
 			</td>
+			
+			<!-- 
 			<td  rowspan=6 class="photo_id" >
 				<FONT SIZE=-1  FACE="Arial">
-				<a href="#"  onClick="showpic(document.aufnahmeform.photo_filename)"><img <?php echo $img_source; ?> id="headpic" name="headpic"></a>
+				<a href="#"  onClick="showpic(document.aufnahmeform.photo_filename)"><img <?php //echo $img_source; ?> id="headpic" name="headpic"></a>
 				<br>
-				<?php echo $LDPhoto ?>
-				<br><input name="photo_filename" type="file" size="15"   onChange="showpic(this)" value="<?php if(isset($photo_filename)) echo $photo_filename ?>">
+				<?php // echo $LDPhoto ?>
+				<br><input name="photo_filename" type="file" size="15"   onChange="showpic(this)" value="<?php //if(isset($photo_filename)) echo $photo_filename ?>">
 
 			</td>
+			-->
 			</tr>
 
 			<tr>
@@ -1004,7 +1025,7 @@ if(!$no_tribe)
 
 			<tr>
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
-				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo '* '.$LDNameMaiden; ?></td>
+				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo ''.$LDNameMaiden; ?></td>
 				<td  class="reg_input" colspan=1>
 
 				<?php
@@ -1096,7 +1117,7 @@ if(!$no_tribe)
 			</tr>
 			<tr>
 			<td class="reg_item">
-				<FONT SIZE=-1  FACE="Arial"><?php if ($errorreligion) echo "<font color=red>"; ?>* <?php echo $LDReligion ?>:
+				<FONT SIZE=-1  FACE="Arial"><?php if ($errorreligion) echo "<font color=red>"; ?><?php echo $LDReligion ?>:
 			</td>
 			<td class="reg_input"><?php
 
@@ -1462,7 +1483,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
                                 <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDEmail ?>
                         </td>
 			<td class="reg_input">
-                                <input type="text" name="email" size=20 maxlength=25 value="<?php echo $title ?>" onFocus="this.select();">
+                                <input type="text" name="email" size=20 maxlength=60 value="<?php echo $title ?>" onFocus="this.select();">
                         </td>
 			</tr>
 			<tr><td><font color="red">Next of Kin's Details</font></td></tr>
@@ -1487,7 +1508,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
                                 <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDNOKTel ?>
                         </td>
                         <td class="reg_input">
-                                <input type="text" name="NOKTel" size=15 maxlength=25 value="<?php echo $NOKTel ?>" onFocus="this.select();">
+                                <input type="text" name="nok_tel" size=15 maxlength=25 value="<?php echo $nok_tel; ?>" onFocus="this.select();">
                         </td>
                         </tr>
 
