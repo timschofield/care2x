@@ -175,7 +175,7 @@ class weberp_c2x extends weberp {
 			braddress5=>"",
 			braddress6=>"",
 			estdeliverydays =>"",
-			area=>$this->getAreaCode($customerdata[district]),
+			area=>'DE',
 			salesman=>$this->getSalesmanCode(),
 			fwddate=>"",
 			phoneno=>"",
