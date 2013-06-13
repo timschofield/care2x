@@ -343,7 +343,6 @@ $cfg = $USERCONFIG;
 
 //while(list($x,$v)=each($cfg)) echo "$x => $v<br>";
 require_once($root_path.'gui/smarty_template/smarty_care.class.php');
-$smarty->allow_php_tag=true;
 $smarty = new smarty_care('common');
 $smarty->allow_php_tag=true;
 #

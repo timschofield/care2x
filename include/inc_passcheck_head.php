@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_passcheck_head.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_passcheck_head.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 ?>
@@ -8,9 +8,9 @@ if (eregi('inc_passcheck_head.php',$_SERVER['PHP_SELF']))
 <HEAD>
 <?php echo setCharSet(); ?>
  <TITLE></TITLE>
- 
+
 <script language="javascript">
-<!-- 
+<!--
 function pruf(d)
 {
 	if((d.userid.value=="")&&(d.keyword.value=="")) return false;
@@ -18,10 +18,10 @@ function pruf(d)
 
 // -->
 </script>
- 
- <?php 
+
+ <?php
 require($root_path.'include/inc_js_gethelp.php');
 include($root_path.'include/inc_css_a_hilitebu.php');
 ?>
- 
+
 </HEAD>

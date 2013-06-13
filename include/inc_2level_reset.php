@@ -1,9 +1,9 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_2level_reset.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_2level_reset.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
-/** 
+/**
 * This resets all cookies involved in the second level script lock
 */
 $cookie_2level=array('ck_cafenews_user',
@@ -27,10 +27,10 @@ $cookie_2level=array('ck_cafenews_user',
 								 'ck_op_dienstplan_user',
 								 'ck_radio_user'
 								 );
-								 
+
 for($i=0;$i<sizeof($cookie_2level); $i++)
 {
 	if(!empty($_COOKIE[$cookie_2level[$i].$sid])) setcookie($cookie_2level[$i].$sid,'',0,'/');
 	//if(isset($_COOKIE[$cookie_2level[$i].$sid])) setcookie($cookie_2level[$i].$sid);
-} 
+}
 ?>

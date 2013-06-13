@@ -1,13 +1,13 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_accessplan_areas_functions.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_accessplan_areas_functions.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
 require($root_path.'global_conf/areas.php');
 
 /**
-* Do not edit the following lines of code. 
+* Do not edit the following lines of code.
 */
 function createselecttable($itemselect)
 {

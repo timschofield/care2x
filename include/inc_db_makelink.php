@@ -96,7 +96,7 @@ if(!isset($dbtype)||empty($dbtype)) $dbtype='mysql';
 
 # ADODB connection
 require_once($root_path.'classes/adodb/adodb.inc.php');
-$db = &ADONewConnection($dbtype);
+$db = ADONewConnection($dbtype);
 
 //if ($db) echo "ok"; else echo "no ok";
 

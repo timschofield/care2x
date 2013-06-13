@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_init_crypt.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_init_crypt.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -16,8 +16,8 @@ function makeRand()
 }
 
 /**
-* NOTE!!!  The variable declarations for the chaining keys were moved 
-* to the inc_init_main.php   script since beta 1.0.04. 
+* NOTE!!!  The variable declarations for the chaining keys were moved
+* to the inc_init_main.php   script since beta 1.0.04.
 * If you want to manually change the
 * keys please open the inc_init_main.php script.
 */
@@ -44,7 +44,7 @@ if(defined('INIT_DECODE')&&INIT_DECODE==1)
     $dec_hcemd5 = new Crypt_HCEMD5($key, '');
 }
 else
-{  
+{
     $enc_hcemd5 = new Crypt_HCEMD5($key, makeRand());
 }
 ?>
