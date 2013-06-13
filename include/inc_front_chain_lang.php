@@ -2,7 +2,7 @@
 # To see how the script locking is implemented in this script see /development/dev_docs/script_locking.txt
 
 #------begin------ This protection code was suggested by Luki R. luki@karet.org ----
-if (eregi('inc_front_chain_lang.php',$_SERVER['PHP_SELF']))
+if (strpos($_SERVER['PHP_SELF'], 'inc_front_chain_lang.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 #------end-----
 
@@ -73,7 +73,7 @@ if(!defined('NO_CHAIN')||NO_CHAIN!=1){
 			# Load the global time out configs
 			include_once($root_path.'include/care_api_classes/class_globalconfig.php');
 			if(!isset($GLOBAL_CONFIG)) $GLOBAL_CONFIG=array();
-			$gc_obj=& new GlobalConfig($GLOBAL_CONFIG);
+			$gc_obj= new GlobalConfig($GLOBAL_CONFIG);
 			$gc_obj->getConfig('timeout_%');
 			# If config data available, use it
 			if($GLOBAL_CONFIG['timeout_inactive']) $TIME_OUT_INACTIVE=$GLOBAL_CONFIG['timeout_inactive'];
