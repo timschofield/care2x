@@ -60,16 +60,9 @@ $smarty->assign('LDPwPrompt',$LDPwPrompt);
 #
 # Prepare the hidden inputs
 #
-$sHiddenTemp = '<input type=hidden name=direction value="'.$direction.'">
-<input type=hidden name="pass" value="check">
+$sHiddenTemp = '<input type=hidden name="pass" value="check">
 <input type="hidden" name="nointern" value="1">
-<input type="hidden" name="lang" value="'.$lang.'">
-<input type="hidden" name="mode" value="'.$mode.'">
-<input type="hidden" name="target" value="'.$target.'">
-<input type="hidden" name="subtarget" value="'.$subtarget.'">
-<input type="hidden" name="user_origin" value="'.$user_origin.'">
-<input type="hidden" name="title" value="'.$title.'">
-<input type="hidden" name="fwd_nr" value="'.$fwd_nr.'">';
+<input type="hidden" name="lang" value="'.$lang.'">';
 
 if($not_trans_id) {
 	$sHiddenTemp = $sHiddenTemp.'<input type="hidden" name="sid" value="'.$sid.'">';
