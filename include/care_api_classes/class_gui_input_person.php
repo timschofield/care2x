@@ -280,8 +280,6 @@ class GuiInputPerson {
 							 insurance_ID='$insurance_ID',
                                                          date_update='".date('Y-m-d H:i:s')."',";
 
-					echo $sql;
-
 					if($region !="-1" && $district!="-1" && $ward!="-1")
 					{
 						$sql.="region='$region',
@@ -304,6 +302,7 @@ class GuiInputPerson {
 
 					# complete the sql query
 					$sql.=" history=".$person_obj->ConcatHistory("Update ".date('Y-m-d H:i:s')." ".$_SESSION['sess_user_name']." \n").", modify_id='".$_SESSION['sess_user_name']."' WHERE pid=$pid";
+					// echo $sql;
 					//$db->debug=true;
 					$db->BeginTrans();
 					$ok=$db->Execute($sql);
@@ -689,7 +688,7 @@ class GuiInputPerson {
 				d.name_last.focus();
 				return false;
                         }else if(d.nok_tel.value=="") {
-                                alert("Enter telephone no");
+                                alert("Enter next of kin telephone no");
                                 d.nok_tel.focus();
                                 return false;
 			}else if(isNaN(d.nok_tel.value)) {
@@ -698,20 +697,30 @@ class GuiInputPerson {
                                 return false;
 			 }else if(d.addr_zip.value=="") {
                                 alert("Enter P.O. Box No");
-                                d.nok_tel.focus();
+                                d.addr_zip.focus();
                                 return false;
                         }else if(isNaN(d.addr_zip.value)) {
                                 alert("Enter only numbers for box number");
-                                d.nok_tel.focus();
+                                d.addr_zip.focus();
+                                return false;
+			}else if(d.phone_1_nr.value=="") {
+                                alert("Enter phone number please");
+                                d.phone_1_nr.focus();
+                                return false;
+			}else if(isNAN(d.phone_1_nr.value)) {
+                                alert("Enter numeric phone number please");
+                                d.phone_1_nr.focus();
                                 return false;
 			}else if(d.name_first.value==""){
 				alert("<?php echo $LDPlsEnterFirstName; ?>");
 				d.name_first.focus();
 				return false;
+			/* 
 			}else if(d.name_2.value==""){
 				alert("<?php echo 'Please Enter Father Name'; ?>");
 				d.name_2.focus();
 				return false;
+			*/
 			}else if(d.date_birth.value==""){
 				alert("<?php echo $LDPlsEnterDateBirth; ?>");
 				d.date_birth.focus();
@@ -773,6 +782,7 @@ class GuiInputPerson {
 				d.user_id.focus();
 				return false;
 			}
+			/*
 			else if(d.name_maiden.value=="-1"){
 				alert ("Select tribe!");
 				return false;
@@ -780,6 +790,7 @@ class GuiInputPerson {
 				alert ("Select religion!");
 				return false;
 			} 
+			*/
 			else{
 				return true;
 			}
@@ -1013,9 +1024,9 @@ class GuiInputPerson {
 
 		$this->createTR($errornamefirst, 'name_first', ' *'.$LDFirstName,$name_first,'','',FALSE);
 
-		$this->createTR($errorname2, 'name_2', ' *'.$LDName2,$name_2,'','',FALSE);
+		$this->createTR($errorname2, 'name_2', ' '.$LDName2,$name_2,'','',FALSE);
 
-		$this->createTR($errornamelast, 'name_last', ' *'.$LDLastName,$name_last,'','',FALSE);
+		$this->createTR($errornamelast, 'name_last', '*'.$LDLastName,$name_last,'','',FALSE);
 
 		// $this->createTR($errornamemid, 'name_middle', $LDNameMid,$name_middle,'','',FALSE); // This is for balozi
 
@@ -1483,7 +1494,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
                                 <FONT SIZE=-1  FACE="Arial" ><FONT  SIZE=2  FACE="Arial"><?php echo $LDEmail ?>
                         </td>
 			<td class="reg_input">
-                                <input type="text" name="email" size=20 maxlength=60 value="<?php echo $title ?>" onFocus="this.select();">
+                                <input type="text" name="email" size=60 maxlength=60 value="<?php echo $title ?>" onFocus="this.select();">
                         </td>
 			</tr>
 			<tr><td><font color="red">Next of Kin's Details</font></td></tr>

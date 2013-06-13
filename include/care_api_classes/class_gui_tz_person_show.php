@@ -253,9 +253,11 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
 
 ?>
 		</td>
+		<!--
 		<td valign="top" rowspan=6 align="center" bgcolor="#ffffee" >
-			<FONT SIZE=-1  FACE="Arial"><img <?php echo $img_source; ?>>
+			<FONT SIZE=-1  FACE="Arial"><img <?php // echo $img_source; ?>>
 		</td>
+		-->
 		</tr>
 		<!--
 		<tr>
