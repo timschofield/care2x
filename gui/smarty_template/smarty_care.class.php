@@ -42,14 +42,14 @@ class smarty_care extends Smarty {
 	function smarty_care ($dirname, $bInit = TRUE, $bShowCopy = TRUE, $bLoadJS = TRUE) {
 
  		global $root_path, $template_theme, $templatedir, $default_template, $sDocRoot, $LDCloseAlt, $cfg, $lang, $pgt, $GLOBAL_CONFIG;
- 		
+
 		$this->smarty();
 
 		$this->root_path = $root_path;
 
 		# Set the root path
 		$this->assign('root_path',$root_path);
-		
+
 		# Path to the smarty care templates and classes
 		$this->sDocRoot = $root_path.'gui/smarty_template';
 
@@ -64,7 +64,7 @@ class smarty_care extends Smarty {
 			# create global config object
 			if(!isset($GLOBAL_CONFIG['template_smarty'])){
 				include_once($root_path.'include/care_api_classes/class_globalconfig.php');
-				$gc=& new GlobalConfig($GLOBAL_CONFIG);
+				$gc= new GlobalConfig($GLOBAL_CONFIG);
 				# Get the global template config
 				$gc->getConfig('template_smarty');
 			}
@@ -136,16 +136,16 @@ class smarty_care extends Smarty {
 
 	function InitializeGUI(){
  		global $root_path, $lang, $cfg;
-		
+
 		if(empty($root_path)) $root_path = $this->root_path;
 		if(empty($lang)) $lang = $this->lang;
-		
+
 		# HEAD META definition
 
 		$this->assign('setCharSet',setCharSet());
 
 		# collect JavaScript for Smarty. By default collect the help javascript and css stylesheets
-		
+
 		if($this->bLoadJS){
 			ob_start();
 				include($this->root_path.'include/inc_js_gethelp.php');
@@ -182,7 +182,7 @@ class smarty_care extends Smarty {
 		# By default the break/close button points to the main startframe
 		$this->assign('breakfile',$this->root_path.'main/startframe.php'.URL_APPEND);
 
-		
+
 		# By default the toolbar title is empty
 		//$this->assign('sToolbarTitle','');
 
@@ -194,14 +194,14 @@ class smarty_care extends Smarty {
 		if($this->cfg['dhtml']) {
 
 			# Overload css  document body attributes
-			
+
 			$this->assign('bgcolor','bgcolor='.$this->cfg['body_bgcolor']);
 			$this->assign('dhtml','style="filter:alpha(opacity=70)" onMouseover="hilite(this,1)" onMouseOut="hilite(this,0)"');
 			$this->assign('sLinkColors','link='.$this->cfg['idx_txtcolor'].' alink='.$this->cfg['body_alink'].' vlink='.$this->cfg['idx_txtcolor']);
 		}
 
 		# Show Copyright
-		
+
 		if($this->bShowCopyright){
 			$this->assign('sCopyright',$this->Copyright());
 			$this->assign('sPageTime',$this->Pagetime());
