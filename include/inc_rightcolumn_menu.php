@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_rightcolumn_menu.php",$_SERVER['PHP_SELF']))
+if (strpos($_SERVER['PHP_SELF'], "inc_rightcolumn_menu.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -29,7 +29,7 @@ $url_jscredits="javascript:openCreditsWindow()";
 $TP_com_img_path=$root_path.'gui/img/common';
 
 # Load the template
-$tp=&$TP_obj->load('tp_rightcolumn_menu.htm');
+$tp=$TP_obj->load('tp_rightcolumn_menu.htm');
 
 # Output display
 eval ("echo $tp;");
