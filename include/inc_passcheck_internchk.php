@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org --- */
-if (eregi('inc_passcheck_internchk.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_passcheck_internchk.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 if(isset($_COOKIE['ck_login_logged'.$sid])&&isset($_SESSION['sess_login_userid']))

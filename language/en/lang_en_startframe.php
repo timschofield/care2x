@@ -3,6 +3,9 @@ $LDMainTitle='CARE 2X Integrated Hospital Information System';
 
 /*$LDMainTitle='Marienhospital a virtual Integrated Hospital Information System in Internet';
 */
+
+$LDPageTitle='Hospital News';
+
 $LDInviteAskMe='Enter your query, for example: "What is the phone number of M9d?"';
 $LDTipsLink='Tips:';
 $LDTipsAskMe='Try synonyms, for example type "station" in place of "ward".';

@@ -12,13 +12,10 @@
 #### fell free to visit my blog http://roshanbh.com.np
 ?>
 
-<? 
+<?
 $village = $_GET['village'];
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
+$root_path="../../";
+ require_once($root_path.'include/inc_environment_global.php');
 $query="SELECT id,village FROM care_ug_village WHERE parish_id = ".$village;
 // echo $query;
 // $result=mysql_query($query);

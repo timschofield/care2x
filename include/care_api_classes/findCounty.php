@@ -12,17 +12,14 @@
 #### fell free to visit my blog http://php-ajax-guru.blogspot.com
 ?>
 
-<? 
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
+<?
+ $root_path="../../";
+ require_once($root_path.'include/inc_environment_global.php');
 $county=$_GET['county'];
 $query="SELECT id,county from care_ug_county WHERE district_id = ".$county;
 
 ?>
-    <select name="county" size="1" id="county" onchange="getSubCounty(this.value)">
+    <select name="county" size="1" id="county" onchange="getSubCounty(this.value, '<?php echo $_SERVER['SERVER_NAME']; ?>')">
          <?php
            if (isset($_POST['county'])) {
           ?>
@@ -33,8 +30,12 @@ $query="SELECT id,county from care_ug_county WHERE district_id = ".$county;
           <?
          // lets get all the districts
           // $sql = "SELECT id,district_name ";
-          $result = mysql_query($query) or die("Failure to connect to database");
-          while($county = mysql_fetch_array($result)) {
+
+ 	  $result=$db->Execute($query);
+           // $myrow=$result->FetchRow();
+
+ 	  // $result = mysql_query($query) or die("Failure to connect to database");
+           while($county = $result->FetchRow()) {
           ?>
            <option value="<?php echo $county['id'];?>" ><?php echo $county['county'];?></option>
 
