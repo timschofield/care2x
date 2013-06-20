@@ -12,18 +12,15 @@
 #### fell free to visit my blog http://php-ajax-guru.blogspot.com
 ?>
 
-<? 
+<?
 $subcounty=$_GET['subcounty'];
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
+$root_path="../../";
+ require_once($root_path.'include/inc_environment_global.php');
 $query="SELECT id,subcounty FROM care_ug_subcounty WHERE county_id = ".$subcounty;
 // $result=mysql_query($query);
 
 ?>
- <select name="subcounty" size="1" id="subcounty" onchange="getParish(this.value)">
+ <select name="subcounty" size="1" id="subcounty" onchange="getParish(this.value, '<?php echo $_SERVER['SERVER_NAME']; ?>');">
          <?php
            if (isset($_POST['subcounty'])) {
           ?>

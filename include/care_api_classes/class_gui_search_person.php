@@ -148,8 +148,8 @@ class GuiSearchPerson {
 	*/
 
 	function display($skey=''){
-		global 	$db, $searchkey, $root_path,  $firstname_too,
-				$sid, $lang, $mode,$totalcount, $pgx, $odir, $oitem, $_SESSION,
+		global 	$db, $searchkey, $root_path,  $firstname_too, $filename,
+				$sid, $lang, $mode, $totalcount, $pgx, $odir, $oitem, $_SESSION,
 				$dbf_nodate,  $user_origin, $parent_admit, $status, $target, $origin; # $HTTP_GET_VARS $HTTP_POST_VARS,
 
 		$this->thisfile = $filename;
@@ -188,7 +188,7 @@ class GuiSearchPerson {
 
 		#Load and create paginator object
 		include_once($root_path.'include/care_api_classes/class_paginator.php');
-		$pagen=new Paginator($pgx,$this->thisfile,$_SESSION['sess_searchkey'],$root_path);
+		$pagen=new Paginator($pgx,$this->thisfile,$_SESSION['sess_searchkey'],$root_path,$oitem,$odir);
 
 		include_once($root_path.'include/care_api_classes/class_globalconfig.php');
 		$glob_obj=new GlobalConfig($GLOBAL_CONFIG);
@@ -227,7 +227,7 @@ class GuiSearchPerson {
 			include_once($root_path.'include/inc_date_format_functions.php');
 
 			include_once($root_path.'include/care_api_classes/class_person.php');
-			$person=& new Person();
+			$person= new Person();
 
 			# Set the sorting directive
 			if(isset($oitem)&&!empty($oitem)) $sql3 =" ORDER BY $oitem $odir";
@@ -341,7 +341,7 @@ class GuiSearchPerson {
 		# Prepare the form params
 		#
 		$sTemp = 'method="post" name="searchform';
-		if($searchform_count) $sTemp = $sTemp."_".$searchform_count;
+		if(isset($searchform_count)) $sTemp = $sTemp."_".$searchform_count;
 		$sTemp = $sTemp.'" onSubmit="return chkSearch(this)"';
 		 if(isset($search_script) && $search_script!='') $sTemp = $sTemp.' action="'.$search_script.'"';
 		$this->smarty->assign('sFormParams',$sTemp);

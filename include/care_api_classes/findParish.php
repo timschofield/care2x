@@ -12,17 +12,13 @@
 #### fell free to visit my blog http://roshanbh.com.np
 ?>
 
-<? 
-$parish =$_GET['parish'];
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
+<?
+$root_path="../../";
+ require_once($root_path.'include/inc_environment_global.php');
 $query="SELECT id,parish FROM care_ug_parish WHERE subcounty_id = ".$parish;
 // $result=mysql_query($query);
 ?>
-	<select name="parish" size="1" id="parish" onchange="getVillage(this.value)">
+	<select name="parish" size="1" id="parish" onchange="getVillage(this.value, '<?php echo $_SERVER['SERVER_NAME']; ?>')">
          <?php
            if (isset($_POST['parish'])) {
           ?>

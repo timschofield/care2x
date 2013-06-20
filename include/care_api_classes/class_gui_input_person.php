@@ -541,16 +541,16 @@ class GuiInputPerson {
 
 
 ?>
-	
+
 		<script language="javascript" type="text/javascript">
 
 		function getXMLHTTP() { //fuction to return the xml http object
-		var xmlhttp=false;	
+		var xmlhttp=false;
 		try{
 			xmlhttp=new XMLHttpRequest();
 		}
-		catch(e)	{		
-			try{			
+		catch(e)	{
+			try{
 				xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
 			}
 			catch(e){
@@ -562,85 +562,85 @@ class GuiInputPerson {
 				}
 			}
 		}
-		 	
+
 		return xmlhttp;
     		}
-		
-		function getCounty(countryId) {		
-		var strURL="http://localhost/care2x/include/care_api_classes/findCounty.php?county="+countryId;
+
+		function getCounty(countryId, url) {
+		var strURL="http://"+url+"/care2x/include/care_api_classes/findCounty.php?county="+countryId;
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
 				if (req.readyState == 4) {
 					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('cdiv').innerHTML=req.responseText;						
+					if (req.status == 200) {
+						document.getElementById('cdiv').innerHTML=req.responseText;
 					} else {
 
 						alert("There was a problem while using XMLHTTP 2:\n" + req.statusText);
 					}
-				}				
-			}			
+				}
+			}
 			req.open("GET", strURL, true);
 			req.send(null);
-		}		
+		}
 	}
-	function getSubCounty(stateId) {		
-		var strURL="http://localhost/care2x/include/care_api_classes/findSubCounty.php?subcounty="+stateId;
+	function getSubCounty(stateId, url) {
+		var strURL="http://"+url+"/care2x/include/care_api_classes/findSubCounty.php?subcounty="+stateId;
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
 				if (req.readyState == 4) {
 					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('scdiv').innerHTML=req.responseText;						
+					if (req.status == 200) {
+						document.getElementById('scdiv').innerHTML=req.responseText;
 					} else {
 						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
 					}
-				}				
-			}			
+				}
+			}
 			req.open("GET", strURL, true);
 			req.send(null);
 		}
-				
+
 	}
-        function getParish(stateId) {                
-                var strURL="http://localhost/care2x/include/care_api_classes/findParish.php?parish="+stateId;
+        function getParish(stateId, url) {
+                var strURL="http://"+url+"/care2x/include/care_api_classes/findParish.php?parish="+stateId;
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
                                 if (req.readyState == 4) {
                                         // only if "OK"
-                                        if (req.status == 200) {                                                
-                                                document.getElementById('pdiv').innerHTML=req.responseText;                                          
+                                        if (req.status == 200) {
+                                                document.getElementById('pdiv').innerHTML=req.responseText;
                                         } else {
                                                 alert("There was a problem while using XMLHTTP:\n" + req.statusText);
                                         }
-                                }                               
-                        }                       
+                                }
+                        }
                         req.open("GET", strURL, true);
                         req.send(null);
                 }
-                                
+
         }
-	function getVillage(stateId) {                
-                var strURL="http://localhost/care2x/include/care_api_classes/findVillage.php?village="+stateId;
+	function getVillage(stateId, url) {
+                var strURL="http://"+url+"/care2x/include/care_api_classes/findVillage.php?village="+stateId;
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
                                 if (req.readyState == 4) {
                                         // only if "OK"
-                                        if (req.status == 200) {                                                
-                                                document.getElementById('vdiv').innerHTML=req.responseText;                                          
+                                        if (req.status == 200) {
+                                                document.getElementById('vdiv').innerHTML=req.responseText;
                                         } else {
                                                 alert("There was a problem while using XMLHTTP:\n" + req.statusText);
                                         }
-                                }                               
-                        }                       
+                                }
+                        }
                         req.open("GET", strURL, true);
                         req.send(null);
                 }
-                                
+
         }
 		// -------------- END OF DROP DOWN JAVASCRIPT FOR DISTRICT/COUNTY/SUBCOUNTY/PARISH/VILLAGE ------------
 			function test(){
@@ -670,7 +670,7 @@ class GuiInputPerson {
 			}
 		}
 		function chkform(d) {
-			<?php 
+			<?php
 				/*
 			   if ($person_obj->IsHospitalFileNrMandatory())
 			      {
@@ -679,7 +679,7 @@ class GuiInputPerson {
 			      		 d.selian_pid.focus();
 			      			return false;
 			      			}else';
-			      } 
+			      }
 			      */
 				?>
 
@@ -715,7 +715,7 @@ class GuiInputPerson {
 				alert("<?php echo $LDPlsEnterFirstName; ?>");
 				d.name_first.focus();
 				return false;
-			/* 
+			/*
 			}else if(d.name_2.value==""){
 				alert("<?php echo 'Please Enter Father Name'; ?>");
 				d.name_2.focus();
@@ -789,7 +789,7 @@ class GuiInputPerson {
 			}else if(d.religion.value=="-1"){
 				alert ("Select religion!");
 				return false;
-			} 
+			}
 			*/
 			else{
 				return true;
@@ -961,8 +961,8 @@ class GuiInputPerson {
 				}
 			} ?>&nbsp;
 			</td>
-			
-			<!-- 
+
+			<!--
 			<td  rowspan=6 class="photo_id" >
 				<FONT SIZE=-1  FACE="Arial">
 				<a href="#"  onClick="showpic(document.aufnahmeform.photo_filename)"><img <?php //echo $img_source; ?> id="headpic" name="headpic"></a>
@@ -993,7 +993,7 @@ class GuiInputPerson {
 				<FONT SIZE=-1  FACE="Arial" color="#800000"><?php echo convertTimeToLocal(formatDate2Local($date_reg,$date_format,0,1,'')); ?>
 			</td>
 			</tr>
-			
+
 			<!--
 			<tr>
 			<td class="reg_item">
@@ -1268,12 +1268,12 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
                                 <input type="text" name="employer" size=14 maxlength=25 value="<?php echo $employer ?>" onFocus="this.select();">
                         </td>
 
-			</tr>			
+			</tr>
 			<tr>
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
 				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo '* '.'District';?></td>
 				<td  class="reg_input" colspan=1 id="dstr">
-							<select name="district" size="1" id="district" onChange="getCounty(this.value)">
+							<select name="district" size="1" id="district" onChange="getCounty(this.value, '<?php echo $_SERVER['SERVER_NAME']; ?>');">
 							<?php
 							if (isset($_POST['district'])) {
 							?>
@@ -1288,7 +1288,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 							while($district = $result->Fetchrow()) {
 							?>
 								<option value="<?php echo $district['id'];?>" ><?php echo $district['district_name'];?></option>
-						         
+
 							<?php
 							}
 							}
@@ -1388,10 +1388,10 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
                                         <option>Select Village</option>
                                    </select>
                                 </div>
-	
+
 		<!--<td class="reg_input">
 <?php
-			/*		
+			/*
 			echo '<SELECT name="addr_citytown_nr" onChange="list_popup(this,\'city\');">';
 					echo '<OPTION value="-1" >-- select location --</OPTION>';
 					foreach($town_array as $unit)

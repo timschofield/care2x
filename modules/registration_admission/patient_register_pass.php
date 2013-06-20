@@ -18,6 +18,10 @@ define('NO_2LEVEL_CHK',1);
 require_once($root_path.'include/inc_front_chain_lang.php');
 require_once($root_path.'global_conf/areas_allow.php');
 
+if (!isset($target)) {
+	$target='entry';
+}
+
 $allowedarea=&$allow_area['admit'];
 $append=URL_REDIRECT_APPEND;
 switch($target)
@@ -46,10 +50,10 @@ $userck='aufnahme_user';
 // reset all 2nd level lock cookies
 setcookie($userck.$sid,'',0,'/');
 
-require($root_path.'include/inc_2level_reset.php'); setcookie(ck_2level_sid.$sid,'',0,'/');
+require($root_path.'include/inc_2level_reset.php'); setcookie('ck_2level_sid'.$sid,'',0,'/');
 
 require($root_path.'include/inc_passcheck_internchk.php');
-$pass=check;
+$pass='check';
 
 if ($pass=='check')
 	include($root_path.'include/inc_passcheck.php');
