@@ -13,16 +13,15 @@
 ?>
 
 <? 
+$root_path = "../../";
+require_once($root_path.'include/inc_environment_global.php');
+global $base_url;
+
 $parish =$_GET['parish'];
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
 $query="SELECT id,parish FROM care_ug_parish WHERE subcounty_id = ".$parish;
 // $result=mysql_query($query);
 ?>
-	<select name="parish" size="1" id="parish" onchange="getVillage(this.value)">
+	<select name="parish" size="1" id="parish" onchange="getVillage(this.value,'<?php echo $base_url; ?>')">
          <?php
            if (isset($_POST['parish'])) {
           ?>
@@ -33,8 +32,8 @@ $query="SELECT id,parish FROM care_ug_parish WHERE subcounty_id = ".$parish;
           <?
          // lets get all the districts
           // $sql = "SELECT id,district_name ";
-          $result = mysql_query($query) or die("Failure to connect to database");
-          while($parish = mysql_fetch_array($result)) {
+          $result = $db->Execute($query) or die("Failure to connect to database");
+          while($parish = $result->FetchRow()) {
           ?>
            <option value="<?php echo $parish['id'];?>" ><?php echo $parish['parish'];?></option>
 

@@ -54,6 +54,7 @@ class GuiInputPerson {
 	/**
 	* Constructor
 	*/
+	
 	function GuiInputPerson($filename = ''){
 		global $thisfile, $root_path;
 		if(empty($filename)) $this->thisfile = $thisfile;
@@ -108,7 +109,7 @@ class GuiInputPerson {
 	* Displays the GUI input form
 	*/
 	function display(){
-		global $db, $sid, $lang, $root_path, $pid, $insurance_show, $user_id, $mode, $dbtype, $no_tribe,$no_region,
+		global $db, $sid, $base_url, $lang, $root_path, $pid, $insurance_show, $user_id, $mode, $dbtype, $no_tribe,$no_region,
 						$update, $photo_filename; #, $HTTP_POST_FILES $HTTP_POST_VARS, $HTTP_SESSION_VARS;
 
 		extract($_POST);
@@ -536,7 +537,6 @@ class GuiInputPerson {
 		# load config options
 		include_once($root_path.'include/care_api_classes/class_multi.php');
 		$cd_obj = new multi;
-
 		if(!empty($this->pretext)) echo $this->pretext;
 
 
@@ -566,8 +566,10 @@ class GuiInputPerson {
 		return xmlhttp;
     		}
 		
-		function getCounty(countryId) {		
-		var strURL="http://localhost/care2x/include/care_api_classes/findCounty.php?county="+countryId;
+		function getCounty(countryId,url) {		
+			
+		var strURL= url + "/findCounty.php?county="+countryId;
+
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
@@ -585,8 +587,8 @@ class GuiInputPerson {
 			req.send(null);
 		}		
 	}
-	function getSubCounty(stateId) {		
-		var strURL="http://localhost/care2x/include/care_api_classes/findSubCounty.php?subcounty="+stateId;
+	function getSubCounty(stateId,url) {		
+		var strURL= url+"findSubCounty.php?subcounty="+stateId;
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
@@ -604,8 +606,8 @@ class GuiInputPerson {
 		}
 				
 	}
-        function getParish(stateId) {                
-                var strURL="http://localhost/care2x/include/care_api_classes/findParish.php?parish="+stateId;
+        function getParish(stateId,url) {                
+                var strURL= url+"findParish.php?parish="+stateId;
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
@@ -623,8 +625,8 @@ class GuiInputPerson {
                 }
                                 
         }
-	function getVillage(stateId) {                
-                var strURL="http://localhost/care2x/include/care_api_classes/findVillage.php?village="+stateId;
+	function getVillage(stateId,url) {                
+                var strURL= url+"findVillage.php?village="+stateId;
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
@@ -1271,9 +1273,9 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 			</tr>			
 			<tr>
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
-				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo '* '.'District';?></td>
+				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo "*"."Districtz";?></td>
 				<td  class="reg_input" colspan=1 id="dstr">
-							<select name="district" size="1" id="district" onChange="getCounty(this.value)">
+							<select name="district" size="1" id="district" onChange="getCounty(this.value,'<?php echo $base_url; ?>')">
 							<?php
 							if (isset($_POST['district'])) {
 							?>
@@ -1284,8 +1286,8 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 							<?
 							// lets get all the districts
 							$sql = "SELECT id,district_name FROM care_ug_district ORDER BY district_name";
-							$result = $db->Execute($sql);
-							while($district = $result->Fetchrow()) {
+							$res = $db->Execute($sql) or die("Failed to execute");
+							while($district = $res->FetchRow()) {
 							?>
 								<option value="<?php echo $district['id'];?>" ><?php echo $district['district_name'];?></option>
 						         

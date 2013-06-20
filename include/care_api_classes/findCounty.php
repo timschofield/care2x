@@ -13,16 +13,17 @@
 ?>
 
 <? 
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
+
+$root_path = "../../";
+require_once($root_path.'include/inc_environment_global.php');
+$baseurl = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+global $base_url;
+
 $county=$_GET['county'];
 $query="SELECT id,county from care_ug_county WHERE district_id = ".$county;
 
 ?>
-    <select name="county" size="1" id="county" onchange="getSubCounty(this.value)">
+    <select name="county" size="1" id="county" onchange="getSubCounty(this.value,'<?php echo $base_url; ?>')">
          <?php
            if (isset($_POST['county'])) {
           ?>
@@ -31,10 +32,8 @@ $query="SELECT id,county from care_ug_county WHERE district_id = ".$county;
            } else  { ?>
             <option value="-1" >---select county--------</option>
           <?
-         // lets get all the districts
-          // $sql = "SELECT id,district_name ";
-          $result = mysql_query($query) or die("Failure to connect to database");
-          while($county = mysql_fetch_array($result)) {
+        $result=$db->Execute($query);
+	while($county = $result->FetchRow()) {
           ?>
            <option value="<?php echo $county['id'];?>" ><?php echo $county['county'];?></option>
 

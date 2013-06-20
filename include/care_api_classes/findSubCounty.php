@@ -13,17 +13,16 @@
 ?>
 
 <? 
+$root_path = "../../";
+require_once($root_path.'include/inc_environment_global.php');
+global $base_url;
+
 $subcounty=$_GET['subcounty'];
-$link = mysql_connect('localhost', 'root', 'root'); //changet the configuration in required
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('care2xkhl');
 $query="SELECT id,subcounty FROM care_ug_subcounty WHERE county_id = ".$subcounty;
 // $result=mysql_query($query);
 
 ?>
- <select name="subcounty" size="1" id="subcounty" onchange="getParish(this.value)">
+ <select name="subcounty" size="1" id="subcounty" onchange="getParish(this.value,'<?php echo $base_url; ?>')">
          <?php
            if (isset($_POST['subcounty'])) {
           ?>
@@ -34,8 +33,8 @@ $query="SELECT id,subcounty FROM care_ug_subcounty WHERE county_id = ".$subcount
           <?
          // lets get all the districts
           // $sql = "SELECT id,district_name ";
-          $result = mysql_query($query) or die("Failure to connect to database");
-          while($subcounty = mysql_fetch_array($result)) {
+          $result = $db->Execute($query) or die("Failure to connect to database");
+          while($subcounty = $result->FetchRow()) {
           ?>
            <option value="<?php echo $subcounty['id'];?>" ><?php echo $subcounty['subcounty'];?></option>
 
