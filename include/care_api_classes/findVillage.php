@@ -12,10 +12,19 @@
 #### fell free to visit my blog http://roshanbh.com.np
 ?>
 
+<<<<<<< HEAD
+<? 
+$root_path = "../../";
+require_once($root_path.'include/inc_environment_global.php');
+global $base_url;
+
+$village = $_GET['village'];
+=======
 <?
 $village = $_GET['village'];
 $root_path="../../";
  require_once($root_path.'include/inc_environment_global.php');
+>>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
 $query="SELECT id,village FROM care_ug_village WHERE parish_id = ".$village;
 // echo $query;
 // $result=mysql_query($query);
@@ -31,8 +40,8 @@ $query="SELECT id,village FROM care_ug_village WHERE parish_id = ".$village;
           <?
          // lets get all the districts
           // $sql = "SELECT id,district_name ";
-          $result = mysql_query($query) or die("Failure to connect to database");
-          while($village = mysql_fetch_array($result)) {
+          $result = $db->Execute($query) or die("Failure to connect to database");
+          while($village =$result->FetchRow()) {
           ?>
            <option value="<?php echo $village['id'];?>" ><?php echo $village['village'];?></option>
 
