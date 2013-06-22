@@ -54,7 +54,7 @@ class GuiInputPerson {
 	/**
 	* Constructor
 	*/
-	
+
 	function GuiInputPerson($filename = ''){
 		global $thisfile, $root_path;
 		if(empty($filename)) $this->thisfile = $thisfile;
@@ -565,17 +565,11 @@ class GuiInputPerson {
 
 		return xmlhttp;
     		}
-<<<<<<< HEAD
-		
-		function getCounty(countryId,url) {		
-			
+
+		function getCounty(countryId,url) {
+
 		var strURL= url + "/findCounty.php?county="+countryId;
 
-=======
-
-		function getCounty(countryId, url) {
-		var strURL="http://"+url+"/care2x/include/care_api_classes/findCounty.php?county="+countryId;
->>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
@@ -593,13 +587,8 @@ class GuiInputPerson {
 			req.send(null);
 		}
 	}
-<<<<<<< HEAD
-	function getSubCounty(stateId,url) {		
+	function getSubCounty(stateId,url) {
 		var strURL= url+"findSubCounty.php?subcounty="+stateId;
-=======
-	function getSubCounty(stateId, url) {
-		var strURL="http://"+url+"/care2x/include/care_api_classes/findSubCounty.php?subcounty="+stateId;
->>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
 		var req = getXMLHTTP();
 		if (req) {
 			req.onreadystatechange = function() {
@@ -617,13 +606,8 @@ class GuiInputPerson {
 		}
 
 	}
-<<<<<<< HEAD
-        function getParish(stateId,url) {                
+        function getParish(stateId,url) {
                 var strURL= url+"findParish.php?parish="+stateId;
-=======
-        function getParish(stateId, url) {
-                var strURL="http://"+url+"/care2x/include/care_api_classes/findParish.php?parish="+stateId;
->>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
@@ -641,13 +625,8 @@ class GuiInputPerson {
                 }
 
         }
-<<<<<<< HEAD
-	function getVillage(stateId,url) {                
+	function getVillage(stateId,url) {
                 var strURL= url+"findVillage.php?village="+stateId;
-=======
-	function getVillage(stateId, url) {
-                var strURL="http://"+url+"/care2x/include/care_api_classes/findVillage.php?village="+stateId;
->>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
                 var req = getXMLHTTP();
                 if (req) {
                         req.onreadystatechange = function() {
@@ -1296,11 +1275,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
 				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo "*"."Districtz";?></td>
 				<td  class="reg_input" colspan=1 id="dstr">
-<<<<<<< HEAD
 							<select name="district" size="1" id="district" onChange="getCounty(this.value,'<?php echo $base_url; ?>')">
-=======
-							<select name="district" size="1" id="district" onChange="getCounty(this.value, '<?php echo $_SERVER['SERVER_NAME']; ?>');">
->>>>>>> 77e6c4bafb81b5861a83ac301becf5b7a5f0aa45
 							<?php
 							if (isset($_POST['district'])) {
 							?>
