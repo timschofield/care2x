@@ -29,7 +29,7 @@ else
  *  NOTE: For this script is $id = company ID
  */
 
-if($mode=="updateflags")
+if(isset($mode) and $mode=="updateflags")
 {
 	//Error checking
 	if(strlen(trim($name))<3) $error['name'] = true;

@@ -6,13 +6,13 @@
 
 
 <form method="post">
-  
+
 <table>
 	<tr>
-		<td height="20"> <?php echo $updated; ?><img src="<?php echo $root_path; ?>gui/img/common/default/common_infoicon.gif" align="absmiddle"> <b><?php echo $LDMasterFileData; ?></b></td>
+		<td height="20"> <?php if(isset($updated)) echo $updated; ?><img src="<?php echo $root_path; ?>gui/img/common/default/common_infoicon.gif" align="absmiddle"> <b><?php echo $LDMasterFileData; ?></b></td>
 	</tr>
 	<tr>
-		<td><?php $insurance_tz->ShowRedIfError(''.$LDHideCompany.'',$error['hide_company_flag']);?>:
+		<td><?php if(isset($error)) $insurance_tz->ShowRedIfError(''.$LDHideCompany.'',$error['hide_company_flag']); else echo $LDHideCompany; ?>:
 		<input type="checkbox" name="hide_company_flag" value="<?php if($this_insurance['hide_company_flag']) echo 'checked'; ?>"><?php echo $LDYes; ?> </td>
 	</tr>
 	<tr>
@@ -20,15 +20,15 @@
 			<input type="hidden" name="id" value="<?php echo $this_insurance['id']; ?>">
 			<table border="2" cellpadding="2" cellspacing="0" width="550" align="center">
 				<tr bgcolor=ffffaa>
-					<td><?php $insurance_tz->ShowRedIfError(''.$LDCompanyName.'',$error['name']);?></td>
+					<td><?php if(isset($error)) $insurance_tz->ShowRedIfError(''.$LDCompanyName.'',$error['name']); else echo $LDCompanyName;?></td>
 					<td><input type="text" name="name" size=30 value="<?php echo $this_insurance['name']; ?>"></td>
 				</tr>
 <!--				<tr bgcolor=ffffee>
-					<td><?php $insurance_tz->ShowRedIfError(''.$LDInsurancePreselection.'',$error['insurance']);?>:</td>
-					<td><?php $insurance_tz->ShowInsuranceTypesDropDown('insurance',$this_insurance['insurance'],''); ?></td>
+					<td><?php if(isset($error)) $insurance_tz->ShowRedIfError(''.$LDInsurancePreselection.'',$error['insurance']);else echo $LDInsurancePreselection;?>:</td>
+					<td><?php if(isset($error)) $insurance_tz->ShowInsuranceTypesDropDown('insurance',$this_insurance['insurance'],''); ?></td>
 				</tr>-->
 				<tr bgcolor=ffffee>
-					<td><?php $insurance_tz->ShowRedIfError(''.$LDContractPerson.'',$error['contact']);?></td>
+					<td><?php if(isset($error)) $insurance_tz->ShowRedIfError(''.$LDContractPerson.'',$error['contact']); else echo $LDContractPerson;?></td>
 					<td><input type="text" name="contact" size=30 value="<?php echo $this_insurance['contact']; ?>"></td>
 				</tr>
 				<tr bgcolor=ffffaa>
@@ -48,7 +48,7 @@
 					<td><input type="text" name="email" size=30 value="<?php echo $this_insurance['email']; ?>"></td>
 				</tr>
 				<tr bgcolor=ffffaa>
-					<td><?php $insurance_tz->ShowRedIfError(''.$LDPrepaid_Amount.'',$error['hide_prepaid_amount']);?>:</td>
+					<td><?php if(isset($error)) $insurance_tz->ShowRedIfError(''.$LDPrepaid_Amount.'',$error['hide_prepaid_amount']); else echo $LDPrepaid_Amount; ?>:</td>
 					<td><input type="text" name="prepaid_amount" size=25 value="<?php echo $this_insurance['prepaid_amount']; ?>">&nbsp; <?php echo $LDTSH;?></td>
 				</tr>
 			</table>
@@ -117,8 +117,8 @@
 		</td>
 	</tr>
 </table>
-</form>	
-	
+</form>
+
 <?php $insurance_tz->Display_Footer($LDInsuranceCompaniesSetup, 'insurance_companies_edit.php','Administrative Companies :: Setup'); ?>
 
 <?php $insurance_tz->Display_Credits(); ?>

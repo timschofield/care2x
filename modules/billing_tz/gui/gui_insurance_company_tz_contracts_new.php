@@ -26,7 +26,7 @@ function show_contract_popup(company,pid)
           <tr>
             <td width="" align="center">
 						<?php
-						if($error) echo '<font color="red"><center>'.$error.'</center></font>';
+						if(isset($error)) echo '<font color="red"><center>'.$error.'</center></font>';
 						$insurance_tz->ShowInsuranceHeadline($company_id);
 						$insurance_tz->NewContractForm($company_id);
 						?>
@@ -41,7 +41,7 @@ function show_contract_popup(company,pid)
                </table>
 	     </td>
           </tr>
-        </table>                
+        </table>
      </form>
    </td>
   </tr>

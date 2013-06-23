@@ -168,22 +168,22 @@ class Insurance_tz extends Core {
 	  	$this->sql="SELECT com.id, com.name,com.contact, com.email, com.phone_code, com.phone_nr, com.po_box, com.city, com.hide_company_flag,
         ins.cancel_flag,ins.start_date,ins.end_date
 
-        FROM 
+        FROM
 
         ( SELECT max(care_tz_insurance.id) as c_id,care_tz_company.id FROM
 
         care_tz_insurance
-         INNER JOIN care_tz_company  ON care_tz_insurance.company_id=care_tz_company.id  GROUP BY care_tz_company.id  
+         INNER JOIN care_tz_company  ON care_tz_insurance.company_id=care_tz_company.id  GROUP BY care_tz_company.id
 
         ) as ins_q
-		
+
 		INNER JOIN care_tz_insurance as ins ON
-        ins_q.c_id      =  ins.id 
+        ins_q.c_id      =  ins.id
 		RIGHT JOIN care_tz_company as com ON
         ins_q.id      =  com.id  ".$hide_sql1." ORDER BY com.id ASC";
-		
-		
-		
+
+
+
     else {
       // This gives a list of companies what are somehow dedicated to a list of contracted companies
       // No check if the contract is valid to any time period...
@@ -241,6 +241,7 @@ class Insurance_tz extends Core {
     if ($debug) echo $this->sql;
     $this->result = $db->Execute($this->sql);
     $counter=0;
+    $return = array();
     if ($this->result)
 	    while($this->row = $this->result->FetchRow()) {
 	    	$return[$counter++] = $this->row;
@@ -358,6 +359,7 @@ class Insurance_tz extends Core {
     $this->sql="SELECT id, name, ceiling, is_disabled FROM care_tz_insurance_types ORDER BY id ASC";
     $this->result = $db->Execute($this->sql);
     $counter=0;
+    $return=array();
     while($this->row = $this->result->FetchRow())
     {
     	$return[$counter++] = $this->row;
@@ -980,7 +982,7 @@ class Insurance_tz extends Core {
 		  else
 				$bg="#ffffaa";
 
-		 
+
 
 		  echo '
 		  <tr bgcolor='.$bg.'>
@@ -1349,7 +1351,7 @@ function CheckCurrentContractValidity($company_id) {
 		else
 		return false;
 	}
-	else { 
+	else {
 		return false;
 
 	}
@@ -1375,7 +1377,7 @@ function CheckCurrentContractValidity($company_id) {
   //------------------------------------------------------------------------------
 
   function NewContractForm($company_id) {
-  	global $root_path, $db, $start, $end;
+  	global $root_path, $db, $start, $end, $lang;
   	global $LDContractStartEnd,$LDPreselectedContractPlan;
     /**
     * Returns TRUE if this item number still exists in the database
@@ -1423,6 +1425,8 @@ function CheckCurrentContractValidity($company_id) {
 					</table>';
 
 			} else {
+    $this->contract_array = $this->GetContractsForCompanyAsArray($company_id);
+    while(list($x,$v) = each($this->contract_array)) {
 			  	echo '
 			 				onFocus="this.select();"
 							onBlur="IsValidDate(this,\''.$date_format.'\')"
@@ -1431,6 +1435,7 @@ function CheckCurrentContractValidity($company_id) {
 							<img '.createComIcon($root_path,'show-calendar.gif','0','absmiddle').'></a></td><td>'.$LDPreselectedContractPlan.':<br>'; $this->ShowInsuranceTypesDropDown('plan',$v['Contract']['plan']); echo '</td></tr>
 					</table>';
 			}
+		}
   }
 
   //------------------------------------------------------------------------------
@@ -1476,12 +1481,12 @@ function CheckCurrentContractValidity($company_id) {
 
 
   //------------------------------------------------------------------------------
-  function ShowInsuranceTypesDropDown($name,$selected,$FLAG) {
+  function ShowInsuranceTypesDropDown($name,$selected, $FLAG='WITH_EMPTY_FIRST_FIELD') {
     /**
     * Print out (HTML) an drop down list of possible insurance plans (with selection by default given parameter from database)
     */
 	$arr_name_informations = explode ("_", $name);
-	$this->pid=$arr_name_informations[1];
+	$this->pid=$arr_name_informations[0];
 
     $this->insurancetype_array = $this->GetInsuranceTypesAsArray();
 	// $this->insurancetype_array[0] is the given name parameter (temporary)
@@ -1763,17 +1768,17 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
     $debug=FALSE;
     ($debug) ? $db->debug=TRUE : $db->debug=FALSE;
     $this->sql="SELECT invoice_flag FROM care_tz_company WHERE id=".$company_id;
-    $this->result = $db->Execute($this->sql);
+    $result = $db->Execute($this->sql);
     $sum=0;
-    if($this->row and $this->row = $this->result->FetchRow()) {
-    	if ($this->row[invoice_flag]==1) {
-    		$this->return_value=TRUE;
+    if($row = $result->FetchRow()) {
+    	if ($row['invoice_flag']==1) {
+    		$return_value=TRUE;
     	} else {
-    		$this->return_value=FALSE;
+    		$return_value=FALSE;
     	}
     }
-    if ($debug) echo "return value of is_company_just_invoiced($company_id) is: $this->return_value";
-  	return $this->return_value;
+    if ($debug) echo "return value of is_company_just_invoiced($company_id) is: $return_value";
+  	return $return_value;
   }
 
   function is_poor_people_company($company_id) {
@@ -1842,7 +1847,7 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
     $debug=FALSE;
     ($debug) ? $db->debug=TRUE : $db->debug=FALSE;
 
-	
+
 	$this->sql="SELECT name FROM care_tz_company where id=".$id;
 	$this->result = $db->Execute($this->sql);
 	$return_value="";
@@ -1872,7 +1877,7 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
 	function allocatePrescriptionsToinsurance($bill_number, $prescriptions_nr, $insurance_payment,$insurance_id) {
 	  	global $db;
 	    $debug=FALSE;
-	
+
 	    ($debug) ? $db->debug=TRUE : $db->debug=FALSE;
 	    $this->sql = "SELECT ID, amount, price FROM care_tz_billing_elem where nr=$bill_number AND prescriptions_nr=$prescriptions_nr AND is_medicine=1";
 	    if ($this->result=$db->Execute($this->sql)) {
@@ -2180,7 +2185,7 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
 
   function Display_Header($Title){
 
-	global $URL_APPEND, $LDBillingInsurance;
+	global $URL_APPEND, $LDBillingInsurance, $sid, $lang;
 
   	echo '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN" "html.dtd">
 			<HTML>
@@ -2244,7 +2249,7 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
 	  	    <td bgcolor="#99ccff" align=right><a
    href="javascript:window.history.back()"><img src="../../gui/img/control/default/en/en_back2.gif" border=0 width="110" height="24" alt="" style="filter:alpha(opacity=70)" onMouseover="hilite(this,1)" onMouseOut="hilite(this,0)" ></a>';
 
-		if($_SESSION['ispopup']=="true")
+		if(isset($_SESSION['ispopup']) and $_SESSION['ispopup']=="true")
 	  		$closelink='javascript:window.close();';
 	  	else
 	  		$closelink='insurance_tz.php?ntid=false&lang=$lang';
@@ -2270,7 +2275,7 @@ ORDER BY `care_tz_insurance`.`company_id` ASC
 	  	    <td bgcolor="#99ccff" align=right><a
 	   href="javascript:window.history.back()"><img src="../../gui/img/control/default/en/en_back2.gif" border=0 width="110" height="24" alt="" style="filter:alpha(opacity=70)" onMouseover="hilite(this,1)" onMouseOut="hilite(this,0)" ></a>';
 
-		if($_SESSION['ispopup']=="true")
+		if(isset($_SESSION['ispopup']) and $_SESSION['ispopup']=="true")
 	  		$closelink='javascript:window.close();';
 	  	else
 	  		$closelink='insurance_tz.php?ntid=false&lang=$lang';

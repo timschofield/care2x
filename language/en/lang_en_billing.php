@@ -302,7 +302,7 @@ $LDOverdrawnPayment='Overdrawn Payment:';
 $LDSummary='Summary';
 $LDNoCompanyCredit='[no company credit]';
 $LDNoPendingBills='No pending bills available';
-$LDTSH='TSH';
+$LDTSH='UGX';
 $LDShowAllQuestion='Some Companies could be on status hidden. Click here to show all:';
 
 $LDContractStartEnd='Contract (Start/End):';

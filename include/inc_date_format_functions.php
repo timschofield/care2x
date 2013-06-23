@@ -60,12 +60,12 @@ function getDateFormat()
 * The function assumes that the dates are in correct formats
 * therefore a validation routine must be done at the client side
 */
-function formatDate2Local($stdDate, $localFormat, $retTime=FALSE, $timeOnly=FALSE, $sepChars){
+function formatDate2Local($stdDate, $localFormat, $retTime=FALSE, $timeOnly=FALSE, $sepChars='/'){
    global $lang;
    if(!$sepChars) $sepChars=array('-','.','/',':',',');
    $localFormat=strtolower($localFormat);
 
-   if(eregi('0000',$stdDate))  return strtr($localFormat,'yYmMdDHis','000000000'); // IF  std date is 0 return 0's in local format
+   if(strpos($stdDate, '0000'))  return strtr($localFormat,'yYmMdDHis','000000000'); // IF  std date is 0 return 0's in local format
 
    /* If time is included then isolate */
    if(strchr($stdDate,':'))
