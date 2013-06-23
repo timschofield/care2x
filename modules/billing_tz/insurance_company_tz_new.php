@@ -18,7 +18,7 @@ $lang_tables[]='aufnahme.php';
 require($root_path.'include/inc_front_chain_lang.php');
 require_once($root_path.'include/care_api_classes/class_tz_insurance.php');
 $insurance_tz = New Insurance_tz();
-if($mode=='insert')
+if(isset($mode) and $mode=='insert')
 {
 	//Error checking
 	if(strlen(trim($name))<1) $error['name'] = true;

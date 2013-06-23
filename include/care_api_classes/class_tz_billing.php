@@ -4953,13 +4953,13 @@ date_birth, encounter_date , encounter_class_nr, insurance_ID
                         $ins_name = $ins_obj->GetName_insurance_from_id($row['insurance_ID']);
 						else
 						$ins_name = 'Cash';
-						
+
 				}
 				else {
 						$ins_name = 'Cash';
-				
+
 				}
-		
+
 		echo '
 
 
@@ -5494,7 +5494,7 @@ value="'.$row['total_dosage'].'" name="total_dosage_'.$row['nr'].'"><br><br>';
 		$this->debug=FALSE;
 		($this->debug) ? $db->debug=FALSE : $db->debug=FALSE;
 		if ($this->debug) echo "<br><b>Method class_tz_billing::ShowNewQuotationEncounter_Laboratory()</b><br>";
-		$result = $this->GetNewQuotation_Laboratory($encounter_nr, $in_outpatient, &$id_array);
+		$result = $this->GetNewQuotation_Laboratory($encounter_nr, $in_outpatient, $id_array);
 
 		if($result)
 		{
@@ -5828,7 +5828,7 @@ value="'.$row['total_dosage'].'" name="total_dosage_'.$row['nr'].'"><br><br>';
 		if ($this->debug) echo "<br><b>Method class_tz_billing::ShowNewQuotationEncounter_Radiology()</b><br>";
 
 
-		$result = $this->GetNewQuotation_Radiology($encounter_nr,$in_outpatient, &$id_array);
+		$result = $this->GetNewQuotation_Radiology($encounter_nr,$in_outpatient, $id_array);
 
 		if($result)
 		{
@@ -6511,8 +6511,8 @@ value="'.$row['total_dosage'].'" name="total_dosage_'.$row['nr'].'"><br><br>';
 
         $this->sql = "SELECT ShowDescription FROM care_tz_drugsandservices_description WHERE ID=$price_id";
 		$result = $db->Execute($this->sql);
-		
-		
+
+
 			if($row=$result->fetchRow())
 			{
 				return $row['ShowDescription'];
@@ -6520,7 +6520,7 @@ value="'.$row['total_dosage'].'" name="total_dosage_'.$row['nr'].'"><br><br>';
 			else {
 				return false;
 			}
-				
+
 	}
 
 	function Display_Header($Title, $Title_Tag, $URL_APPEND){

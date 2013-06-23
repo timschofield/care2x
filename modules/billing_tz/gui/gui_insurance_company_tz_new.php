@@ -75,33 +75,33 @@ function closewin()
 				<form method="POST">
 			<table border="0" cellpadding="2" cellspacing="0" width="788" align = "center">
 				<tr bgcolor=ffffaa>
-					<td><?php $insurance_tz->ShowRedIfError(''.$LDCompanyName.'',$error['name']);?></td>
-					<td><input type="text" name="name" size=30 value="<?php echo $_POST['name']; ?>"></td>
+					<td><?php if (isset($error['name'])) $insurance_tz->ShowRedIfError(''.$LDCompanyName.'',$error['name']);?></td>
+					<td><input type="text" name="name" size=30 value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>"></td>
 				</tr>
 				<tr bgcolor=ffffee>
-                                        <td><?php $insurance_tz->ShowRedIfError(''.$LDContractPerson.'',$error['contact']);?></td>
-                                        <td><input type="text" name="contact" size=30 value="<?php echo $_POST['contact']; ?>"></td>
+                                        <td><?php if (isset($error['contact'])) $insurance_tz->ShowRedIfError(''.$LDContractPerson.'',$error['contact']);?></td>
+                                        <td><input type="text" name="contact" size=30 value="<?php if (isset($_POST['contact'])) echo $_POST['contact']; ?>"></td>
                                 </tr>
 				<tr bgcolor=ffffaa>
 					<td><?php echo $LDPOBOX; ?></td>
-					<td><input type="text" name="po_box" size=30 value="<?php echo $_POST['po_box']; ?>"></td>
+					<td><input type="text" name="po_box" size=30 value="<?php if (isset($_POST['po_box']))  echo $_POST['po_box']; ?>"></td>
 				</tr>
 				<tr  bgcolor=ffffee>
 
 					<td><?php echo $LDCity; ?></td>
-					<td><input type="text" name="city" size=30 value="<?php echo $_POST['city']; ?>"></td>
+					<td><input type="text" name="city" size=30 value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>"></td>
 				 </tr>
 				 <tr bgcolor=ffffaa>
                                         <td><?php echo $LDContractPhone; ?></td>
-                                        <td><input type="text" name="phone_code" size=5 value="<?php echo $_POST['phone_code']; ?>"><input type="text" name="phone_nr" size=30 value="<?php echo $_POST['phone_nr']; ?>"></td>
+                                        <td><input type="text" name="phone_code" size=5 value="<?php if (isset($_POST['phone_code'])) echo $_POST['phone_code']; ?>"><input type="text" name="phone_nr" size=30 value="<?php if (isset($_POST['phone_code'])) echo $_POST['phone_nr']; ?>"></td>
                                 </tr>
                                 <tr bgcolor=ffffee>
                                         <td><?php echo $LDContractEmail; ?></td>
-                                        <td><input type="text" name="email" size=30 value="<?php echo $_POST['email']; ?>"></td>
+                                        <td><input type="text" name="email" size=30 value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></td>
                                 </tr>
 				<tr bgcolor=ffffaa>
 					<td><?php $insurance_tz->ShowRedIfError(''.$LDInsurancePreselection.'',$error['insurance']);?>:</td>
-					<td><?php $insurance_tz->ShowInsuranceTypesDropDown('insurance',$_POST['insurance'],'WITH_EMPTY_FIRST_FIELD'); ?></td> 
+					<td><?php $insurance_tz->ShowInsuranceTypesDropDown('insurance',$_POST['insurance'],'WITH_EMPTY_FIRST_FIELD'); ?></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" name="invoice_flag" <?php if($_POST['invoice_flag']) echo 'checked'; ?>> <?php echo $LDPaybyInvoice; ?></td>
