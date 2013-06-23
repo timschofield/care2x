@@ -1273,7 +1273,7 @@ TODO: Kompletly not shown, or dependig on who is editing: Doctor, Lab?
 			</tr>
 			<tr>
 				<td class="reg_item"><FONT SIZE=-1  FACE="Arial,verdana,sans serif">
-				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo "*"."Districtz";?></td>
+				<?php if($errormaiden) { echo '<font color="FF0000">'; } echo "*"."District";?></td>
 				<td  class="reg_input" colspan=1 id="dstr">
 							<select name="district" size="1" id="district" onChange="getCounty(this.value,'<?php echo $base_url; ?>')">
 							<?php
