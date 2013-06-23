@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_products_search_mod.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_products_search_mod.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -8,7 +8,7 @@ if (eregi('inc_products_search_mod.php',$_SERVER['PHP_SELF']))
 * CARE 2002 Integrated Hospital Information System
 * GNU General Public License
 * Copyright 2002 Elpidio Latorilla
-* elpidio@care2x.org, 
+* elpidio@care2x.org,
 *
 * See the file "copy_notice.txt" for the licence notice
 */
@@ -22,7 +22,7 @@ $keyword=addslashes(trim($keyword));
 if((($mode=='search')||$update)&&($keyword!='')){
 
 	if($update){
-				
+
 		$sql="SELECT  * FROM $dbtable WHERE  bestellnum='$keyword'";
         	$ergebnis=$db->Execute($sql);
 		$linecount=$ergebnis->RecordCount();

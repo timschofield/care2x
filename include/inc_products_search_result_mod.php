@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_products_search_result_mod.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_products_search_result_mod.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -14,7 +14,7 @@ if(!isset($smarty)){
  */
 	include_once($root_path.'gui/smarty_template/smarty_care.class.php');
 	$smarty = new smarty_care('common',FALSE,FALSE,FALSE);
-	
+
 	# Set a flag to display this page as standalone
 	$bShowThisForm=TRUE;
 }
@@ -32,7 +32,7 @@ if($update||($mode=="search")){
 							break;
 	}
 
-	
+
  	if($saveok||(!$update)) $statik=true;
 
 	if($linecount)
@@ -120,7 +120,7 @@ if($update||($mode=="search")){
          						 </td>';
 							else echo '
 								<td width=320  bgcolor="#ffffdd"><input type="text" name="bestellnum" value="'.$zeile['bestellnum'].'" size=20 maxlength=20>
-         						 </td>';		 
+         						 </td>';
 
 					echo '
 							<td rowspan=13 valign=top  >';
@@ -146,12 +146,12 @@ if($update||($mode=="search")){
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDArticleName.'</td>
       						';
-					if($statik) 
+					if($statik)
 						echo '
       								<td><FONT face="Verdana,Helvetica,Arial" size=2 color="#800000"><b>'.$zeile['artikelname'].'</b><input type="hidden" name="artname" value="'.$zeile['artikelname'].'">
            						 </td>';
 							else echo '
-								<td width=320  bgcolor="#ffffdd"><input type="text" name="artname" value="'.$zeile['artikelname'].'" size=20 maxlength=40>                                                                                                   
+								<td width=320  bgcolor="#ffffdd"><input type="text" name="artname" value="'.$zeile['artikelname'].'" size=20 maxlength=40>
          						 </td>';
 					echo '
    						</tr>
@@ -219,7 +219,7 @@ if($update||($mode=="search")){
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDMinOrder.'</td>
       	       						';
-					if($statik) 
+					if($statik)
 						echo '
       								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['minorder'].'<input type="hidden" name="minorder" value="'.$zeile['minorder'].'">
             						 </td>';
@@ -231,7 +231,7 @@ if($update||($mode=="search")){
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDMaxOrder.'</td>
        	       						';
-					if($statik) 
+					if($statik)
 						echo '
      								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['maxorder'].'<input type="hidden" name="maxorder" value="'.$zeile['maxorder'].'">
             						 </td>';
@@ -243,7 +243,7 @@ if($update||($mode=="search")){
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDPcsProOrder.'</td>
       	       						';
-					if($statik) 
+					if($statik)
 						echo '
       								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['proorder'].'<input type="hidden" name="proorder" value="'.$zeile['proorder'].'"></td>
             						 </td>';
@@ -255,19 +255,19 @@ if($update||($mode=="search")){
     								<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDIndustrialNr.'</td>
       						';
-					if($statik) 
+					if($statik)
 						echo '
       								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['artikelnum'].'<input type="hidden" name="artnum" value="'.$zeile['artikelnum'].'">
           						 </td>';
 							else echo '
-								<td width=320  bgcolor="#ffffdd"><input type="text" name="artnum" value="'.$zeile['artikelnum'].'" size=20 maxlength=20>                                                                                                   
+								<td width=320  bgcolor="#ffffdd"><input type="text" name="artnum" value="'.$zeile['artikelnum'].'" size=20 maxlength=20>
          						 </td>';
 					echo '
    						</tr>
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDLicenseNr.'</td>
       						';
-					if($statik) 
+					if($statik)
 						echo '
       								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['industrynum'].'<input type="hidden" name="indusnum" value="'.$zeile['industrynum'].'">
           						 </td>';
@@ -276,22 +276,22 @@ if($update||($mode=="search")){
          						 </td>';
 					echo '
     						</tr>
-						
+
     						<tr bgcolor="#ffffdd">
       								<td align=right><FONT face="Verdana,Helvetica,Arial" size=2 color="#000080">'.$LDPicFile.'</td>
        	       						';
-					if($statik) 
+					if($statik)
 						echo '
      								<td><FONT face="Verdana,Helvetica,Arial" size=2>'.$zeile['picfile'].'<input type="hidden" name="bild" value="'.$zeile['picfile'].'"></td>
             						 </td>';
 							else echo '
-								<td width=320  bgcolor="#ffffdd"><input type="file" name="bild" onChange="getfilepath(this)">                                                                                                   
+								<td width=320  bgcolor="#ffffdd"><input type="file" name="bild" onChange="getfilepath(this)">
          						 </td>';
 					echo '
     						</tr>
   						</table>
 						';
-						
+
 					*/
 				# If display is forced
 				if($bShowThisForm) $smarty->display('products/form.tpl');
@@ -300,7 +300,7 @@ if($update||($mode=="search")){
 				echo "<p>".str_replace("~nr~",$linecount,$LDFoundNrData)."<br>$LDClk2SeeInfo<p>";
 
 					echo "<table border=0 cellpadding=3 cellspacing=1> ";
-		
+
 					echo '<tr class="wardlisttitlerow">';
 
 					for($i=0;$i<sizeof($LDMSRCindex)-1;$i++)
@@ -312,7 +312,7 @@ if($update||($mode=="search")){
 					/* Load common icons */
 					$img_info=createComIcon($root_path,'info3.gif','0');
 					$img_arrow=createComIcon($root_path,'dwnarrowgrnlrg.gif','0');
-					
+
 					while($zeile=$ergebnis->FetchRow())
 					{
 						echo "<tr class=";

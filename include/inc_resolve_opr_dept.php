@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_resolve_opr_dept.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_resolve_opr_dept.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -17,7 +17,7 @@ if(!$dept)
 		{
 			$dx=str_replace($v,"",$dx);
 		}
-		
+
 		$dx=strtr($dx,"/-_*:;><+ ","~~~~~~~~~~");
 		$dx=str_replace("~","",$dx);
 		//print $Dept2Dept[deptfilter];
@@ -48,10 +48,10 @@ if(!$dept)
 			$roombuf=strtr($roombuf,"/-_*:;><+ ","~~~~~~~~~~");
 			$roombuf=str_replace("~","",$roombuf);
 			while(list($x,$v)=each($Or2Or))
-			{	
+			{
 				if(stristr($v,$roombuf))
 				{
-					$saal=$x;				
+					$saal=$x;
 					if($dept)
 					{
 						if ($dept!=$Or2Dept[$x])  $getSaal=1;
@@ -75,14 +75,14 @@ $Or2Dept=get_meta_tags($root_path."global_conf/resolve_or2ordept.pid");
 if($getSaal)
 		{
 			while(list($x,$v)=each($Or2Dept))
-			{	
+			{
 				if($dept==$v)
 				{
 					$saal=$x;
 					break;
 				}
 			}
-		
+
 		}
 //print "$dept $saal";
 if(!$dept||!$saal) { $dept="plop"; $saal="a";}

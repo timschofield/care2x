@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('class_tz_pharmacy.php',$_SERVER['PHP_SELF']))
+if (strpos($_SERVER['PHP_SELF'], 'class_tz_pharmacy.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 

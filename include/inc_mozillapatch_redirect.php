@@ -1,6 +1,6 @@
 <?php
 #------begin------ This protection code was suggested by Luki R. luki@karet.org
-if (eregi('inc_mozillapatch_redirect.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_mozillapatch_redirect.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 #------end-----
 ?>
@@ -17,7 +17,7 @@ if (eregi('inc_mozillapatch_redirect.php',$_SERVER['PHP_SELF']))
 
 	<td colspan=4><center>
 	<font face=arial color="#990000" size=4>
-	<?php 
+	<?php
 		echo "<a href=\"select_dept.php".URL_REDIRECT_APPEND."&cat=$cat&target=entry&retpath=$retpath\">$LDClickSelectDept</a>";
 	?>
 	</center>

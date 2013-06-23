@@ -6,7 +6,7 @@
 */
 /***
 function importGlobalVariable($variable)
-{ 
+{
    switch (strtolower($variable))
    { case 'server' :
           if (isset($_SERVER))  { return $_SERVER; }
@@ -53,34 +53,34 @@ if(empty($reg_glob_ini)||(!$reg_glob_ini))
   //if(sizeof($_GET))
 /***  if(sizeof($global_vars=&importGlobalVariable('get')))
   {
-    //while(list($x,$v)=each($_GET))    
+    //while(list($x,$v)=each($_GET))
     while(list($x,$v)=each($global_vars))
     {
 		$$x=$v;
     }
     reset($global_vars);
   }
-  
+
 /* Process POST vars */
-  
+
   //if(sizeof($_POST))
 /***  if(sizeof($global_vars=&importGlobalVariable('post')))
   {
-    //while(list($x,$v)=each($_POST)) 
-    while(list($x,$v)=each($global_vars))    
+    //while(list($x,$v)=each($_POST))
+    while(list($x,$v)=each($global_vars))
     {
 		$$x=$v;
     }
     //reset($_POST);
     reset($global_vars);
   }
-  
+
 /* Process COOKIE vars */
 
   //if(sizeof($_COOKIE))
 /***  if(sizeof($global_vars=&importGlobalVariable('cookie')))
   {
-    //while(list($x,$v)=each($_COOKIE)) 
+    //while(list($x,$v)=each($_COOKIE))
     while(list($x,$v)=each($global_vars))
     {
 		$$x=$v;
@@ -91,13 +91,13 @@ if(empty($reg_glob_ini)||(!$reg_glob_ini))
 
 /* Get cookie vars equivalent */
 /***$_COOKIE=&importGlobalVariable('cookie');
- 
+
 /* Process SERVER vars */
 
   //if(sizeof($_SERVER))
 /***  if(sizeof($global_vars=&importGlobalVariable('server')))
   {
-    //while(list($x,$v)=each($_SERVER)) 
+    //while(list($x,$v)=each($_SERVER))
     while(list($x,$v)=each($global_vars))
     {
 		$$x=$v;
@@ -108,19 +108,19 @@ if(empty($reg_glob_ini)||(!$reg_glob_ini))
 
 /* Get server vars equivalent */
 /***$CARE_SERVER_VARS=&importGlobalVariable('server');
-  
-/* Process SESSION vars */  
+
+/* Process SESSION vars */
 /*  if(sizeof($global_vars=&importGlobalVariable('session')))
   {
-    //while(list($x,$v)=each($_SERVER)) 
-    while(list($x,$v)=each($global_vars))    
+    //while(list($x,$v)=each($_SERVER))
+    while(list($x,$v)=each($global_vars))
     {
 		$$x=$v;
     }
     //reset($_SERVER);
     reset($global_vars);
-  }  
-  
+  }
+
 */
 
 //$_SESSION=&importGlobalVariable('session');
@@ -128,7 +128,7 @@ if(empty($reg_glob_ini)||(!$reg_glob_ini))
 ///}
 
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-/***if (eregi('inc_vars_resolve.php',$_SERVER['PHP_SELF'])) 
+/***if (strpos($_SERVER['PHP_SELF'], 'inc_vars_resolve.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 ?>

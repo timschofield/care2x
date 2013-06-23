@@ -138,7 +138,7 @@ function formatDate2STD($localDate,$localFormat,&$sepChars)
 
    if(!$sepChars) $sepChars=array('-','.','/',':',',');
 
-	  if(eregi('0000',$finalDate)) $finalDate=0;
+	  if(strpos($finalDate, '0000')) $finalDate=0;
 
 
    if(!$finalDate)

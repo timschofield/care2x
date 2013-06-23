@@ -17,15 +17,15 @@ if (strpos($_SERVER['PHP_SELF'], 'inc_passcheck.php'))
 function validarea(&$zeile2, $permit_type_all = 1){
     global $allowedarea;
 
-	if(ereg('System_Admin', $zeile2)){  // if System_admin return true
+	if(strpos($zeile2, 'System_Admin')){  // if System_admin return true
 	   return 1;
 	}elseif(in_array('no_allow_type_all', $allowedarea)){ // check if the type "all" is blocked, if so return false
 	     return 0;
-	}elseif($permit_type_all && ereg('_a_0_all', $zeile2)){ // if type "all" , return true
+	}elseif($permit_type_all && strpos($zeile2, '_a_0_all')){ // if type "all" , return true
 		return 1;
 	}else{                                                                  // else scan the permission
 		for($j=0;$j<sizeof($allowedarea);$j++){
-			if(ereg($allowedarea[$j],$zeile2)) return 1;
+			if(strpos($zeile2, $allowedarea[$j])) return 1;
 		}
 	}
 	return 0;           // otherwise the user has no access permission in the area, return false

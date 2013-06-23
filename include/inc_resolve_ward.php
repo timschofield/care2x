@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_resolve_ward.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_resolve_ward.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 

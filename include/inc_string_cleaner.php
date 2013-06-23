@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_string_cleaner.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_string_cleaner.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -15,7 +15,7 @@ function cleanString($dirty_str)
         $clean_str=str_replace("\"","",$clean_str);
         $clean_str=str_replace('\\','',$clean_str);
         $clean_str=str_replace('\$','',$clean_str);
-	
+
 	    return $clean_str;
     }
 }

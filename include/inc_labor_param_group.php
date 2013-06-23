@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_labor_param_group.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_labor_param_group.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -8,7 +8,7 @@ if (eregi("inc_labor_param_group.php",$_SERVER['PHP_SELF']))
 /**
 * The test parameters for each group are in the /language/?/lang_?_chemlab_params.php file
 */
-						
+
 $paralistarray=array(
 	'priority'=>$top_param,
 	'clinical_chem'=>$klinichemie_list0,

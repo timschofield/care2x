@@ -3,12 +3,6 @@
 #$dbtype='mysql';
 #$dbtype='postgres7';
 
-/*------begin------
-* This protection code was suggested by Luki R. luki@karet.org
-*/
-//if (eregi('inc_db_makelink.php',$_SERVER['PHP_SELF'])) die('<meta http-equiv="refresh" content="0; url=../">');
-/*------end------*/
-
 if(!isset($root_path)) $root_path='../'; // default language table root path is "../"
 if(!isset($lang)) include($root_path.'chklang.php');
 //if(!isset($dbtype) || empty($dbtype)) $dbtype='mysql';

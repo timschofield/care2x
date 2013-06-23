@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_newstitle_clean.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_newstitle_clean.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 

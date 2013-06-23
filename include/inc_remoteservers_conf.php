@@ -1,15 +1,15 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_remoteservers_conf.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_remoteservers_conf.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
-/* 
+/*
 main domain or ip address
 */
 $main_domain="192.168.0.1";
-/* 
-main ip addres of foto server 
+/*
+main ip addres of foto server
 */
 $disc_pix_mode=0; // set to 0 if fotos come via ftp server, set to 1 if fotos come from local  drive directiory
 //$fotoserver_ip="192.168.0.2";

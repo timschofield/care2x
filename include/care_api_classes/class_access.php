@@ -240,15 +240,15 @@ class Access extends Core {
 		if(empty($user_area)){
 			return FALSE;
 		}else{
-			if(ereg('System_Admin', $user_area)){  // if System_admin return true
+			if(strpos($user_area, 'System_Admin')){  // if System_admin return true
 	   			return TRUE;
 			}elseif(in_array('no_allow_type_all', $this->allowedareas)){ // check if the type "all" is blocked, if so return false
 	     			return FALSE;
-			}elseif($this->permit_type_all && ereg('_a_0_all', $user_area)){ // if type "all" , return true
+			}elseif($this->permit_type_all && strpos($user_area, '_a_0_all')){ // if type "all" , return true
 				return TRUE;
 			}else{                                                                  // else scan the permission
 				for($j=0;$j<sizeof($this->allowedareas);$j++){
-					if(ereg($this->allowedareas[$j],$user_area)) return TRUE;
+					if(strpos($user_area, $this->allowedareas[$j])) return TRUE;
 				}
 			}
 			return FALSE;           // otherwise the user has no access permission in the area, return false

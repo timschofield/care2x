@@ -1,6 +1,6 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_resolve_dept_dept.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_resolve_dept_dept.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -13,7 +13,7 @@ if(!isset($checkdept)) $checkdept='';
 if(!(trim($dept)))
 {
 
-	if($ck_thispc_dept) 
+	if($ck_thispc_dept)
 	{
 		$dept=$ck_thispc_dept;
 		$checkdept=1;
@@ -35,7 +35,7 @@ if($checkdept)
 {
 	if(trim($dept)=='') $dept='plast';
 	$Dept2Dept=get_meta_tags($root_path.'global_conf/$lang/resolve_dept_dept.pid');
-	
+
 		$dx=strtolower($dept);
 		//print $Dept2Dept[deptfilter];
 		$df=explode(',',$Dept2Dept[deptfilter]);

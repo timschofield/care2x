@@ -1,6 +1,6 @@
  <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi('inc_products_db_save_mod.php',$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], 'inc_products_db_save_mod.php'))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
@@ -20,24 +20,24 @@ if(isset($mode)&&($mode=='save')){
 
     $bestellnum=trim($bestellnum);
 	if ($bestellnum=='') { $error_bnum=true; $error=true;};
-    $artname=trim($artname); 
+    $artname=trim($artname);
 	if ($artname=='') { $error_name=true; $error=true; };
     $besc=trim($besc);
 	if ($besc=='') { $error_besc=true; $error=true; };
-	
+
 	if(!is_numeric($minorder)) $minorder=NULL;
 	if(!is_numeric($maxorder)) $maxorder=NULL;
 	$proorder=(int)$proorder;
-	
+
 	if($maxorder&&$minorder>$maxorder){ $error_minmax=true; $error=true;}
 	# Default nr.of pcs. pro order is 1
 	if(!$proorder) $proorder=1;
-	
-    if(!$update){	
+
+    if(!$update){
 		# check if order number exists
-		
+
 /*		$sql="SELECT bestellnum FROM $dbtable WHERE bestellnum='$bestellnum'";
-		if($ergebnis=$db->Execute($sql)){ 
+		if($ergebnis=$db->Execute($sql)){
 			if($ergebnis->RecordCount()){
 				$error='order_nr_exists';
 				$bestellnum='';
@@ -50,11 +50,11 @@ if(isset($mode)&&($mode=='save')){
 		}
 	}
 
-	if(!$error){	
+	if(!$error){
 		//clean and check input data variables
 
-		$encoder=trim($encoder); 
-		if($encoder=='') 	$encoder=$ck_prod_db_user; 
+		$encoder=trim($encoder);
+		if($encoder=='') 	$encoder=$ck_prod_db_user;
 		// save the uploaded picture
 		// if a pic file is uploaded move it to the right dir
 		if(is_uploaded_file($_FILES['bild']['tmp_name']) && $_FILES['bild']['size']){
@@ -71,14 +71,14 @@ if(isset($mode)&&($mode=='save')){
 				    $cf=substr($picfilename,0,strpos($picfilename,'['));
 					$lx=substr($idx,0,strpos($idx,']'));
 					$n=$lx;
-				}			
+				}
 			   while(file_exists($imgpath.$picfilename))
 			   {
 				   $n++;
 				   if($lx) $picfilename=$cf."[$n]".".".$x;
 					else $picfilename=$f."[$n]".".".$x;
 			    }
-				
+
 				# Prepend the order nr to the filename
 				$picfilename=$bestellnum.'_'.$picfilename;
 				# Now save the image to the hard drive
@@ -91,9 +91,9 @@ if(isset($mode)&&($mode=='save')){
 		}
 
 			$oktosql=true;
-					
+
 			if(!($update)){
-			  
+
 				$data=array('bestellnum'=>$bestellnum,
 							'artikelnum'=>$artnum,
 							'industrynum'=>$indusnum,
@@ -115,12 +115,12 @@ if(isset($mode)&&($mode=='save')){
 							'create_id'=>$_SESSION['sess_user_name'],
 							'create_time'=>date('YmdHis')
 							 );
-							
+
 							# Set core to main products
 							$product_obj->useProduct($cat);
 							$product_obj->setDataArray($data);
-							$saveok=$product_obj->insertDataFromInternalArray();			
-									
+							$saveok=$product_obj->insertDataFromInternalArray();
+
 							$oktosql=false;
 			}else{
 					 	$updateok=true;
@@ -130,9 +130,9 @@ if(isset($mode)&&($mode=='save')){
 							minorder='$minorder',
 							maxorder='$maxorder',
 							proorder='$proorder',";
-						
+
 						# If the image filename extension is empty do not update picfile
-						
+
 						if($picext!="") $tail.="picfile='$picfilename',";
 
 						$tail.="encoder='$encoder',

@@ -1,11 +1,11 @@
 <?php
 /*------begin------ This protection code was suggested by Luki R. luki@karet.org ---- */
-if (eregi("inc_products_ordercatalog_show.php",$_SERVER['PHP_SELF'])) 
+if (strpos($_SERVER['PHP_SELF'], "inc_products_ordercatalog_show.php"))
 	die('<meta http-equiv="refresh" content="0; url=../">');
 /*------end------*/
 
 if($rows){
-	# Load the common icon images 
+	# Load the common icon images
 	$img_info=createComIcon($root_path,'info3.gif','0');
 	$img_delete=createComIcon($root_path,'delete2.gif','0');
 
@@ -17,7 +17,7 @@ if($rows){
 	for ($i=0;$i<sizeof($LDMCindex);$i++)
 	print '
 		<td>&nbsp;'.$LDMCindex[$i].'&nbsp;</td>';
-	print '<td></td></tr>';	
+	print '<td></td></tr>';
 
 	while($content=$ergebnis->FetchRow())
 	{
