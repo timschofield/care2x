@@ -14,10 +14,9 @@ if (strpos($_SERVER['PHP_SELF'], 'inc_passcheck.php'))
 */
 
 
-function validarea(&$zeile2, $permit_type_all = 1){
+function validarea($zeile2, $permit_type_all = 1){
     global $allowedarea;
-
-	if(strpos($zeile2, 'System_Admin')){  // if System_admin return true
+	if($zeile2=='System_Admin'){  // if System_admin return true
 	   return 1;
 	}elseif(in_array('no_allow_type_all', $allowedarea)){ // check if the type "all" is blocked, if so return false
 	     return 0;
