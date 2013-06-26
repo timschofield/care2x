@@ -237,13 +237,13 @@ class GuiInputPerson {
 					# Get the file extension
 					$picext=$img_obj->UploadedImageMimeType();
 				}
+
 //addr_citytown_nr='$addr_citytown_nr',
 				if(($update )) {
 
 					//echo formatDate2STD($geburtsdatum,$date_format);
 					$sql="UPDATE $dbtable SET
                                                          title='$title',
-                                                         selian_pid='$selian_pid',
                                                          name_last='$name_last',
                                                          name_first='$name_first',
                                                          name_2='$name_2',
@@ -280,7 +280,6 @@ class GuiInputPerson {
                                                          ethnic_orig='$ethnic_orig',
 							 insurance_ID='$insurance_ID',
                                                          date_update='".date('Y-m-d H:i:s')."',";
-
 					if($region !="-1" && $district!="-1" && $ward!="-1")
 					{
 						$sql.="region='$region',
