@@ -98,11 +98,11 @@ class weberp {
 	function weberp() {
 
 		$this->DebugLevel = 2;
-		$this->ServerURL = "http://localhost/kcmc/api/api_xml-rpc.php";
+		$this->ServerURL = "http://localhost/webERP-Medical_stable/api/api_xml-rpc.php";
 
 
 			$this->user = php_xmlrpc_encode("admin");
-			$this->password = php_xmlrpc_encode("weberp");
+			$this->password = php_xmlrpc_encode("kwamoja");
 			$this->client = new xmlrpc_client($this->ServerURL);
 			$this->client->setDebug($this->DebugLevel);
 
@@ -161,8 +161,27 @@ class weberp {
 	}
 
 	function transfer_customer_to_weberp($customerdata, $branchdata) {
-	    	$transmit=$this->transfer($customerdata,$this->weberpcalls['insertCustomer']);
+	    $transmit=$this->transfer($customerdata,$this->weberpcalls['insertCustomer']);
 		$transmit=$this->transfer($branchdata,$this->weberpcalls['insertBranch']);
+		$branchdata['branchcode']='CASH';
+		$branchdata['brname']='Cash customer';
+		$transmit=$this->transfer($branchdata,$this->weberpcalls['insertBranch']);
+		if($transmit == 0) {
+	    	return true;
+	    } else if($transmit == 1001) {
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+
+	}
+
+	function update_customer_to_weberp($customerdata, $branchdata) {
+	    $transmit=$this->transfer($customerdata,$this->weberpcalls['updateCustomer']);
+		$transmit=$this->transfer($branchdata,$this->weberpcalls['updateBranch']);
+		$branchdata['branchcode']='CASH';
+		$branchdata['brname']='Cash customer';
+		$transmit=$this->transfer($branchdata,$this->weberpcalls['updateBranch']);
 		if($transmit == 0) {
 	    	return true;
 	    } else if($transmit == 1001) {
@@ -258,7 +277,7 @@ class weberp {
 
     function get_stock_items_from_category_property($property, $category) {
     	$catdata[0]=$property;
-    	$catdata[1]=$category; 
+    	$catdata[1]=$category;
     	$transmit=$this->transfer($catdata,$this->weberpcalls['stockCatPropertyList']);
     	if ($transmit[0]==0) {
     		return $transmit[1];

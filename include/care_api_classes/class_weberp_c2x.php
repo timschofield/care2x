@@ -58,9 +58,14 @@ class weberp_c2x extends weberp {
     {
     	$customerdata=$this->generateWebERPCustomerData($persondata);
     	$branchdata=$this->generateWebERPCustBranchData($persondata);
-	$branchdata['branchcode']= "DE";  // $branch_id;
-	$branchdata['brname']=  "Default";      // $branch_name;
     	$this->transfer_customer_to_weberp($customerdata,$branchdata);
+    }
+
+    function update_patient_to_webERP_asCustomer($pid,$persondata,$branch_id, $branch_name)
+    {
+    	$customerdata=$this->generateWebERPCustomerData($persondata);
+    	$branchdata=$this->generateWebERPCustBranchData($persondata);
+    	$this->update_customer_to_weberp($customerdata,$branchdata);
     }
 
     function make_patient_workorder_in_webERP($treatmentID)
