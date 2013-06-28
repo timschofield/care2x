@@ -138,12 +138,13 @@ if($pid!='' || $encounter_nr!=''){
 							# Check the discharge type
 
 						   if($mode =='save')
-						   { 
+						   {
 					 		if( $enc_obj->DischargeFromDeptForAdmission($pn,8,$date,$time)){
 								//echo 'discharge has been successfull';
 					 		}
 					 			else echo 'couldn\'t discharge outpatient';
-						    }
+
+						    }
 
 						}else echo 'could not load encounter data';
           	}else{
@@ -913,9 +914,9 @@ if(!isset($pid) || !$pid){
 
                         $smarty->assign('LDNextOfKin',$LDNextOfKin);
                         $smarty->assign('nextofkin','<input name="nextofkin" type="text" size="40" value="'.$nextofkin.'">');
-			
+
                         $smarty->assign('LDNextOfKinTel',$LDNextOfKinTel);
-                        $smarty->assign('noktel','<input name="noktel" type="text" size="20" value="'.$noktel.'">');
+                        $smarty->assign('NOKTel','<input name="NOKTel" type="text" size="20" value="'.$NOKTel.'">');
 
 
 			$smarty->assign('LDRefFrom',$LDRefFrom);
