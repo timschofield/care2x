@@ -6,7 +6,7 @@ require($root_path.'include/inc_environment_global.php');
 * CARE2X Integrated Hospital Information System Deployment 2.1 - 2004-10-02
 * GNU General Public License
 * Copyright 2002,2003,2004,2005 Elpidio Latorilla
-* elpidio@care2x.org, 
+* elpidio@care2x.org,
 *
 * See the file "copy_notice.txt" for the licence notice
 */
@@ -16,20 +16,20 @@ require_once($root_path.'include/inc_front_chain_lang.php');
 
 require_once($root_path.'global_conf/areas_allow.php');
 
-$allowedarea=&$allow_area['admit'];
-$append=URL_REDIRECT_APPEND.'&from=pass'; 
+$allowedarea=&$allow_area['radio'];
+$append=URL_REDIRECT_APPEND.'&from=pass';
 
 if(!session_is_registered('sess_user_origin')) session_register('sess_user_origin');
 
 switch($target){
-	case 'upload': $fileforward='upload_person_search.php'.$append; 
+	case 'upload': $fileforward='upload_person_search.php'.$append;
 						$lognote='Dicom upload ok';
-						$buf=$LDUploadDicom; 
+						$buf=$LDUploadDicom;
 						$errbuf=$LDUploadDicom;
 						break;
-	case 'view': $fileforward='view_person_search.php'.$append; 
+	case 'view': $fileforward='view_person_search.php'.$append;
 					$lognote='Dicom view ok';
-						$buf=$LDViewDicom; 
+						$buf=$LDViewDicom;
 						$errbuf=$LDViewDicom;
 						break;
 }
@@ -42,14 +42,14 @@ $breakfile=$root_path.'main/startframe.php';
 $userck='radio_user';
 
 setcookie($userck.$sid,'');
-require($root_path.'include/inc_2level_reset.php'); 
+require($root_path.'include/inc_2level_reset.php');
 setcookie(ck_2level_sid.$sid,'');
 
 # reset the user origin
 $_SESSION['sess_user_origin']='';
 
 require($root_path.'include/inc_passcheck_internchk.php');
-if ($pass=='check') 	
+if ($pass=='check')
 	include($root_path.'include/inc_passcheck.php');
 
 
@@ -71,18 +71,18 @@ if($cfg['dhtml'])
 echo "
 <script language=javascript>
 <!--
- if (window.screen.width) 
+ if (window.screen.width)
  { if((window.screen.width)>1000) document.write(''<img '.createComIcon($root_path,'skinbone.jpg','0','absmiddle').'><FONT  COLOR=\"'.$cfg['top_txtcolor'].'\"  SIZE=6  FACE=\"verdana\"> <b>'.$buf.'</b></font>\');}
  //-->
  </script>";
  }
  ?>
 
-  
-<table width=100% border=0 cellpadding="0" cellspacing="0"> 
+
+<table width=100% border=0 cellpadding="0" cellspacing="0">
 
 
-<?php require($root_path.'include/inc_passcheck_mask.php') ?>  
+<?php require($root_path.'include/inc_passcheck_mask.php') ?>
 
 <p>
 <?php
